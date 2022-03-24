@@ -1,0 +1,119 @@
+@media (max-width: 575.98px) {
+  .navbar {
+    padding: 10px 10px;
+  }
+
+  .carousel .navigation {
+    top: 34%;
+  }
+
+  .carousel .item img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .aboutUs .aboutInfo {
+    padding: 40px;
+  }
+
+  .navigation {
+    padding: 0 10px;
+  }
+
+  .navigation .arrow {
+    background: rgb(243, 243, 243);
+  }
+
+  .services .single img {
+    height: unset;
+  }
+
+  .gallery .photos .owl-item {
+    opacity: 1;
+  }
+
+  .gallery .photos .item,
+  .gallery .videos iframe {
+    padding: 0;
+    margin: 0;
+  }
+
+  .milestones .images {
+    flex-direction: column;
+  }
+
+  .milestones .images .img1 img {
+    margin-top: unset;
+  }
+
+  .milestones .images .img2 img,
+  .milestones .images .img4 img {
+    display: none;
+  }
+
+  .blogs .single img {
+    height: unset !important;
+  }
+
+  footer .right-block {
+    padding: 10px;
+  }
+
+  footer .right-block p,
+  footer .right-block a {
+    font-size: 10px;
+  }
+  footer .right-block .social .top img,
+  footer .right-block .social .bottom img {
+    width: 10px;
+    margin: 5px 5px 5px 0;
+  }
+
+  .ourWork .navigation {
+    top: 40%;
+    padding: 0 10px;
+  }
+  .ourWork .work-carousel .single p {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  iframe {
+    height: 200px;
+  }
+
+  .blogs .single img {
+    height: unset;
+  }
+}
+
+@media (max-width: 991.98px) {
+  iframe {
+    height: 200px;
+  }
+
+  .blogs .single img {
+    height: 150px;
+  }
+
+  .carousel .item img {
+    object-fit: cover;
+  }
+
+  .events .single img,
+  .campaigns .single img {
+    height: unset;
+    object-fit: cover;
+  }
+
+  .blogs .single {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+}
+
+@media (max-width: 1399.98px) {
+}
