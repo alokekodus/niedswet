@@ -3,6 +3,7 @@
 @section('title', 'NIEDSWET')
 
 @section('customHeader')
+<link rel="stylesheet" href="{{asset('vendor/jsToastr/toastr.min.css')}}">
 @endsection
 
 @section('main')
@@ -488,7 +489,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn submitBtn">Send</button>
+                                <button type="submit" id="submitBtn" class="btn submitBtn">Send</button>
                             </div>
                         </form>
                     </div>
@@ -499,4 +500,8 @@
 @endsection
 
 @section('customJS')
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/jqueryValidation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('vendor/jsToastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('web_assets/js/contact.js') }}"></script>
 @endsection

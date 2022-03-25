@@ -15,3 +15,4 @@ use App\Http\Controllers\Web\HomeController;
 */
 
 Route::get('', [HomeController::class, 'index'])->name('site.home');
+Route::post('contact', [HomeController::class, 'contactForm'])->name('site.contact');
