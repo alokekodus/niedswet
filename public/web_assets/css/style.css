@@ -376,6 +376,26 @@ body {
   font-size: 12px;
 }
 
+.contactFormDiv #contactForm .form-control[type=text],
+.contactFormDiv #contactForm .form-control[type=email]{
+  height: 45px;
+  border-radius: 0;
+}
+
+.contactFormDiv #contactForm textarea{
+  border-radius: 0;
+}
+
+.contactFormDiv #contactForm .submitBtn {
+  text-decoration: none;
+  background: var(--secondary-green);
+  font-size: 12px;
+  padding: 2px 15px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 1px 3px 5px rgb(170, 170, 170);
+}
+
 footer .left-block {
   padding: 50px;
   display: flex;
