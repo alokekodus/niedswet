@@ -1,4 +1,4 @@
-// Campaign carousel
+// Main carousel
 $(".main-carousel").owlCarousel({
   loop: true,
   margin: 10,
@@ -32,38 +32,6 @@ $(".customPrevBtnMain").click(function () {
   // With optional speed parameter
   // Parameters has to be in square bracket '[]'
   owl4.trigger("prev.owl.carousel", [300]);
-});
-
-// Campaign carousel
-$(".campaigns-carousel").owlCarousel({
-  loop: true,
-  margin: 10,
-  nav: false,
-  responsive: {
-    0: {
-      items: 1,
-    },
-    600: {
-      items: 2,
-    },
-    1000: {
-      items: 3,
-    },
-  },
-});
-
-// Custom navigation for campaigns carousel
-var owl = $(".campaigns-carousel");
-owl.owlCarousel();
-// Go to the next item
-$(".customNextBtn").click(function () {
-  owl.trigger("next.owl.carousel");
-});
-// Go to the previous item
-$(".customPrevBtn").click(function () {
-  // With optional speed parameter
-  // Parameters has to be in square bracket '[]'
-  owl.trigger("prev.owl.carousel", [300]);
 });
 
 $(".gallery").each(function () {
@@ -151,4 +119,43 @@ $(".customPrevBtnOurWork").click(function () {
   // With optional speed parameter
   // Parameters has to be in square bracket '[]'
   owl3.trigger("prev.owl.carousel", [300]);
+});
+
+// Testimonial carousel
+$(".testimonial-carousel").owlCarousel({
+  center: true,
+  loop: true,
+  margin: 60,
+  nav: false,
+  autoplay: true,
+  autoplayTimeout: 3000,
+  autoplaySpeed: 1000,
+  autoplayHoverPause: true,
+  responsive: {
+    0: {
+      center: false,
+      items: 1,
+    },
+    600: {
+      center: false,
+      items: 2,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+
+// Custom navigation for main carousel
+var owl5 = $(".testimonial-carousel");
+owl4.owlCarousel();
+// Go to the next item
+$(".customNextBtnNavigation").click(function () {
+  owl5.trigger("next.owl.carousel");
+});
+// Go to the previous item
+$(".customPrevBtnNavigation").click(function () {
+  // With optional speed parameter
+  // Parameters has to be in square bracket '[]'
+  owl5.trigger("prev.owl.carousel", [300]);
 });

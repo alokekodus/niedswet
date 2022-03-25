@@ -1,73 +1,19 @@
-<!doctype html>
-<html lang="en">
+@extends('web.common.main')
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', 'NIEDSWET')
 
-    <!-- Bootstrap CSS -->
-    <link href="{{asset('web_assets/vendor/bootstrap5/css/bootstrap.min.css')}}" rel="stylesheet">
+@section('customHeader')
+@endsection
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="{{asset('web_assets/vendor/owlcarousel/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('web_assets/vendor/owlcarousel/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('web_assets/vendor/magnific/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('web_assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('web_assets/css/responsive.css')}}">
-
-    <title>NIEDSWET</title>
-</head>
-
-<body>
-    <!-- Navbar -->
-    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{{asset('web_assets/images/Icons/logo.png')}}" alt=""></a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Campaigns</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-donate" href="#">Donate Now</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+@section('main')
     <!-- Carousel -->
     <section class="carousel">
         <div class="main-carousel owl-carousel owl-theme">
             <div class="item">
-                <img src="{{asset('web_assets/images/images/slider.png')}}" class="d-block w-100" alt="Carousel">
+                <img src="{{ asset('web_assets/images/images/slider.png') }}" class="d-block w-100" alt="Carousel">
             </div>
             <div class="item">
-                <img src="{{asset('web_assets/images/images/slider.png')}}" class="d-block w-100" alt="Carousel">
+                <img src="{{ asset('web_assets/images/images/slider.png') }}" class="d-block w-100" alt="Carousel">
             </div>
         </div>
 
@@ -96,7 +42,8 @@
 
                 <tr>
                     <td>
-                        <p class="info my-2 text-center">Amet eget tortor, luctus eros vulputate id sed ac sagittis. Lacus pharetra
+                        <p class="info my-2 text-center">Amet eget tortor, luctus eros vulputate id sed ac sagittis. Lacus
+                            pharetra
                             porta in aenean nisl eget habitant tortor amet.</p>
                     </td>
                     <td>
@@ -128,13 +75,14 @@
     <section class="aboutUs">
         <div class="row g-0">
             <div class="col-sm-6">
-                <img src="{{asset('web_assets/images/images/about.png')}}" alt="about us">
+                <img src="{{ asset('web_assets/images/images/about.png') }}" alt="about us">
             </div>
             <div class="col-sm-6 bg-light aboutInfo">
                 <div>
                     <h4 class="mb-4">About Us</h4>
 
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan, sed vitae elit,
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan, sed vitae
+                        elit,
                         arcu. Vulputate aliquet ut nec urna, parturient. Faucibus sit amet consectetur
                         faucibus phasellus purus ultricies rhoncus. Augue metus, vestibulum sit lectus
                         imperdiet non eleifend at ac. Ac iaculis purus, massa eget mattis a, pulvinar
@@ -154,13 +102,13 @@
 
     <!-- Our work -->
     <section class="ourWork">
-        <img class="overlay" src="{{asset('web_assets/images/images/Background.png')}}" alt="">
+        <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
         <h4 class="text-center fw-bold mb-5">Our Work</h4>
         <div class="col-sm-8 mx-auto">
             <div class="work-carousel owl-carousel owl-theme">
                 <div class="item">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/our-work.png')}}" alt="Our work">
+                        <img src="{{ asset('web_assets/images/images/our-work.png') }}" alt="Our work">
                         <p class="fw-bold mt-2">Consequat massa bibendum lobortis aenean lorem nunc vel. Sem tempor
                             vulputate gravida ipsum mauris gravida. Amet venenatis varius tristique
                             penatibus. In elit, facilisis et odio.</p>
@@ -168,7 +116,7 @@
                 </div>
                 <div class="item">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/our-work.png')}}" alt="Our work">
+                        <img src="{{ asset('web_assets/images/images/our-work.png') }}" alt="Our work">
                         <p class="fw-bold mt-2">Consequat massa bibendum lobortis aenean lorem nunc vel. Sem tempor
                             vulputate gravida ipsum mauris gravida. Amet venenatis varius tristique
                             penatibus. In elit, facilisis et odio.</p>
@@ -182,103 +130,6 @@
         </div>
     </section>
 
-    <!-- Campaigns -->
-    <section class="campaigns">
-        <h4 class="text-center fw-bold">Campaigns</h4>
-        <div class="container">
-            <div class="campaigns-carousel owl-carousel owl-theme">
-                <div class="item">
-                    <div class="single">
-                        <img src="{{asset('web_assets/images/images/campaign.png')}}" alt="">
-                        <p class="heading fw-bold my-3">Volutpat, suspendisse mauris at
-                            nulla enim</p>
-
-                        <p class="info">
-                            Eu lectus duis faucibus amet tincidunt duis sit.
-                            Mattis suspendisse arcu sit vulputate nam duis
-                            in adipiscing scelerisque. Eget egestas
-                            venenatis, ultricies fermentum nunc.
-                        </p>
-
-                        <p class="donationRaised mb-0">&#8377; 50,000 <span>raised of 5,46,000</span></p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <span>Ongoing</span>
-                            <span>15 Supporters</span>
-                        </div>
-                        <div class="text-center">
-                            <a class="btn btn-donate" href="#">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="single">
-                        <img src="{{asset('web_assets/images/images/campaign.png')}}" alt="">
-                        <p class="heading fw-bold my-3">Volutpat, suspendisse mauris at
-                            nulla enim</p>
-
-                        <p class="info">
-                            Eu lectus duis faucibus amet tincidunt duis sit.
-                            Mattis suspendisse arcu sit vulputate nam duis
-                            in adipiscing scelerisque. Eget egestas
-                            venenatis, ultricies fermentum nunc.
-                        </p>
-
-                        <p class="donationRaised mb-0">&#8377; 50,000 <span>raised of 5,46,000</span></p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <span>Ongoing</span>
-                            <span>15 Supporters</span>
-                        </div>
-                        <div class="text-center">
-                            <a class="btn btn-donate" href="#">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="single">
-                        <img src="{{asset('web_assets/images/images/campaign.png')}}" alt="">
-                        <p class="heading fw-bold my-3">Volutpat, suspendisse mauris at
-                            nulla enim</p>
-
-                        <p class="info">
-                            Eu lectus duis faucibus amet tincidunt duis sit.
-                            Mattis suspendisse arcu sit vulputate nam duis
-                            in adipiscing scelerisque. Eget egestas
-                            venenatis, ultricies fermentum nunc.
-                        </p>
-
-                        <p class="donationRaised mb-0">&#8377; 50,000 <span>raised of 5,46,000</span></p>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <span>Ongoing</span>
-                            <span>15 Supporters</span>
-                        </div>
-                        <div class="text-center">
-                            <a class="btn btn-donate" href="#">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="navigation">
-            <div class="customPrevBtn arrow"><i class="fa-solid fa-angle-left"></i></div>
-            <div class="customNextBtn arrow"><i class="fa-solid fa-angle-right"></i></div>
-        </div>
-    </section>
-
     <!-- Events -->
     <section class="events">
         <h4 class="text-center fw-bold">Events</h4>
@@ -286,7 +137,7 @@
             <div class="row">
                 <div class="col-sm-4 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/events1.png')}}" alt="Events">
+                        <img src="{{ asset('web_assets/images/images/events1.png') }}" alt="Events">
                         <p class="fw-bold title my-3">
                             Leo sed mattis ullamcorper porta
                             dignissim sollicitudin. In mollis sit
@@ -299,7 +150,7 @@
 
                 <div class="col-sm-4 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/events2.png')}}" alt="Events">
+                        <img src="{{ asset('web_assets/images/images/events2.png') }}" alt="Events">
                         <p class="fw-bold title my-3">
                             Tristique elementum, tellus
                             morbi ullamcorper imperdiet
@@ -312,7 +163,7 @@
 
                 <div class="col-sm-4 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/events3.png')}}" alt="Events">
+                        <img src="{{ asset('web_assets/images/images/events3.png') }}" alt="Events">
                         <p class="fw-bold title my-3">
                             Ut amet scelerisque lacus augue
                             in velit felis mauris mauris
@@ -332,7 +183,7 @@
             <div class="row">
                 <div class="col-sm-3 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/Vectors/service1.png')}}" alt="Services">
+                        <img src="{{ asset('web_assets/images/Vectors/service1.png') }}" alt="Services">
                         <p class="fw-bold my-2">Elit id velit, consequat
                             viverra nascetur tortor
                             hac.</p>
@@ -341,7 +192,7 @@
 
                 <div class="col-sm-3 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/Vectors/service2.png')}}" alt="Services">
+                        <img src="{{ asset('web_assets/images/Vectors/service2.png') }}" alt="Services">
                         <p class="fw-bold my-2">In tincidunt ac magnis at
                             elementum interdum
                             vulputate tempus.</p>
@@ -350,7 +201,7 @@
 
                 <div class="col-sm-3 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/Vectors/service3.png')}}" alt="Services">
+                        <img src="{{ asset('web_assets/images/Vectors/service3.png') }}" alt="Services">
                         <p class="fw-bold my-2">Elit id velit, consequat
                             viverra nascetur tortor
                             hac.</p>
@@ -359,7 +210,7 @@
 
                 <div class="col-sm-3 p-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/Vectors/service4.png')}}" alt="Services">
+                        <img src="{{ asset('web_assets/images/Vectors/service4.png') }}" alt="Services">
                         <p class="fw-bold my-2">In tincidunt ac magnis at
                             elementum interdum
                             vulputate tempus.</p>
@@ -380,16 +231,16 @@
             <div class="container">
                 <div class="gallery-carousel owl-carousel owl-theme">
                     <div class="item">
-                        <a href="{{asset('web_assets/images/images/gallery1.png')}}"><img src="{{asset('web_assets/images/images/gallery1.png')}}"
-                                alt="Gallery"></a>
+                        <a href="{{ asset('web_assets/images/images/gallery1.png') }}"><img
+                                src="{{ asset('web_assets/images/images/gallery1.png') }}" alt="Gallery"></a>
                     </div>
                     <div class="item">
-                        <a href="{{asset('web_assets/images/images/gallery2.png')}}"><img src="{{asset('web_assets/images/images/gallery2.png')}}"
-                                alt="Gallery"></a>
+                        <a href="{{ asset('web_assets/images/images/gallery2.png') }}"><img
+                                src="{{ asset('web_assets/images/images/gallery2.png') }}" alt="Gallery"></a>
                     </div>
                     <div class="item">
-                        <a href="{{asset('web_assets/images/images/gallery3.png')}}"><img src="{{asset('web_assets/images/images/gallery3.png')}}"
-                                alt="Gallery"></a>
+                        <a href="{{ asset('web_assets/images/images/gallery3.png') }}"><img
+                                src="{{ asset('web_assets/images/images/gallery3.png') }}" alt="Gallery"></a>
                     </div>
                 </div>
             </div>
@@ -439,7 +290,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/blog1.png')}}" alt="Blog thumbnail">
+                        <img src="{{ asset('web_assets/images/images/blog1.png') }}" alt="Blog thumbnail">
                         <p class="fw-bold title my-3">
                             Ut sem arcu mi lobortis dui ut
                             cursus hendrerit.
@@ -456,7 +307,7 @@
 
                 <div class="col-sm-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/blog1.png')}}" alt="Blog thumbnail">
+                        <img src="{{ asset('web_assets/images/images/blog1.png') }}" alt="Blog thumbnail">
                         <p class="fw-bold title my-3">
                             Ut sem arcu mi lobortis dui ut
                             cursus hendrerit.
@@ -473,7 +324,7 @@
 
                 <div class="col-sm-4">
                     <div class="single">
-                        <img src="{{asset('web_assets/images/images/blog1.png')}}" alt="Blog thumbnail">
+                        <img src="{{ asset('web_assets/images/images/blog1.png') }}" alt="Blog thumbnail">
                         <p class="fw-bold title my-3">
                             Ut sem arcu mi lobortis dui ut
                             cursus hendrerit.
@@ -491,13 +342,36 @@
         </div>
     </section>
 
+    <section class="testimonials">
+        <h4 class="text-center fw-bold mb-5">Testimonials</h4>
+        <div class="testimonial-carousel owl-carousel owl-theme">
+            @for ($i = 1; $i < 5; $i++)
+            <div class="item">
+                <div class="single bg-light p-3 py-5">
+                    <div class="image">
+                        <img src="{{ asset('web_assets/images/testimonials/testi1.png') }}" alt="">
+                    </div>
+                    <div class="details">
+                        <img src="{{asset('web_assets/images/Icons/bi_quote.png')}}" alt="">
+                        <p class="text-center px-3 mb-0 text-12">{{$i}} Semper libero, porta nunc varius eros senectus. Nunc, leo facilisis dictum sed turpis vestibulum, adipiscing donec. Cursus pharetra libero, tellus egestas.</p>
+                    </div>
+                </div>
+            </div>
+            @endfor
+        </div>
+        <div class="navigation">
+            <div class="customPrevBtnNavigation arrow"><i class="fa-solid fa-angle-left"></i></div>
+            <div class="customNextBtnNavigation arrow"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+    </section>
+
     <!-- Milestones -->
     <section class="milestones">
         <h4 class="text-center fw-bold mb-5">Milestones</h4>
         <div class="container">
             <div class="images">
                 <div class="col img1">
-                    <img src="{{asset('web_assets/images/Vectors/milestone1.png')}}" alt="Milestones">
+                    <img src="{{ asset('web_assets/images/Vectors/milestone1.png') }}" alt="Milestones">
                     <p class="fw-bold">Odio et varius ipsum cras sit
                         facilisis sociis pellentesque
                         est</p>
@@ -506,7 +380,7 @@
                     <img src="./web_assets/images/Vectors/arrow1.png" alt="Milestones">
                 </div>
                 <div class="col img3">
-                    <img src="{{asset('web_assets/images/Vectors/milestone2.png')}}" alt="Milestones">
+                    <img src="{{ asset('web_assets/images/Vectors/milestone2.png') }}" alt="Milestones">
                     <p class="fw-bold">Ornare tortor pulvinar eget
                         hac auctor adipiscing arcu</p>
                 </div>
@@ -514,7 +388,7 @@
                     <img src="./web_assets/images/Vectors/arrow2.png" alt="Milestones">
                 </div>
                 <div class="col img5">
-                    <img src="{{asset('web_assets/images/Vectors/milestone3.png')}}" alt="Milestones">
+                    <img src="{{ asset('web_assets/images/Vectors/milestone3.png') }}" alt="Milestones">
                     <p class="fw-bold">Ultrices fermentum non,
                         eget at elit in blandit</p>
                 </div>
@@ -531,7 +405,7 @@
                     <div class="col-sm-4">
                         <div class="single">
                             <div class="text-center">
-                                <img src="{{asset('web_assets/images/images/award1.png')}}" alt="Awards">
+                                <img src="{{ asset('web_assets/images/images/award1.png') }}" alt="Awards">
                             </div>
                             <p class="info">Ut sagittis laoreet est
                                 rutrum lorem ac. Ut quisque
@@ -544,7 +418,7 @@
                     <div class="col-sm-4">
                         <div class="single">
                             <div class="text-center">
-                                <img src="{{asset('web_assets/images/images/award2.png')}}" alt="Awards">
+                                <img src="{{ asset('web_assets/images/images/award2.png') }}" alt="Awards">
                             </div>
                             <p class="info">Pulvinar penatibus tincidunt
                                 tempor, ut ultricies risus, ut vel.</p>
@@ -554,7 +428,7 @@
                     <div class="col-sm-4">
                         <div class="single">
                             <div class="text-center">
-                                <img src="{{asset('web_assets/images/images/award3.png')}}" alt="Awards">
+                                <img src="{{ asset('web_assets/images/images/award3.png') }}" alt="Awards">
                             </div>
                             <p class="info">Orci, dictum gravida mauris
                                 pharetra auctor cras
@@ -565,70 +439,7 @@
             </div>
         </div>
     </section>
+@endsection
 
-    <!-- Footer -->
-    <footer>
-        <div class="row g-0">
-            <div class="col-sm-3 left-block">
-                <img src="{{asset('web_assets/images/Icons/logo.png')}}" alt="Logo">
-            </div>
-            <div class="col-sm-9 right-block">
-                <div class="flex">
-                    <div class="col-sm-3">
-                        <div class="information d-flex flex-column">
-                            <p>Information</p>
-                            <a href="#">About Us</a>
-                            <a href="#">Gallery</a>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms & Conditions</a>
-                            <a href="#">Careers</a>
-                            <a href="#">Contact Us</a>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="what-we-do d-flex flex-column">
-                            <p>What We Do</p>
-                            <a href="#">Campaign</a>
-                            <a href="#">Events</a>
-                            <a href="#">Services</a>
-                            <a href="#">Awards</a>
-                            <a href="#">Milestones</a>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="resources d-flex flex-column">
-                            <p>Resources</p>
-                            <a href="#">Gallery</a>
-                            <a href="#">Blog</a>
-                            <a href="#">Media</a>
-                            <a href="#">Newsletter</a>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 social">
-                        <p>Social</p>
-                        <div class="top">
-                            <img src="./web_assets/images/Icons/facebook.png" alt="">
-                            <img src="./web_assets/images/Icons/twitter.png" alt="">
-                        </div>
-
-                        <div class="bottom">
-                            <img src="./web_assets/images/Icons/instagram.png" alt="">
-                            <img src="./web_assets/images/Icons/linkedin.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="{{asset('web_assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('web_assets/vendor/bootstrap5/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('web_assets/vendor/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('web_assets/vendor/magnific/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('web_assets/js/main.js')}}"></script>
-</body>
-
-</html>
+@section('customJS')
+@endsection

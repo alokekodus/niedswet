@@ -101,8 +101,7 @@
     object-fit: cover;
   }
 
-  .events .single img,
-  .campaigns .single img {
+  .events .single img {
     height: unset;
     object-fit: cover;
   }
