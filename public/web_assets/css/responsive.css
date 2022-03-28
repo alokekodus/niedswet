@@ -70,6 +70,10 @@
     height: unset;
   }
 
+  .blogDetails .blogContent .thumbnail{
+    height: unset;
+  }
+
   footer .right-block {
     padding: 10px;
   }

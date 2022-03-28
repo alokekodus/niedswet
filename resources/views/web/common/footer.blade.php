@@ -41,13 +41,13 @@
                 <div class="col-sm-3 social">
                     <p>Social</p>
                     <div class="top">
-                        <img src="./web_assets/images/Icons/facebook.png" alt="">
-                        <img src="./web_assets/images/Icons/twitter.png" alt="">
+                        <img src="{{ asset('web_assets/images/Icons/facebook.png') }}" alt="Social Icons">
+                        <img src="{{ asset('web_assets/images/Icons/twitter.png') }}" alt="Social Icons">
                     </div>
 
                     <div class="bottom">
-                        <img src="./web_assets/images/Icons/instagram.png" alt="">
-                        <img src="./web_assets/images/Icons/linkedin.png" alt="">
+                        <img src="{{ asset('web_assets/images/Icons/instagram.png') }}" alt="Social Icons">
+                        <img src="{{ asset('web_assets/images/Icons/linkedin.png') }}" alt="Social Icons">
                     </div>
                 </div>
             </div>
