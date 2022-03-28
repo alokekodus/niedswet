@@ -28,7 +28,7 @@
         <h4 class="text-center fw-bold">Board of Trustees</h4>
 
         <div class="container">
-            <div class="members">
+            <div class="members images">
                 @for ($i = 0; $i < 5; $i++)
                     @include('web.common.singleMember')
                 @endfor

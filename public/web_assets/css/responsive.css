@@ -38,6 +38,10 @@
     margin: 0;
   }
 
+  .photos .images .thumbnail{
+    height: unset;
+  }
+
   .milestones .images {
     flex-direction: column;
   }
