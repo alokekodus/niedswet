@@ -15,4 +15,8 @@ use App\Http\Controllers\Web\HomeController;
 */
 
 Route::get('', [HomeController::class, 'index'])->name('site.home');
+Route::get('about-niedswet', [HomeController::class, 'aboutUs'])->name('site.about');
+Route::get('events', [HomeController::class, 'events'])->name('site.events');
+Route::get('gallery/images', [HomeController::class, 'galleryImage'])->name('site.gallery.image');
+Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');
 Route::post('contact', [HomeController::class, 'contactForm'])->name('site.contact');

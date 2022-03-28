@@ -72,6 +72,7 @@
             </table>
         </div>
     </section>
+
     <!-- about us -->
     <section class="aboutUs">
         <div class="row g-0">
@@ -173,53 +174,6 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services">
-        <h4 class="text-center fw-bold">Services</h4>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 p-4">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/Vectors/service1.png') }}" alt="Services">
-                        <p class="fw-bold my-2">Elit id velit, consequat
-                            viverra nascetur tortor
-                            hac.</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 p-4">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/Vectors/service2.png') }}" alt="Services">
-                        <p class="fw-bold my-2">In tincidunt ac magnis at
-                            elementum interdum
-                            vulputate tempus.</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 p-4">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/Vectors/service3.png') }}" alt="Services">
-                        <p class="fw-bold my-2">Elit id velit, consequat
-                            viverra nascetur tortor
-                            hac.</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-3 p-4">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/Vectors/service4.png') }}" alt="Services">
-                        <p class="fw-bold my-2">In tincidunt ac magnis at
-                            elementum interdum
-                            vulputate tempus.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="#" class="btn know-more">Know More</a>
             </div>
         </div>
     </section>
@@ -343,12 +297,13 @@
         </div>
     </section>
 
+    {{-- Testimonials --}}
     <section class="testimonials">
         <h4 class="text-center fw-bold mb-5">Testimonials</h4>
         <div class="testimonial-carousel owl-carousel owl-theme">
             @for ($i = 1; $i < 5; $i++)
                 <div class="item">
-                    <div class="single bg-light p-3 py-5">
+                    <div class="single bg-gray p-3 py-5">
                         <div class="image">
                             <img src="{{ asset('web_assets/images/testimonials/testi1.png') }}" alt="">
                         </div>

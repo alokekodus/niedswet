@@ -1,6 +1,6 @@
 @extends('web.common.main')
 
-@section('title', 'NIEDSWET')
+@section('title', 'Gallery | NIEDSWET')
 
 @section('customHeader')
 @endsection

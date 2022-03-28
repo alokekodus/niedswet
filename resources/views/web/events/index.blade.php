@@ -1,6 +1,6 @@
 @extends('web.common.main')
 
-@section('title', 'NIEDSWET')
+@section('title', 'Events | NIEDSWET')
 
 @section('customHeader')
 @endsection

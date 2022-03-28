@@ -6,6 +6,11 @@
   --secondary-green-light: #95cf94;
   --secondary-blue: #2873b9;
   --border-color: rgb(143, 143, 143);
+  --bg-gray: #E6E6E6;
+}
+
+.bg-gray{
+  background: var(--bg-gray);
 }
 
 .text-12{
