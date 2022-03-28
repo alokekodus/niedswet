@@ -8,6 +8,47 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.header{
+  position: relative;
+  height: 200px;
+  z-index: 9;
+}
+
+.header .overlay{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(1, 1, 1, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+}
+
+.header .path{
+  padding: 10px 20px;
+}
+
+.header .path p{
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 12px;
+}
+
+.header .path p a{
+  color: #fff;
+}
+
+.header .title{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  text-decoration: underline;
+}
+
 .navbar {
   padding: 5px 50px;
 }
@@ -27,6 +68,13 @@ body {
 
 .navbar .navbar-brand img {
   width: 150px;
+}
+
+.navbar .dropdown-item.active, .dropdown-item:active {
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: unset;
 }
 
 .carousel {
@@ -369,6 +417,101 @@ footer .left-block {
   justify-content: center;
   align-items: center;
 }
+
+
+/* ------------------------------ About us page ------------------- */
+.aboutContent .leftBlock img{
+  width: 100%;
+}
+
+.mission-vision .mission,
+.mission-vision .vision{
+  display: flex;
+  box-shadow: 0px 0px 50px var(--bg-gray);
+  border-radius: 10px;
+  padding: 30px 20px;
+}
+
+.mission-vision .mission .title,
+.mission-vision .vision .title{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.members{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.singleMember{
+  flex: 0 0 20%;
+  padding: 1rem;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.singleMember .image{
+  background: #111;
+  transition: 0.5s ease;
+}
+
+.singleMember .thumbnail{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  position: relative;
+}
+
+.singleMember .designation,
+.singleMember .name{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.singleMember .socials{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 20px;
+}
+
+.singleMember .socials .fa-brands{
+  color: #111;
+  font-size: 1rem;
+}
+
+.singleMember .view{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.singleMember:hover .view{
+  opacity: 1;
+}
+
+.singleMember:hover .thumbnail{
+  opacity: 0.5;
+}
+
+.team .btn-see-all{
+  background: var(--secondary-green);
+  color: #fff;
+  border-radius: 30px;
+  font-size: 12px;
+  padding: 2px 15px;
+  font-weight: 500;
+  box-shadow: -1px 3px 5px rgb(200, 200, 200);
+}
+
+
+
+/* ------------------------------ Footer ------------------------- */
 
 footer .left-block img {
   width: 100%;

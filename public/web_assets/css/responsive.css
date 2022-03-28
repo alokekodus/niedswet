@@ -55,6 +55,21 @@
     height: unset !important;
   }
 
+  .mission-vision .mission,
+  .mission-vision .vision{
+    flex-direction: column;
+  }
+
+  .singleMember{
+    flex: 100%;
+    margin: 1rem;
+    position: relative;
+  }
+
+  .singleMember .thumbnail{
+    height: unset;
+  }
+
   footer .right-block {
     padding: 10px;
   }
@@ -108,6 +123,10 @@
 
   .blogs .single {
     padding: 10px;
+  }
+
+  .mission-vision .mission, .mission-vision .vision{
+    flex-direction: column;
   }
 }
 

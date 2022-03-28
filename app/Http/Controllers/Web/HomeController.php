@@ -18,6 +18,11 @@ class HomeController extends Controller
         return view('web.about.index');
     }
 
+    public function ourTeam()
+    {
+        return view('web.about.ourTeam');
+    }
+
     public function events()
     {
         return view('web.events.index');
