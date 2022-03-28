@@ -1,6 +1,6 @@
 <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand py-2" href="#"><img src="{{ asset('web_assets/images/Icons/logo.png') }}" alt=""></a>
+        <a class="navbar-brand py-2" href="{{ route('site.home') }}"><img src="{{ asset('web_assets/images/Icons/logo.png') }}" alt=""></a>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">

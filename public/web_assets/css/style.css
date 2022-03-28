@@ -111,21 +111,8 @@ body {
   height: 400px;
 }
 
-.notifications {
-  margin-top: 50px;
-}
-
-.notifications .table {
-  table-layout: fixed;
-  width: 100%;
-}
-
-.notifications .table .info {
-  font-size: 12px;
-}
-
 .aboutUs {
-  margin: 100px 0;
+  margin: 30px 0 50px 0;
   font-size: 12px;
 }
 
@@ -197,7 +184,7 @@ body {
 }
 
 .events {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .events .single img {
@@ -217,7 +204,7 @@ body {
 }
 
 .gallery {
-  margin: 100px 0;
+  margin-bottom: 50px;
 }
 
 .gallery .view-all {
@@ -306,7 +293,7 @@ body {
 }
 
 .testimonials{
-  margin-top: 100px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -342,7 +329,7 @@ body {
 }
 
 .milestones {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .milestones .images {
@@ -376,8 +363,7 @@ body {
 }
 
 .awards {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 50px;
 }
 
 .awards .single img {

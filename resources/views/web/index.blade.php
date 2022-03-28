@@ -24,55 +24,6 @@
         </div>
     </section>
 
-    <!-- notification -->
-    <section class="notifications">
-        <div class="container">
-            <h4 class="text-center">Notifications</h4>
-
-            <table class="table table-bordered shadow-sm">
-                <tr>
-                    <td>
-                        <p class="fw-bold text-center">Campaign</p>
-                        <p class="info text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </td>
-                    <td>
-                        <p class="fw-bold text-center">Campaign</p>
-                        <p class="info text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <p class="info my-2 text-center">Amet eget tortor, luctus eros vulputate id sed ac sagittis. Lacus
-                            pharetra
-                            porta in aenean nisl eget habitant tortor amet.</p>
-                    </td>
-                    <td>
-                        <p class="info my-2 text-center">Cursus purus quis sagittis tellus volutpat egestas tortor.</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <p class="info my-2 text-center">Aliquet diam id semper molestie integer mattis.</p>
-                    </td>
-                    <td>
-                        <p class="info my-2 text-center">Turpis ante felis dignissim lectus.</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <p class="text-center my-2"><i class="fa-solid fa-angles-down"></i></p>
-                    </td>
-                    <td>
-                        <p class="text-center my-2"><i class="fa-solid fa-angles-down"></i></p>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
     <!-- about us -->
     <section class="aboutUs">
         <div class="row g-0">
@@ -367,7 +318,7 @@
     </section>
 
     {{-- Contact --}}
-    <section class="contact mb-5 bg-light py-5">
+    <section class="contact bg-light py-5">
         <h4 class="text-center fw-bold mb-3">Contact Us</h4>
         <div class="container">
             <div class="row">
@@ -375,7 +326,7 @@
                 <div class="col-sm-6 mb-3">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114612.57101497037!2d91.63284247523802!3d26.14318577239997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5a287f9133ff%3A0x2bbd1332436bde32!2sGuwahati%2C%20Assam!5e0!3m2!1sen!2sin!4v1648190831328!5m2!1sen!2sin"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                     <p class="text-12">NIEdSWeT, Address Address Address Address, NIEdSWeT, Address Address Address
