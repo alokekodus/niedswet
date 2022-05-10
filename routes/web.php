@@ -26,7 +26,15 @@ Route::post('contact', [HomeController::class, 'contactForm'])->name('site.conta
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
+    
     Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('admin.login');
-    Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+    
+
+        // Authenticated routes
+        Route::middleware(['auth'])->group(function () {
+            Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
+
+            // Logout
+            Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
+        });
 });

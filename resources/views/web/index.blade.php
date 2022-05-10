@@ -1,6 +1,6 @@
 @extends('web.common.main')
 
-@section('title', 'NIEDSWET')
+@section('title', 'NIEDSWET | HOME')
 
 @section('customHeader')
     <link rel="stylesheet" href="{{ asset('vendor/jsToastr/toastr.min.css') }}">
@@ -269,50 +269,6 @@
                     <img src="{{ asset('web_assets/images/Vectors/milestone3.png') }}" alt="Milestones">
                     <p class="fw-bold">Ultrices fermentum non,
                         eget at elit in blandit</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards -->
-    <section class="awards">
-        <h4 class="text-center fw-bold mb-5">Awards</h4>
-        <div class="container">
-            <div class="col-sm-10 mx-auto">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="single">
-                            <div class="text-center">
-                                <img src="{{ asset('web_assets/images/images/award1.png') }}" alt="Awards">
-                            </div>
-                            <p class="info">Ut sagittis laoreet est
-                                rutrum lorem ac. Ut quisque
-                                ullamcorper ullamcorper
-                                dui fermentum vel donec
-                                eget et.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="single">
-                            <div class="text-center">
-                                <img src="{{ asset('web_assets/images/images/award2.png') }}" alt="Awards">
-                            </div>
-                            <p class="info">Pulvinar penatibus tincidunt
-                                tempor, ut ultricies risus, ut vel.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="single">
-                            <div class="text-center">
-                                <img src="{{ asset('web_assets/images/images/award3.png') }}" alt="Awards">
-                            </div>
-                            <p class="info">Orci, dictum gravida mauris
-                                pharetra auctor cras
-                                elementum ac.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

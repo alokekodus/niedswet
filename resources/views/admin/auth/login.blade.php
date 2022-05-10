@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Login</title>
+    <title>NIEDSWET | Login</title>
 
     <meta name="description" content="" />
 
@@ -57,12 +57,18 @@
                         <h4 class="mb-2">Welcome to NIEDSWET</h4>
                         <p class="mb-4">Please sign-in to your account</p>
 
-                        <form id="formAuthentication" class="mb-3" action="{{route('admin.login')}}" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('admin.login') }}"
+                            method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email or Username</label>
-                                <input type="text" class="form-control" id="email" name="email-username"
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
                                     placeholder="Enter your email or username" autofocus />
+                                @error('email')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
