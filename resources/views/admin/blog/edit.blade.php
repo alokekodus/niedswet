@@ -53,4 +53,17 @@
 @endsection
 
 @section('customJs')
+<script>
+    // Create a FilePond instance
+    const pond = FilePond.create(document.getElementById('featured_image'), {
+        allowMultiple: false,
+        maxFileSize: '1MB',
+        maxFiles: 1,
+        instantUpload: false,
+        imagePreviewHeight: 200,
+        acceptedFileTypes: ['image/*'],
+        labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
+        labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
+    });
+</script>
 @endsection

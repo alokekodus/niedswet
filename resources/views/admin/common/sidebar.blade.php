@@ -42,7 +42,7 @@
         <!-- Blog -->
         <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='menu-icon bx bxl-blogger'></i>
+                <i class='menu-icon bx bxl-bootstrap'></i>
                 <div>Blog</div>
             </a>
 
