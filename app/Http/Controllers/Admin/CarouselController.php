@@ -20,6 +20,23 @@ class CarouselController extends Controller
 
     public function upload(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'attachment' => 'required|image|mimes:jpeg,png,jpg|max:1024'
+            ],
+            [
+                'attachment.required' => 'Image not found',
+                'attachment.image' => 'Upload only image',
+                'attachment.mimes' => 'Upload only jpg or png image',
+                'attachment.max' => 'Image size should not exceed 1MB',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
         $document = $request->attachment;
         if ($request->hasFile('attachment')) {
             $new_name = date('d-m-Y-H-i-s') . '_' . $document->getClientOriginalName();
@@ -44,10 +61,15 @@ class CarouselController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'image_id' => 'required'
+                'image_id' => 'required',
+                'attachment' => 'required|image|mimes:jpeg,png,jpg|max:1024'
             ],
             [
-                'image_id.required' => 'Image ID not found'
+                'image_id.required' => 'Image ID not found',
+                'attachment.required' => 'Image not found',
+                'attachment.image' => 'Upload only image',
+                'attachment.mimes' => 'Upload only jpg or png image',
+                'attachment.max' => 'Image size should not exceed 1MB',
             ]
         );
 
