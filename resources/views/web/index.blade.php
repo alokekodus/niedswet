@@ -10,12 +10,15 @@
     <!-- Carousel -->
     <section class="carousel">
         <div class="main-carousel owl-carousel owl-theme">
-            <div class="item">
-                <img src="{{ asset('web_assets/images/slider/slider1.png') }}" class="d-block w-100" alt="Carousel">
-            </div>
-            <div class="item">
-                <img src="{{ asset('web_assets/images/slider/slider2.png') }}" class="d-block w-100" alt="Carousel">
-            </div>
+            @forelse ($carousel as $item)
+                <div class="item">
+                    <img src="{{ asset($item->image) }}" class="d-block w-100" alt="Carousel">
+                </div>
+            @empty
+                <div class="item">
+                    <img src="{{ asset('web_assets/images/slider/slider1.png') }}" class="d-block w-100" alt="Carousel">
+                </div>
+            @endforelse
         </div>
 
         <div class="navigation">
@@ -255,7 +258,7 @@
                         est</p>
                 </div>
                 <div class="col img2">
-                    <img src="{{asset('web_assets/images/Vectors/arrow.png')}}" alt="Milestones">
+                    <img src="{{ asset('web_assets/images/Vectors/arrow.png') }}" alt="Milestones">
                 </div>
                 <div class="col img3">
                     <img src="{{ asset('web_assets/images/Vectors/milestone2.png') }}" alt="Milestones">
@@ -263,7 +266,7 @@
                         hac auctor adipiscing arcu</p>
                 </div>
                 <div class="col img4">
-                    <img src="{{asset('web_assets/images/Vectors/arrow.png')}}" alt="Milestones">
+                    <img src="{{ asset('web_assets/images/Vectors/arrow.png') }}" alt="Milestones">
                 </div>
                 <div class="col img5">
                     <img src="{{ asset('web_assets/images/Vectors/milestone3.png') }}" alt="Milestones">

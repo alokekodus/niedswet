@@ -40,6 +40,7 @@ Route::prefix('admin')->group(function () {
                 Route::get('', [CarouselController::class, 'index'])->name('admin.carousel.index');
                 Route::post('upload-carousel-image', [CarouselController::class, 'upload'])->name('admin.carousel.upload');
                 Route::post('update-carousel-image', [CarouselController::class, 'update'])->name('admin.carousel.update');
+                Route::post('change-status-carousel-image', [CarouselController::class, 'changeStatus'])->name('admin.carousel.change.status');
                 Route::post('delete-carousel-image', [CarouselController::class, 'delete'])->name('admin.carousel.delete');
             });
 

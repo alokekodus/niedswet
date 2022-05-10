@@ -27,6 +27,11 @@
                     <div class="card-body">
                         <button class="btn btn-outline-primary editBtn" data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
                         <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                        <label class="switch">
+                            <input type="checkbox" class="testingUpdate" id="testingUpdate" data-id="{{ Crypt::encrypt($item->id) }}"
+                                {{ $item->status == 1 ? 'checked' : '' }}>
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -316,5 +321,31 @@
                 }
             })
         })
+    </script>
+
+    {{-- Change image status --}}
+    <script>
+        // Change status
+        $(document.body).on('change', '#testingUpdate', function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var image_id = $(this).data('id');
+            var formData = {
+                image_id: image_id,
+                active: status
+            }
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.carousel.change.status') }}",
+                data: formData,
+
+                success: function(data) {
+                    console.log(data)
+                },
+                error: function(data) {
+                    var errors = data.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
     </script>
 @endsection

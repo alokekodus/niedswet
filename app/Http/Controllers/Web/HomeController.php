@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Carousel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,7 +11,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view('web.index');
+        $data['carousel'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        return view('web.index')->with($data);
     }
 
     public function aboutUs()

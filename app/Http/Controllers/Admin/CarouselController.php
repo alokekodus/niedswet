@@ -14,7 +14,7 @@ class CarouselController extends Controller
     //
     public function index()
     {
-        $data['images'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $data['images'] = Carousel::orderBy('created_at', 'DESC')->get();
         return view('admin.carousel.index')->with($data);
     }
 
@@ -102,6 +102,15 @@ class CarouselController extends Controller
             return response()->json(["message" => "Something went wrong !", "status" => 400]);
         }
         return response()->json(["message" => "Successfully Updated", "status" => 200]);
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $dec_id = Crypt::decrypt($request->image_id);
+        $job = Carousel::find($dec_id);
+        $job->status = $request->active;
+        $job->save();
+        return response()->json(['message' => 'Success', 'status' => 200]);
     }
 
     public function delete(Request $request)
