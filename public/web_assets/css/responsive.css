@@ -13,7 +13,7 @@
   }
 
   .aboutUs .aboutInfo {
-    padding: 40px;
+    padding: 20px;
   }
 
   .navigation {
@@ -135,6 +135,14 @@
 
   .mission-vision .mission, .mission-vision .vision{
     flex-direction: column;
+  }
+
+  .milestones .images .img2 img{
+    width: 70px;
+  }
+
+  .milestones .images .img4 img{
+    width: 70px;
   }
 }
 

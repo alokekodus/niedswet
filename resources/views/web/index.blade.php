@@ -11,10 +11,10 @@
     <section class="carousel">
         <div class="main-carousel owl-carousel owl-theme">
             <div class="item">
-                <img src="{{ asset('web_assets/images/images/slider.png') }}" class="d-block w-100" alt="Carousel">
+                <img src="{{ asset('web_assets/images/slider/slider1.png') }}" class="d-block w-100" alt="Carousel">
             </div>
             <div class="item">
-                <img src="{{ asset('web_assets/images/images/slider.png') }}" class="d-block w-100" alt="Carousel">
+                <img src="{{ asset('web_assets/images/slider/slider2.png') }}" class="d-block w-100" alt="Carousel">
             </div>
         </div>
 
@@ -34,18 +34,18 @@
                 <div>
                     <h4 class="mb-4">About Us</h4>
 
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan, sed vitae
-                        elit,
-                        arcu. Vulputate aliquet ut nec urna, parturient. Faucibus sit amet consectetur
-                        faucibus phasellus purus ultricies rhoncus. Augue metus, vestibulum sit lectus
-                        imperdiet non eleifend at ac. Ac iaculis purus, massa eget mattis a, pulvinar
-                        cursus. Sed varius non velit a, morbi duis nibh quis. Faucibus mi, massa, mattis
-                        volutpat, ac cursus vel. Molestie vitae, id non mauris viverra risus tellus blandit.
+                    <p class="mb-5">Northeast India Education and Social Welfare Trust, also known as NIEDSWET,
+                        was established on 15th October 1998. It is a non-profitable organization situated
+                        in Jorhat. Dr. Nobin Chandra Bordoloi was one of the founding members of this
+                        trust. Although Ophthalmologist by profession, he took interest in culture and
+                        literature and was a philanthropist at heart. His inclination to serve humanity
+                        got him involved with charitable work for social and education welfare. He was
 
-                        Odio pharetra nam et ante auctor duis. Elit tempus tellus ac semper quis.
-                        Consequat viverra vitae consequat tincidunt ultrices pellentesque elit eu duis.
-                        Tempor id nec viverra in lorem interdum. Nunc, fringilla sollicitudin scelerisque
-                        tempus sit ultrices gravida.</p>
+                        followed by his family members and simultaneously got the attention of like-
+                        minded individuals to contribute to the same. As a result, this trust came into
+
+                        existence, which was meant for a common cause, in a not-for-profit motive, and
+                        only with a vision to serve the betterment of the society.</p>
 
                     <a href="#" class="btn btn-know-more">Know More</a>
                 </div>
@@ -207,7 +207,8 @@
                                 maecenas. Facilisi ullamcorper eget nullam odio
                                 libero enim. Integer mattis viverra pellentesque
                                 mauris eget.</p>
-                            <p class="text-end readMore"><a href="{{ route('site.blogs', ['id'=>$i])}}">Read More <i class="fa-solid fa-angle-right"></i></a>
+                            <p class="text-end readMore"><a href="{{ route('site.blogs', ['id' => $i]) }}">Read More <i
+                                        class="fa-solid fa-angle-right"></i></a>
                             </p>
                         </div>
                     </div>
@@ -254,7 +255,7 @@
                         est</p>
                 </div>
                 <div class="col img2">
-                    <img src="./web_assets/images/Vectors/arrow1.png" alt="Milestones">
+                    <img src="{{asset('web_assets/images/Vectors/arrow.png')}}" alt="Milestones">
                 </div>
                 <div class="col img3">
                     <img src="{{ asset('web_assets/images/Vectors/milestone2.png') }}" alt="Milestones">
@@ -262,7 +263,7 @@
                         hac auctor adipiscing arcu</p>
                 </div>
                 <div class="col img4">
-                    <img src="./web_assets/images/Vectors/arrow2.png" alt="Milestones">
+                    <img src="{{asset('web_assets/images/Vectors/arrow.png')}}" alt="Milestones">
                 </div>
                 <div class="col img5">
                     <img src="{{ asset('web_assets/images/Vectors/milestone3.png') }}" alt="Milestones">
