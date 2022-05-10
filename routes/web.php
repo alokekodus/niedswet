@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CarouselController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,14 @@ Route::prefix('admin')->group(function () {
         // Authenticated routes
         Route::middleware(['auth'])->group(function () {
             Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
+
+            // Carousel
+            Route::prefix('carousel')->group(function () {
+                Route::get('', [CarouselController::class, 'index'])->name('admin.carousel.index');
+                Route::post('upload-carousel-image', [CarouselController::class, 'upload'])->name('admin.carousel.upload');
+                Route::post('update-carousel-image', [CarouselController::class, 'update'])->name('admin.carousel.update');
+                Route::post('delete-carousel-image', [CarouselController::class, 'delete'])->name('admin.carousel.delete');
+            });
 
             // Logout
             Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
