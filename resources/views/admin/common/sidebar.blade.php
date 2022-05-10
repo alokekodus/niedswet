@@ -23,7 +23,7 @@
             </a>
         </li>
 
-        <!-- Layouts -->
+        <!-- Master -->
         <li class="menu-item {{ Request::routeIs('admin.carousel.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -38,6 +38,24 @@
                 </li>
             </ul>
         </li>
+
+        <!-- Blog -->
+        <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon bx bxl-blogger'></i>
+                <div>Blog</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.blog.index') }}" class="menu-link">
+                        <div>Blogs</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
 

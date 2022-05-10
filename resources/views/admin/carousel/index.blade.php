@@ -5,6 +5,8 @@
 @section('customHeader')
 @endsection
 
+@section('page_title', 'Carousel')
+
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="col-lg-12 mb-4 order-0">
