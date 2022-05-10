@@ -13,33 +13,36 @@
                     <div class="col-sm-9">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#createCarouselModal"><i class='bx bx-image-add'></i> Add Image</button>
+                                data-bs-target="#createCarouselModal"><i class='bx bx-image-add'></i> Add New</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-12 col-lg-12 mb-3">
-            <div class="card h-100">
-                <img class="card-img-top" src="{{ asset('web_assets/images/slider/slider1.png') }}" alt="Card image cap">
-                <div class="card-body">
-                    <button class="btn btn-outline-primary editBtn">Edit</button>
-                    <button class="btn btn-danger deleteBtn" data-id="1">Delete</button>
+        @forelse ($images as $item)
+            <div class="col-md-12 col-lg-12 mb-3">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset($item->image) }}" alt="Card image cap">
+                    <div class="card-body">
+                        <button class="btn btn-outline-primary editBtn" data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
+                        <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-12 col-lg-12 mb-3">
-            <div class="card h-100">
-                <img class="card-img-top" src="{{ asset('web_assets/images/slider/slider2.png') }}"
-                    alt="Card image cap">
-                <div class="card-body">
-                    <button class="btn btn-outline-primary editBtn">Edit</button>
-                    <button class="btn btn-danger deleteBtn" data-id="2">Delete</button>
+        @empty
+            <div class="col-lg-12 mb-4 order-0">
+                <div class="card">
+                    <div class="d-flex align-items-end row">
+                        <div class="col-sm-9">
+                            <div class="card-body">
+                                <h5 class="mb-0">**No images found</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforelse
     </div>
 
     {{-- Create New Carousel Modal --}}
@@ -55,7 +58,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="carouselImage" class="form-label">Image</label>
-                        <input type="file" accept="image/*" id="newImage" name="newImage" required>
+                        <input type="file" accept="image/*" id="newImage" name="newImage">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -80,6 +83,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload image</label>
+                            <input type="hidden" name="image_id" id="image_id">
                             <input type="file" id="updateImage" name="updateImage">
                         </div>
                     </div>
@@ -122,71 +126,73 @@
         });
     </script>
 
-        {{-- Upload image --}}
-        <script>    
-            $('#uploadCarouselImageForm').on('submit', function(e) {
-                e.preventDefault();
-    
-                let btn = $('#carouselUploadBtn');
-                let modal = $('#createCarouselModal');
-                let actionUrl = "{{ route('admin.carousel.upload') }}";
-                btn.text('Please wait...');
-                btn.attr('disabled', true);
-                let formData = new FormData(this);
-                pondFiles = newImage.getFiles();
-                for (var i = 0; i < pondFiles.length; i++) {
-                    formData.append('attachment', pondFiles[i].file);
-                }
-                $.ajax({
-                    type: "POST",
-                    url: actionUrl,
-                    data: formData,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        if (data.status === 200) {
-                            newImage.removeFiles();
-                            btn.text('Upload');
-                            btn.attr('disabled', true);
-                            modal.modal('toggle');
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: data.message,
-                            }).then(() => {
-                                window.location.reload(true);
-                            })
-                        } else {
-                            newImage.removeFiles();
-                            btn.text('Upload');
-                            btn.attr('disabled', true);
-                            modal.modal('toggle');
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops!',
-                                text: data.message,
-                            })
-                        }
-                    },
-                    error: function(data) {
+    {{-- Upload image --}}
+    <script>
+        $('#uploadCarouselImageForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let btn = $('#carouselUploadBtn');
+            let modal = $('#createCarouselModal');
+            let actionUrl = "{{ route('admin.carousel.upload') }}";
+            btn.text('Please wait...');
+            btn.attr('disabled', true);
+            let formData = new FormData(this);
+            pondFiles = newImage.getFiles();
+            for (var i = 0; i < pondFiles.length; i++) {
+                formData.append('attachment', pondFiles[i].file);
+            }
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data.status === 200) {
                         newImage.removeFiles();
                         btn.text('Upload');
-                        btn.attr('disabled', true);
+                        btn.attr('disabled', false);
+                        modal.modal('toggle');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.message,
+                        }).then(() => {
+                            window.location.reload(true);
+                        })
+                    } else {
+                        newImage.removeFiles();
+                        btn.text('Upload');
+                        btn.attr('disabled', false);
                         modal.modal('toggle');
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops!',
-                            text: 'Server error',
+                            text: data.message,
                         })
                     }
-                });
-            })
-        </script>
+                },
+                error: function(data) {
+                    newImage.removeFiles();
+                    btn.text('Upload');
+                    btn.attr('disabled', false);
+                    modal.modal('toggle');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops!',
+                        text: 'Server error',
+                    })
+                }
+            });
+        })
+    </script>
 
     {{-- Update image --}}
     <script>
         $('.editBtn').on('click', function() {
+            let image_id = $(this).data('id');
+            $('#image_id').val(image_id);
             $('#editCarouselModal').modal('toggle');
         });
 
@@ -214,7 +220,7 @@
                     if (data.status === 200) {
                         updateImage.removeFiles();
                         btn.text('Update');
-                        btn.attr('disabled', true);
+                        btn.attr('disabled', false);
                         modal.modal('toggle');
                         Swal.fire({
                             icon: 'success',
@@ -226,7 +232,7 @@
                     } else {
                         updateImage.removeFiles();
                         btn.text('Update');
-                        btn.attr('disabled', true);
+                        btn.attr('disabled', false);
                         modal.modal('toggle');
                         Swal.fire({
                             icon: 'error',
@@ -238,7 +244,7 @@
                 error: function(data) {
                     updateImage.removeFiles();
                     btn.text('Update');
-                    btn.attr('disabled', true);
+                    btn.attr('disabled', false);
                     modal.modal('toggle');
                     Swal.fire({
                         icon: 'error',
@@ -253,7 +259,6 @@
     {{-- Delete image --}}
     <script>
         $('.deleteBtn').on('click', function() {
-
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -277,9 +282,6 @@
                         type: "POST",
                         url: actionUrl,
                         data: formData,
-                        cache: false,
-                        processData: false,
-                        contentType: false,
                         success: function(data) {
                             if (data.status === 200) {
                                 btn.text('Delete');
