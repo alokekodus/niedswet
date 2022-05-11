@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
 
@@ -49,8 +50,17 @@ Route::prefix('admin')->group(function () {
         Route::prefix('blog')->group(function () {
             Route::get('', [BlogController::class, 'index'])->name('admin.blog.index');
             Route::get('ceate', [BlogController::class, 'create'])->name('admin.blog.create');
+            Route::post('post', [BlogController::class, 'post'])->name('admin.blog.post');
             Route::get('edit/{id}', [BlogController::class, 'edit'])->name('admin.blog.edit');
             Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
+
+            Route::prefix('category')->group(function () {
+                Route::get('', [BlogCategoryController::class, 'index'])->name('admin.blog.category.index');
+                Route::post('get-category', [BlogCategoryController::class, 'getCategory'])->name('admin.blog.category.get');
+                Route::post('ceate', [BlogCategoryController::class, 'create'])->name('admin.blog.category.create');
+                Route::post('update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
+                Route::post('change-status', [BlogCategoryController::class, 'changeStatus'])->name('admin.blog.category.change.status');
+            });
         });
 
         // Logout

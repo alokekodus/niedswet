@@ -40,7 +40,7 @@
         </li>
 
         <!-- Blog -->
-        <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'open' : '' }}">
+        <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') || Request::routeIs('admin.blog.category.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxl-bootstrap'></i>
                 <div>Blog</div>
@@ -52,6 +52,13 @@
                         <div>Blogs</div>
                     </a>
                 </li>
+
+                <li class="menu-item {{ Request::routeIs('admin.blog.category.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.blog.category.index') }}" class="menu-link">
+                        <div>Category</div>
+                    </a>
+                </li>
+
             </ul>
         </li>
 
