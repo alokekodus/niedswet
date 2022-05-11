@@ -52,6 +52,7 @@ Route::prefix('admin')->group(function () {
             Route::get('ceate', [BlogController::class, 'create'])->name('admin.blog.create');
             Route::post('post', [BlogController::class, 'post'])->name('admin.blog.post');
             Route::get('edit/{id}', [BlogController::class, 'edit'])->name('admin.blog.edit');
+            Route::post('update', [BlogController::class, 'update'])->name('admin.blog.update');
             Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
 
             Route::prefix('category')->group(function () {

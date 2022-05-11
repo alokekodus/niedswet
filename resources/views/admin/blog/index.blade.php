@@ -34,7 +34,7 @@
                                     <h5 class="card-title">{{ $item->title }}</h5>
                                 </a>
                                 <p class="card-text">
-                                    <span class="badge bg-primary">{{ $item->category_id }}</span>
+                                    <span class="badge bg-primary">{{ $item->Category->category }}</span>
                                 </p>
                                 <p class="card-text">
                                     <small class="text-muted">Last updated {{ $item->created_at }} ago</small>
