@@ -193,32 +193,32 @@
     </section>
 
     <!-- Blog -->
-    <section class="blogs">
-        <h4 class="text-center fw-bold">Blogs</h4>
-        <div class="container">
-            <div class="row">
-                @for ($i = 1; $i < 4; $i++)
-                    <div class="col-sm-4">
-                        <div class="single">
-                            <img src="{{ asset('web_assets/images/images/blog1.png') }}" alt="Blog thumbnail">
-                            <p class="fw-bold title my-3">
-                                Ut sem arcu mi lobortis dui ut
-                                cursus hendrerit.
-                            </p>
-                            <p class="postTime">Mar 01, 2022</p>
-                            <p class="info">Porta metus viverra enim sed volutpat dictum
-                                maecenas. Facilisi ullamcorper eget nullam odio
-                                libero enim. Integer mattis viverra pellentesque
-                                mauris eget.</p>
-                            <p class="text-end readMore"><a href="{{ route('site.blogs', ['id' => $i]) }}">Read More <i
-                                        class="fa-solid fa-angle-right"></i></a>
-                            </p>
+    @if ($blogs->count() != 0)
+        <section class="blogs">
+            <h4 class="text-center fw-bold">Blogs</h4>
+            <div class="container">
+                <div class="row">
+                    @foreach ($blogs as $item)
+                        <div class="col-sm-4">
+                            <div class="single">
+                                <img src="{{ asset($item->image) }}" alt="Blog thumbnail">
+                                <p class="fw-bold title my-3">
+                                    {{ $item->title }}
+                                </p>
+                                <p class="postTime">{{ date('F j, Y', strtotime($item->created_at)) }}</p>
+                                <p class="info">{{ Str::limit(strip_tags($item->description), 200, '...') }}
+                                </p>
+                                <p class="text-end readMore"><a
+                                        href="{{ route('site.blogs', ['id' => Crypt::encrypt($item->id)]) }}">Read
+                                        More <i class="fa-solid fa-angle-right"></i></a>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                @endfor
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     {{-- Testimonials --}}
     <section class="testimonials">

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Carousel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -12,6 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['carousel'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $data['blogs'] = Blog::where('status', 1)->orderBy('created_at', 'DESC')->get();
         return view('web.index')->with($data);
     }
 
@@ -38,9 +42,13 @@ class HomeController extends Controller
     public function blogs($id = null)
     {
         if(!$id){
-            return view('web.blogs.index');
+            $data['blogs'] = Blog::where('status', 1)->get();
+            return view('web.blogs.index')->with($data);
         } else{
-            return view('web.blogs.blogDetails');
+            $dec_id = Crypt::decrypt($id);
+            $data['blog'] = Blog::find($dec_id);
+            $data['categories'] = BlogCategory::where('status', 1)->with('Blogs')->get();
+            return view('web.blogs.blogDetails')->with($data);
         }
     }
 
