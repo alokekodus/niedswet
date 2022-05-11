@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,8 @@ class BlogController extends Controller
     //
     public function index(Request $request)
     {
-        return view('admin.blog.index');
+        $data['blogs'] = Blog::orderBy('created_at', 'DESC')->get();
+        return view('admin.blog.index')->with($data);
     }
 
     public function create(Request $request)
@@ -53,6 +55,16 @@ class BlogController extends Controller
             $file = 'uploads/blog/' . $new_name;
         } else {
             return response()->json(["message" => "Image ot found", "status" => 422]);
+        }
+        $create = Blog::create([
+            'title' => $request->blog_title,
+            'category_id' => $request->blog_category,
+            'image' => $file,
+            'description' => $request->blogDescription,
+        ]);
+
+        if (!$create) {
+            return response()->json(["message" => "Something went wrong!", "status" => 400]);
         }
         return response()->json(["message" => "Blog posted successfully", "status" => 200]);
     }

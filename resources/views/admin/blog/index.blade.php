@@ -25,33 +25,30 @@
     <div class="container-xxl flex-grow-1">
         <div class="col-lg-12 mb-4 order-0">
             <div class="row mb-5">
-                @for ($i = 1; $i <= 9; $i++)
+                @forelse ($blogs as $item)
                     <div class="col-md-6 col-xl-4">
                         <div class="card mb-3">
-                            <img class="card-img-top"
-                                src="https://images.unsplash.com/photo-1620662831351-9f68f76d0b9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                alt="Featured image">
+                            <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
                             <div class="card-body">
-                                <a target="_blank" href="{{ route('site.blogs', ['id' => Crypt::encrypt($i)]) }}">
-                                    <h5 class="card-title">Card title</h5>
+                                <a target="_blank" href="{{ route('site.blogs', ['id' => Crypt::encrypt($item->id)]) }}">
+                                    <h5 class="card-title">{{ $item->title }}</h5>
                                 </a>
                                 <p class="card-text">
-                                    This is a wider card with supporting text below as a natural lead-in to additional
-                                    content.
-                                    This
-                                    content is a little bit longer.
+                                    <span class="badge bg-primary">{{ $item->category_id }}</span>
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                    <small class="text-muted">Last updated {{ $item->created_at }} ago</small>
                                 </p>
-                                <a href="{{ route('admin.blog.edit', ['id' => Crypt::encrypt($i)]) }}"
+                                <a href="{{ route('admin.blog.edit', ['id' => Crypt::encrypt($item->id)]) }}"
                                     class="btn btn-primary">Edit</a>
                                 <button class="btn btn-danger deleteBlogBtn"
-                                    data-id="{{ Crypt::encrypt($i) }}">Delete</button>
+                                    data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @empty
+                    <h5 class="card-title">**No blogs found</h5>
+                @endforelse
             </div>
         </div>
     </div>

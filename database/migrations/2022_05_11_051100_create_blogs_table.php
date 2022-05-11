@@ -18,7 +18,7 @@ class CreateBlogsTable extends Migration
             $table->string('title', 255);
             $table->unsignedBigInteger('category_id');
             $table->string('image', 255);
-            $table->text('descrption');
+            $table->text('description');
             $table->boolean('status')->default(1);
             $table->timestamps();
 
