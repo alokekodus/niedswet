@@ -206,6 +206,7 @@
                                     {{ $item->title }}
                                 </p>
                                 <p class="postTime">{{ date('F j, Y', strtotime($item->created_at)) }}</p>
+                                <p><span class="badge bg-success">{{$item->Category->category}}</span></p>
                                 <p class="info">{{ Str::limit(strip_tags($item->description), 200, '...') }}
                                 </p>
                                 <p class="text-end readMore"><a

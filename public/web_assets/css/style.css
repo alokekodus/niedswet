@@ -8,6 +8,11 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+.page-item.active .page-link{
+    background-color: var(--secondary-green);
+    border-color: var(--secondary-green);
+}
+
 .header {
     position: relative;
     height: 200px;

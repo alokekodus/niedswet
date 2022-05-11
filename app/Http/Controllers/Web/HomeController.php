@@ -15,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $data['carousel'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->get();
-        $data['blogs'] = Blog::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
+            $q->where('status', 1);
+        })->orderBy('created_at', 'DESC')->limit(3)->get();
         return view('web.index')->with($data);
     }
 
@@ -41,13 +43,15 @@ class HomeController extends Controller
 
     public function blogs($id = null)
     {
-        if(!$id){
-            $data['blogs'] = Blog::where('status', 1)->get();
+        if (!$id) {
+            $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
+                $q->where('status', 1);
+            })->paginate(9);
             return view('web.blogs.index')->with($data);
-        } else{
+        } else {
             $dec_id = Crypt::decrypt($id);
             $data['blog'] = Blog::find($dec_id);
-            $data['categories'] = BlogCategory::where('status', 1)->with('Blogs')->get();
+            $data['categories'] = BlogCategory::where('status', 1)->whereHas('Blogs')->get();
             return view('web.blogs.blogDetails')->with($data);
         }
     }
