@@ -3,6 +3,14 @@
 @section('title', 'NIEDSWET | Blog')
 
 @section('customHeader')
+    <style>
+        .card-img,
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+    </style>
 @endsection
 
 @section('page_title', 'Blog')
@@ -37,7 +45,7 @@
                                     <span class="badge bg-primary">{{ $item->Category->category }}</span>
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-muted">Last updated {{ $item->created_at }} ago</small>
+                                    <small class="text-muted">Last updated {{ $item->updated_at->diffForHumans() }} ago</small>
                                 </p>
                                 <a href="{{ route('admin.blog.edit', ['id' => Crypt::encrypt($item->id)]) }}"
                                     class="btn btn-primary">Edit</a>
@@ -49,6 +57,8 @@
                 @empty
                     <h5 class="card-title">**No blogs found</h5>
                 @endforelse
+
+                {{$blogs->links()}}
             </div>
         </div>
     </div>

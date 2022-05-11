@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="blog_description">Description<sup>*</sup></label>
+                            <label class="form-label" for="blog_description">Blog Description<sup>*</sup></label>
                             <textarea class="form-control" id="blog_description" name="blog_description" rows="3"></textarea>
                         </div>
 

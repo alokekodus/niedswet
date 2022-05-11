@@ -15,7 +15,7 @@ class BlogController extends Controller
     //
     public function index(Request $request)
     {
-        $data['blogs'] = Blog::with('Category')->orderBy('created_at', 'DESC')->get();
+        $data['blogs'] = Blog::with('Category')->orderBy('created_at', 'DESC')->paginate(9);
         return view('admin.blog.index')->with($data);
     }
 
@@ -141,6 +141,14 @@ class BlogController extends Controller
 
     public function delete(Request $request)
     {
+        $dec_id = Crypt::decrypt($request->id);
+        $blog = Blog::find($dec_id);
+        $delete = $blog->delete();
+        if (!$delete) {
+            return response()->json(["message" => "Something went wrong !", "status" => 400]);
+        }
+        $old_image = $blog->image;
+        File::delete($old_image);
         return response()->json(["message" => "Blog deleted successfully", "status" => 200]);
     }
 }
