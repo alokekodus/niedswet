@@ -71,7 +71,15 @@
                 <div data-i18n="Analytics">Gallery</div>
             </a>
         </li>
-        
+
+        <!-- Our work -->
+        <li class="menu-item {{ Request::routeIs('admin.ourwork.index') || Request::routeIs('admin.ourwork.create') || Request::routeIs('admin.ourwork.edit') ? 'active' : '' }}">
+            <a href="{{ route('admin.ourwork.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-task' ></i>
+                <div data-i18n="Analytics">Our work</div>
+            </a>
+        </li>
+
         <!-- Testimonial -->
         <li class="menu-item {{ Request::routeIs('admin.testimonial.index') ? 'active' : '' }}">
             <a href="{{ route('admin.testimonial.index') }}" class="menu-link">

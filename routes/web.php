@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 /*
@@ -72,6 +73,16 @@ Route::prefix('admin')->group(function () {
             Route::get('', [GalleryController::class, 'index'])->name('admin.gallery.index');
             Route::post('upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
             Route::post('delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
+        });
+
+        // Our work
+        Route::prefix('our-work')->group(function () {
+            Route::get('', [OurWorkController::class, 'index'])->name('admin.ourwork.index');
+            Route::get('create', [OurWorkController::class, 'create'])->name('admin.ourwork.create');
+            Route::post('post', [OurWorkController::class, 'post'])->name('admin.ourwork.post');
+            Route::get('edit/{id}', [OurWorkController::class, 'edit'])->name('admin.ourwork.edit');
+            Route::post('update', [OurWorkController::class, 'update'])->name('admin.ourwork.update');
+            Route::post('delete', [OurWorkController::class, 'delete'])->name('admin.ourwork.delete');
         });
 
         // Testimonial

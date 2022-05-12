@@ -1,6 +1,6 @@
 @extends('admin.common.main')
 
-@section('title', 'NIEDSWET | Blog')
+@section('title', 'NIEDSWET | Our Work')
 
 @section('customHeader')
     <style>
@@ -13,7 +13,7 @@
     </style>
 @endsection
 
-@section('page_title', 'Blog')
+@section('page_title', 'Our Work')
 
 @section('main')
     <div class="container-xxl flex-grow-1 pt-4">
@@ -22,7 +22,8 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-9">
                         <div class="card-body">
-                            <a href="{{ route('admin.blog.create') }}" type="button" class="btn btn-primary">Create New</a>
+                            <a href="{{ route('admin.ourwork.create') }}" type="button" class="btn btn-primary">Create
+                                New</a>
                         </div>
                     </div>
                 </div>
@@ -33,32 +34,25 @@
     <div class="container-xxl flex-grow-1">
         <div class="col-lg-12 mb-4 order-0">
             <div class="row mb-5">
-                @forelse ($blogs as $item)
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card mb-3">
-                            <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
-                            <div class="card-body">
-                                <a target="_blank" href="{{ route('site.blogs', ['id' => Crypt::encrypt($item->id)]) }}">
-                                    <h5 class="card-title">{{ $item->title }}</h5>
-                                </a>
-                                <p class="card-text">
-                                    <span class="badge bg-primary">{{ $item->Category->category }}</span>
-                                </p>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated {{ $item->updated_at->diffForHumans() }} ago</small>
-                                </p>
-                                <a href="{{ route('admin.blog.edit', ['id' => Crypt::encrypt($item->id)]) }}"
-                                    class="btn btn-primary">Edit</a>
-                                <button class="btn btn-danger deleteBlogBtn"
-                                    data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
-                            </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-3">
+                        <img class="card-img-top"
+                            src="https://images.unsplash.com/photo-1593240637899-5fc06c754c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=394&q=80"
+                            alt="Featured image">
+                        <div class="card-body">
+                            <a target="_blank" href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }} ">
+                                <h5 class="card-title">Gate of Dr. Nobin Bordoloi College</h5>
+                            </a>
+                            <p class="card-text">
+                                <small class="text-muted">Posted 3 days ago</small>
+                            </p>
+                            <a href="{{ route('admin.ourwork.edit', ['id' => Crypt::encrypt(1)]) }}"
+                                class="btn btn-primary">Edit</a>
+                            <button class="btn btn-danger deleteOurWorkBtn"
+                                data-id="{{ Crypt::encrypt(1) }}">Delete</button>
                         </div>
                     </div>
-                @empty
-                    <h5 class="card-title">**No blogs found</h5>
-                @endforelse
-
-                {{$blogs->links()}}
+                </div>
             </div>
         </div>
     </div>
@@ -69,7 +63,7 @@
 @section('customJs')
     {{-- Delete blog --}}
     <script>
-        $('.deleteBlogBtn').on('click', function() {
+        $('.deleteOurWorkBtn').on('click', function() {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -82,7 +76,7 @@
                 if (result.isConfirmed) {
                     let id = $(this).data('id');
                     let btn = $(this);
-                    let actionUrl = "{{ route('admin.blog.delete') }}";
+                    let actionUrl = "{{ route('admin.ourwork.delete') }}";
                     let formData = {
                         id: id
                     }
