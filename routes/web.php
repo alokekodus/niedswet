@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
+use App\Http\Controllers\Admin\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,12 @@ Route::prefix('admin')->group(function () {
                 Route::post('update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
                 Route::post('change-status', [BlogCategoryController::class, 'changeStatus'])->name('admin.blog.category.change.status');
             });
+        });
+
+        Route::prefix('gallery')->group(function () {
+            Route::get('', [GalleryController::class, 'index'])->name('admin.gallery.index');
+            Route::post('upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
+            Route::post('delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
         });
 
         // Logout

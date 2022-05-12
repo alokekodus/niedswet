@@ -40,14 +40,16 @@
         </li>
 
         <!-- Blog -->
-        <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') || Request::routeIs('admin.blog.category.index') ? 'open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') || Request::routeIs('admin.blog.category.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxl-bootstrap'></i>
                 <div>Blog</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'active' : '' }}">
+                <li
+                    class="menu-item {{ Request::routeIs('admin.blog.index') || Request::routeIs('admin.blog.create') || Request::routeIs('admin.blog.edit') ? 'active' : '' }}">
                     <a href="{{ route('admin.blog.index') }}" class="menu-link">
                         <div>Blogs</div>
                     </a>
@@ -60,6 +62,14 @@
                 </li>
 
             </ul>
+        </li>
+
+        <!-- Gallery -->
+        <li class="menu-item">
+            <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Gallery</div>
+            </a>
         </li>
 
 
