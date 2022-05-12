@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
 use App\Models\Gallery;
+use App\Models\OurWork;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -22,6 +23,7 @@ class HomeController extends Controller
         })->orderBy('created_at', 'DESC')->limit(3)->get();
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
         $data['testimonials'] = Testimonial::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
+        $data['works'] = OurWork::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
         return view('web.index')->with($data);
     }
 
@@ -30,13 +32,16 @@ class HomeController extends Controller
         return view('web.about.index');
     }
 
-    public function ourWork($id = null){
+    public function ourWork($id = null)
+    {
         if (!$id) {
-            return view('web.ourWork.index');
-        } else{
-            return view('web.ourWork.details');
+            $data['works'] = OurWork::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+            return view('web.ourWork.index')->with($data);
+        } else {
+            $dec_id = Crypt::decrypt($id);
+            $data['work'] = OurWork::find($dec_id);
+            return view('web.ourWork.details')->with($data);
         }
-        
     }
 
     public function ourTeam()

@@ -13,7 +13,7 @@
             color: rgb(44, 44, 44);
         }
 
-        .card-img-top{
+        .card-img-top {
             height: 200px;
             object-fit: cover
         }
@@ -36,49 +36,26 @@
 
     <section class="container my-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="single">
-                        <div class="shadow p-3 rounded">
-                            <img src="https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <a class="link" href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }}">
-                                    <h5 class="card-title text-center mb-0">Gate of Dr. Nobin Bordoloi College</h5>
-                                </a>
+            <div class="row mb-4">
+                @forelse ($works as $item)
+                    <div class="col-md-4">
+                        <div class="single">
+                            <div class="shadow p-3 rounded">
+                                <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
+                                <div class="card-body">
+                                    <a class="link"
+                                        href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">
+                                        <h5 class="card-title text-center mb-0">{{ $item->work_title }}</h5>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="single">
-                        <div class="shadow p-3 rounded">
-                            <img src="https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <a class="link" href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }}">
-                                    <h5 class="card-title text-center mb-0">Gate of Dr. Nobin Bordoloi College</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="single">
-                        <div class="shadow p-3 rounded">
-                            <img src="https://images.unsplash.com/photo-1593240637899-5fc06c754c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=394&q=80"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <a class="link" href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }}">
-                                    <h5 class="card-title text-center mb-0">Gate of Dr. Nobin Bordoloi College</h5>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p>*No data found</p>
+                @endforelse
             </div>
+            {{ $works->links() }}
         </div>
     </section>
 @endsection

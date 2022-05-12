@@ -4,6 +4,12 @@
 
 @section('customHeader')
     <link rel="stylesheet" href="{{ asset('vendor/jsToastr/toastr.min.css') }}">
+    <style>
+        .ourWork .owl-carousel .owl-item img{
+            height: 450px;
+            object-fit: cover;
+        }
+    </style>
 @endsection
 
 @section('main')
@@ -57,34 +63,28 @@
     </section>
 
     <!-- Our work -->
-    <section class="ourWork">
-        <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
-        <h4 class="text-center fw-bold mb-5">Our Work</h4>
-        <div class="col-sm-8 mx-auto">
-            <div class="work-carousel owl-carousel owl-theme">
-                <div class="item">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/images/our-work.png') }}" alt="Our work">
-                        <p class="fw-bold mt-2">Consequat massa bibendum lobortis aenean lorem nunc vel. Sem tempor
-                            vulputate gravida ipsum mauris gravida. Amet venenatis varius tristique
-                            penatibus. In elit, facilisis et odio.</p>
+    @if ($works != null)
+        <section class="ourWork">
+            <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
+            <h4 class="text-center fw-bold mb-5">Our Work</h4>
+            <div class="col-sm-8 mx-auto">
+                <div class="work-carousel owl-carousel owl-theme">
+                    @foreach ($works as $item)
+                    <div class="item">
+                        <div class="single">
+                            <img src="{{ asset($item->image) }}" alt="Our work">
+                            <p class="fw-bold mt-2">{{ $item->work_title }}.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/images/our-work.png') }}" alt="Our work">
-                        <p class="fw-bold mt-2">Consequat massa bibendum lobortis aenean lorem nunc vel. Sem tempor
-                            vulputate gravida ipsum mauris gravida. Amet venenatis varius tristique
-                            penatibus. In elit, facilisis et odio.</p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        <div class="navigation">
-            <div class="customPrevBtnOurWork arrow"><i class="fa-solid fa-angle-left"></i></div>
-            <div class="customNextBtnOurWork arrow"><i class="fa-solid fa-angle-right"></i></div>
-        </div>
-    </section>
+            <div class="navigation">
+                <div class="customPrevBtnOurWork arrow"><i class="fa-solid fa-angle-left"></i></div>
+                <div class="customNextBtnOurWork arrow"><i class="fa-solid fa-angle-right"></i></div>
+            </div>
+        </section>
+    @endif
 
     <!-- Events -->
     <section class="events">
@@ -223,18 +223,18 @@
             <h4 class="text-center fw-bold mb-5">Testimonials</h4>
             <div class="testimonial-carousel owl-carousel owl-theme">
                 @foreach ($testimonials as $item)
-                <div class="item">
-                    <div class="single bg-gray p-3 py-5">
-                        <div class="image">
-                            <img src="{{ asset($item->image) }}" alt="">
-                        </div>
-                        <div class="details">
-                            <img src="{{ asset('web_assets/images/Icons/bi_quote.png') }}" alt="">
-                            <p class="text-center px-3 text-12">{{$item->message}}</p>
-                            <p class="text-center fw-bold text-uppercase px-3 mb-0">{{$item->name}}</p>
+                    <div class="item">
+                        <div class="single bg-gray p-3 py-5">
+                            <div class="image">
+                                <img src="{{ asset($item->image) }}" alt="">
+                            </div>
+                            <div class="details">
+                                <img src="{{ asset('web_assets/images/Icons/bi_quote.png') }}" alt="">
+                                <p class="text-center px-3 text-12">{{ $item->message }}</p>
+                                <p class="text-center fw-bold text-uppercase px-3 mb-0">{{ $item->name }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <div class="navigation">
