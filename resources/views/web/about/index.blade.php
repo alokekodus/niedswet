@@ -16,7 +16,7 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{route('site.home')}}">Home</a> > About Us</p>
+                <p><a href="{{ route('site.home') }}">Home</a> > About Us</p>
             </div>
             <div class="title">
                 <h1 class="header_title">About Us</h1>
@@ -31,23 +31,24 @@
                     <img src="{{ asset('web_assets/images/images/about.png') }}" alt="About us">
                 </div>
                 <div class="col-md-6 rightBlock">
-                    <p class="text-12">Ante nunc porta tristique odio id. Libero est fermentum, ut eu odio ut. Ut id
-                        pretium turpis vestibulum dictum molestie elit habitant integer. Ultricies platea
-                        dictum congue quis tortor enim lacus facilisi turpis. Turpis cursus cursus sed
-                        dictum arcu id fringilla euismod. In pretium, placerat ipsum et sit. Blandit urna
-                        cursus suspendisse fames venenatis venenatis. Consequat, est at fermentum
-                        tortor, nunc egestas ante nulla habitant. Urna morbi viverra luctus porttitor
-                        volutpat et dolor. Cras praesent tellus, platea non suscipit ac pulvinar venenatis.
-                        Gravida ullamcorper cursus tempor justo et etiam commodo. Rhoncus, nisl,
-                        lorem turpis odio tristique enim sagittis quis scelerisque. Maecenas faucibus
-                        gravida tempor, sit leo dui arcu et. Nec vitae urna lorem volutpat non porttitor
-                        amet. Porta sagittis, ipsum augue varius laoreet ultricies malesuada dignissim
-                        cursus. Congue rhoncus lacinia eu eget. Tincidunt eros, pretium porttitor nec in
-                        augue. Velit morbi parturient sed eget eros, nibh a interdum dolor. Odio magnis
-                        feugiat vestibulum erat eget nibh suspendisse. Ullamcorper diam velit risus
-                        amet, nunc orci sed faucibus cras. Porttitor faucibus nulla enim lobortis laoreet
-                        potenti. Mauris, quisque erat posuere vestibulum, aliquam praesent euismod
-                        condimentum.</p>
+                    <p class="text-12">Northeast India Education and Social Welfare Trust, also known as NIEDSWET,
+                        was established on 15th October 1998. It is a non-profitable organization situated
+                        in Jorhat. Dr. Nobin Chandra Bordoloi was one of the founding members of this
+                        trust. Although Ophthalmologist by profession, he took interest in culture and
+                        literature and was a philanthropist at heart. His inclination to serve humanity
+                        got him involved with charitable work for social and education welfare. He was
+
+                        followed by his family members and simultaneously got the attention of like-
+                        minded individuals to contribute to the same. As a result, this trust came into
+
+                        existence, which was meant for a common cause, in a not-for-profit motive, and
+                        only with a vision to serve the betterment of the society. In a nutshell, the
+                        members of the trust are dedicated to creating an environment with the aim of
+                        providing facilities for community welfare service, especially for people
+                        belonging to rural areas of the Northeastern region, with a particular focus
+                        around Jorhat district. It emphasizes establishing centers for the development of
+                        the education sectors and preservation of the Assamese language and its
+                        culture by establishing a fund for serving these areas.</p>
                 </div>
             </div>
         </div>
@@ -59,21 +60,16 @@
                 {{-- Mission --}}
                 <div class="col-md-6 mb-3">
                     <div class="mission">
-                        <div class="leftBlock">
-                            <p class="title">Mission</p>
+                        <div class="leftBlock text-center">
+                            <h4 class="title fw-bold"><u>Mission</u></h4>
                             <p class="text-12">
-                                Posuere porttitor cursus eros tempor
-                                aliquam, ut nec sagittis. Mi, donec
-                                faucibus cursus varius scelerisque
-                                congue. Ut tortor fames sem odio
-                                elementum sociis adipiscing
-                                accumsan, tortor. Diam pharetra
-                                enim rutrum elit libero mauris.
-                            </p>
-                        </div>
+                                Striving to work for the upliftment of people associated with educational
+                                institutions and social organizations started by the Bordoloi family in the Jorhat
+                                district. It endeavors to promote the language and culture of the Assamese people.
+                                The goal of prosperity is carried forward through means of aid, support, and
 
-                        <div class="rightBlock">
-                            <img src="{{ asset('web_assets/images/Vectors/mission.png') }}" alt="Mission">
+                                counseling for the respective institutes and organizations.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -81,21 +77,13 @@
                 {{-- Vision --}}
                 <div class="col-md-6">
                     <div class="vision">
-                        <div class="leftBlock">
-                            <p class="title">Vision</p>
+                        <div class="leftBlock text-center">
+                            <h4 class="title fw-bold"><u>Vision</u></h4>
                             <p class="text-12">
-                                Posuere porttitor cursus eros tempor
-                                aliquam, ut nec sagittis. Mi, donec
-                                faucibus cursus varius scelerisque
-                                congue. Ut tortor fames sem odio
-                                elementum sociis adipiscing
-                                accumsan, tortor. Diam pharetra
-                                enim rutrum elit libero mauris.
+                                To establish a society of equals by developing sections that require assistance and
+                                encourage the families of similar vision to initiate their possible means of
+                                contributing to the prosperity of the Assamese people and culture.
                             </p>
-                        </div>
-
-                        <div class="rightBlock">
-                            <img src="{{ asset('web_assets/images/Vectors/vision.png') }}" alt="Mission">
                         </div>
                     </div>
                 </div>
@@ -111,7 +99,7 @@
                 @for ($i = 0; $i < 5; $i++)
                     @include('web.common.singleMember')
                 @endfor
-                
+
             </div>
         </div>
 

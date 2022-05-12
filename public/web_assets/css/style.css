@@ -415,20 +415,6 @@ footer .left-block {
     width: 100%;
 }
 
-.mission-vision .mission,
-.mission-vision .vision {
-    display: flex;
-    box-shadow: 0px 0px 50px var(--bg-gray);
-    border-radius: 10px;
-    padding: 30px 20px;
-}
-
-.mission-vision .mission .title,
-.mission-vision .vision .title {
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-
 .members {
     display: flex;
     flex-wrap: wrap;
