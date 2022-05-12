@@ -16,7 +16,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item">
+        <li class="menu-item {{ Request::routeIs('admin.index') ? 'active' : '' }}">
             <a href="{{ route('admin.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -65,7 +65,7 @@
         </li>
 
         <!-- Gallery -->
-        <li class="menu-item">
+        <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}">
             <a href="{{ route('admin.gallery.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Gallery</div>
