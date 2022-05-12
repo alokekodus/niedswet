@@ -14,7 +14,7 @@ class GalleryController extends Controller
     //
     public function index()
     {
-        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
         return view('admin.gallery.index')->with($data);
     }
 

@@ -45,6 +45,8 @@
             @endforelse
         </div>
 
+        {{ $images->links() }}
+
         {{-- Upload gallery images Modal --}}
         <div class="modal fade" id="uploadGalleryImageModal" data-bs-backdrop="static" tabindex="-1"
             style="display: none;" aria-hidden="true">

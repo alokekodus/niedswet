@@ -134,30 +134,26 @@
 
     <!-- Gallery -->
     <section class="gallery">
-        <h4 class="text-center fw-bold">Gallery</h4>
-        <div class="photos">
-            <h4 class="text-center mt-4">Photos</h4>
-            <div class="container">
-                <div class="gallery-carousel owl-carousel owl-theme">
-                    <div class="item">
-                        <a href="{{ asset('web_assets/images/images/gallery1.png') }}"><img
-                                src="{{ asset('web_assets/images/images/gallery1.png') }}" alt="Gallery"></a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ asset('web_assets/images/images/gallery2.png') }}"><img
-                                src="{{ asset('web_assets/images/images/gallery2.png') }}" alt="Gallery"></a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ asset('web_assets/images/images/gallery3.png') }}"><img
-                                src="{{ asset('web_assets/images/images/gallery3.png') }}" alt="Gallery"></a>
+        @if ($images->count() != 0)
+            <h4 class="text-center fw-bold">Gallery</h4>
+            <div class="photos">
+                <h4 class="text-center mt-4">Photos</h4>
+                <div class="container">
+                    <div class="gallery-carousel owl-carousel owl-theme">
+                        @foreach ($images as $item)
+                            <div class="item">
+                                <a href="{{ asset($item->image) }}"><img src="{{ asset($item->image) }}"
+                                        alt="Gallery"></a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+                <div class="navigation">
+                    <div class="customPrevBtnGallery arrow"><i class="fa-solid fa-angle-left"></i></div>
+                    <div class="customNextBtnGallery arrow"><i class="fa-solid fa-angle-right"></i></div>
+                </div>
             </div>
-            <div class="navigation">
-                <div class="customPrevBtnGallery arrow"><i class="fa-solid fa-angle-left"></i></div>
-                <div class="customNextBtnGallery arrow"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
-        </div>
+        @endif
 
         <!-- Videos -->
         <div class="videos">
@@ -206,7 +202,7 @@
                                     {{ $item->title }}
                                 </p>
                                 <p class="postTime">{{ date('F j, Y', strtotime($item->created_at)) }}</p>
-                                <p><span class="badge bg-success">{{$item->Category->category}}</span></p>
+                                <p><span class="badge bg-success">{{ $item->Category->category }}</span></p>
                                 <p class="info">{{ Str::limit(strip_tags($item->description), 200, '...') }}
                                 </p>
                                 <p class="text-end readMore"><a

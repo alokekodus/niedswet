@@ -29,16 +29,17 @@
         <div class="container mt-3">
             <div class="images">
                 <div class="row">
-                    @for ($i = 1; $i < 4; $i++)
+                    @forelse ($images as $item)
                         <div class="col-md-4 mb-3">
-                            <a href="{{ asset('web_assets/images/gallery/gallery' . $i . '.png') }}"><img
-                                    class="thumbnail"
-                                    src="{{ asset('web_assets/images/gallery/gallery' . $i . '.png') }}"
-                                    alt="Gallery Image"></a>
+                            <a href="{{ asset($item->image) }}"><img class="thumbnail"
+                                    src="{{ asset($item->image) }}" alt="Gallery Image"></a>
                         </div>
-                    @endfor
+                    @empty
+                        <p>*No image found</p>
+                    @endforelse
                 </div>
             </div>
+            {{$images->links()}}
         </div>
     </section>
 @endsection

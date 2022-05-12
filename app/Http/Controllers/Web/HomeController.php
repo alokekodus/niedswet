@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
+        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
         return view('web.index')->with($data);
     }
 
@@ -38,7 +40,8 @@ class HomeController extends Controller
 
     public function galleryImage()
     {
-        return view('web.gallery.images');
+        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
+        return view('web.gallery.images')->with($data);
     }
 
     public function blogs($id = null)
