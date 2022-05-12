@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
 use App\Models\Gallery;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
@@ -20,6 +21,7 @@ class HomeController extends Controller
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
+        $data['testimonials'] = Testimonial::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
         return view('web.index')->with($data);
     }
 

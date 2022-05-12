@@ -218,30 +218,32 @@
     @endif
 
     {{-- Testimonials --}}
-    <section class="testimonials">
-        <h4 class="text-center fw-bold mb-5">Testimonials</h4>
-        <div class="testimonial-carousel owl-carousel owl-theme">
-            @for ($i = 1; $i < 5; $i++)
+    @if ($testimonials->count() != null)
+        <section class="testimonials">
+            <h4 class="text-center fw-bold mb-5">Testimonials</h4>
+            <div class="testimonial-carousel owl-carousel owl-theme">
+                @foreach ($testimonials as $item)
                 <div class="item">
                     <div class="single bg-gray p-3 py-5">
                         <div class="image">
-                            <img src="{{ asset('web_assets/images/testimonials/testi1.png') }}" alt="">
+                            <img src="{{ asset($item->image) }}" alt="">
                         </div>
                         <div class="details">
                             <img src="{{ asset('web_assets/images/Icons/bi_quote.png') }}" alt="">
-                            <p class="text-center px-3 mb-0 text-12">{{ $i }} Semper libero, porta nunc varius
-                                eros senectus. Nunc, leo facilisis dictum sed turpis vestibulum, adipiscing donec. Cursus
-                                pharetra libero, tellus egestas.</p>
+                            <p class="text-center px-3 text-12">{{$item->message}}</p>
+                            <p class="text-center fw-bold text-uppercase px-3 mb-0">{{$item->name}}</p>
                         </div>
                     </div>
                 </div>
-            @endfor
-        </div>
-        <div class="navigation">
-            <div class="customPrevBtnNavigation arrow"><i class="fa-solid fa-angle-left"></i></div>
-            <div class="customNextBtnNavigation arrow"><i class="fa-solid fa-angle-right"></i></div>
-        </div>
-    </section>
+                @endforeach
+            </div>
+            <div class="navigation">
+                <div class="customPrevBtnNavigation arrow"><i class="fa-solid fa-angle-left"></i></div>
+                <div class="customNextBtnNavigation arrow"><i class="fa-solid fa-angle-right"></i></div>
+            </div>
+        </section>
+    @endif
+
 
     <!-- Milestones -->
     <section class="milestones">

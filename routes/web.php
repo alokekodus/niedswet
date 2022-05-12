@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,10 +66,20 @@ Route::prefix('admin')->group(function () {
             });
         });
 
+        // Gallery
         Route::prefix('gallery')->group(function () {
             Route::get('', [GalleryController::class, 'index'])->name('admin.gallery.index');
             Route::post('upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
             Route::post('delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
+        });
+
+        // Testimonial
+        Route::prefix('testimonial')->group(function () {
+            Route::get('', [TestimonialController::class, 'index'])->name('admin.testimonial.index');
+            Route::post('add', [TestimonialController::class, 'add'])->name('admin.testimonial.add');
+            Route::post('get-data', [TestimonialController::class, 'getData'])->name('admin.testimonial.getdata');
+            Route::post('update', [TestimonialController::class, 'update'])->name('admin.testimonial.update');
+            Route::post('delete', [TestimonialController::class, 'delete'])->name('admin.testimonial.delete');
         });
 
         // Logout

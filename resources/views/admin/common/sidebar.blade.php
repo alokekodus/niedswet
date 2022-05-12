@@ -67,8 +67,16 @@
         <!-- Gallery -->
         <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}">
             <a href="{{ route('admin.gallery.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class='menu-icon bx bx-images'></i>
                 <div data-i18n="Analytics">Gallery</div>
+            </a>
+        </li>
+        
+        <!-- Testimonial -->
+        <li class="menu-item {{ Request::routeIs('admin.testimonial.index') ? 'active' : '' }}">
+            <a href="{{ route('admin.testimonial.index') }}" class="menu-link">
+                <i class='menu-icon bx bxs-star'></i>
+                <div data-i18n="Analytics">Testimonial</div>
             </a>
         </li>
 
