@@ -56,7 +56,7 @@ class BlogController extends Controller
             $document->move(public_path('uploads/blog/'), $new_name);
             $file = 'uploads/blog/' . $new_name;
         } else {
-            return response()->json(["message" => "Image ot found", "status" => 422]);
+            return response()->json(["message" => "Image not found", "status" => 422]);
         }
         $create = Blog::create([
             'title' => $request->blog_title,

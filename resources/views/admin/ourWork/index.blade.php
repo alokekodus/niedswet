@@ -34,26 +34,32 @@
     <div class="container-xxl flex-grow-1">
         <div class="col-lg-12 mb-4 order-0">
             <div class="row mb-5">
-                <div class="col-md-6 col-xl-4">
-                    <div class="card mb-3">
-                        <img class="card-img-top"
-                            src="https://images.unsplash.com/photo-1593240637899-5fc06c754c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=394&q=80"
-                            alt="Featured image">
-                        <div class="card-body">
-                            <a target="_blank" href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }} ">
-                                <h5 class="card-title">Gate of Dr. Nobin Bordoloi College</h5>
-                            </a>
-                            <p class="card-text">
-                                <small class="text-muted">Posted 3 days ago</small>
-                            </p>
-                            <a href="{{ route('admin.ourwork.edit', ['id' => Crypt::encrypt(1)]) }}"
-                                class="btn btn-primary">Edit</a>
-                            <button class="btn btn-danger deleteOurWorkBtn"
-                                data-id="{{ Crypt::encrypt(1) }}">Delete</button>
+                @forelse ($works as $item)
+                    <div class="col-md-6 col-xl-4">
+                        <div class="card mb-3">
+                            <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
+                            <div class="card-body">
+                                <a target="_blank"
+                                    href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }} ">
+                                    <h5 class="card-title">{{ $item->work_title }}</h5>
+                                </a>
+                                <p class="card-text">
+                                    <small class="text-muted">Posted {{ $item->created_at->diffForHumans() }}
+                                        ago</small>
+                                </p>
+                                <a href="{{ route('admin.ourwork.edit', ['id' => Crypt::encrypt($item->id)]) }}"
+                                    class="btn btn-primary">Edit</a>
+                                <button class="btn btn-danger deleteOurWorkBtn"
+                                    data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <p>*No data found</p>
+                @endforelse
             </div>
+
+            {{ $works->links() }}
         </div>
     </div>
 

@@ -19,7 +19,10 @@
                     <form id="addOurWorkForm">
                         <div class="mb-3">
                             <label class="form-label" for="work_title">Work title<sup>*</sup></label>
-                            <input type="text" class="form-control" id="work_title" name="work_title">
+                            <input type="hidden" class="form-control" id="work_id" name="work_id"
+                                value="{{ Crypt::encrypt($work->id) }}">
+                            <input type="text" class="form-control" id="work_title" name="work_title"
+                                value="{{ $work->work_title }}">
                         </div>
 
                         <div class="mb-3">
@@ -29,7 +32,9 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="work_description">Work Description<sup>*</sup></label>
-                            <textarea class="form-control" id="work_description" name="work_description" rows="3"></textarea>
+                            <textarea class="form-control" id="work_description" name="work_description" rows="3">
+                                {{ $work->work_details }}
+                            </textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="createOurWorkBtn">Update</button>
@@ -91,6 +96,9 @@
             acceptedFileTypes: ['image/*'],
             labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
             labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
+            files: [{
+                source: "{{ asset($work->image) }}",
+            }]
         });
     </script>
 
