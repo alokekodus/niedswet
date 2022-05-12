@@ -24,6 +24,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('site.ourwork') ? 'active' : '' }}"
+                        href="{{ route('site.ourwork') }}">Our work</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('site.events') ? 'active' : '' }}"
                         href="{{ route('site.events') }}">Events</a>
                 </li>

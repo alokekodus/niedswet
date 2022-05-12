@@ -29,7 +29,6 @@
     </section>
 
     <section class="container blogs">
-        <h4 class="text-center fw-bold">Blogs</h4>
         <div class="container">
             <div class="row">
                 @forelse ($blogs as $item)

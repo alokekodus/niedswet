@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 Route::get('', [HomeController::class, 'index'])->name('site.home');
 Route::get('about-niedswet', [HomeController::class, 'aboutUs'])->name('site.about');
 Route::get('our-team', [HomeController::class, 'ourTeam'])->name('site.about.team');
+Route::get('our-work/{id?}', [HomeController::class, 'ourWork'])->name('site.ourwork');
 Route::get('events', [HomeController::class, 'events'])->name('site.events');
 Route::get('gallery/images', [HomeController::class, 'galleryImage'])->name('site.gallery.image');
 Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');

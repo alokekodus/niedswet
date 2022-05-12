@@ -30,6 +30,15 @@ class HomeController extends Controller
         return view('web.about.index');
     }
 
+    public function ourWork($id = null){
+        if (!$id) {
+            return view('web.ourWork.index');
+        } else{
+            return view('web.ourWork.details');
+        }
+        
+    }
+
     public function ourTeam()
     {
         return view('web.about.ourTeam');
