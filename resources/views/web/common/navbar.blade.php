@@ -39,6 +39,9 @@
                     <a class="nav-link {{ Request::routeIs('site.blogs') ? 'active' : '' }}"
                         href="{{ route('site.blogs') }}">Blog</a>
                 </li>
+                <li class="nav-item">
+                    <button class="btn btn-donate">Donate Now</button>
+                </li>
             </ul>
         </div>
     </div>

@@ -8,9 +8,10 @@
             background: url('/web_assets/images/header/blog.png');
         }
 
-        .link {
+        .link{
             text-decoration: none;
-            color: rgb(44, 44, 44);
+            color: black;
+            font-size: 12px
         }
 
         .card-img-top {
@@ -35,28 +36,28 @@
     </section>
 
     <section class="container my-5">
-        <div class="container">
-            <div class="row mb-4">
-                @forelse ($works as $item)
-                    <div class="col-md-4">
-                        <div class="single">
-                            <div class="shadow p-3 rounded">
-                                <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
-                                <div class="card-body">
+        <div class="row mb-4">
+            @forelse ($works as $item)
+                <div class="col-md-4 mb-3">
+                    <div class="single">
+                        <div class="shadow p-3 rounded">
+                            <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ $item->work_title }}</h5>
+                                <div class="text-end">
                                     <a class="link"
-                                        href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">
-                                        <h5 class="card-title text-center mb-0">{{ $item->work_title }}</h5>
-                                    </a>
+                                        href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">Read More
+                                        <i class="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @empty
-                    <p>*No data found</p>
-                @endforelse
-            </div>
-            {{ $works->links() }}
+                </div>
+            @empty
+                <p>*No data found</p>
+            @endforelse
         </div>
+        {{ $works->links() }}
     </section>
 @endsection
 

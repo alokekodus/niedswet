@@ -8,8 +8,8 @@
                 <div class="col-sm-3">
                     <div class="information d-flex flex-column">
                         <p>Information</p>
-                        <a href="#">About Us</a>
-                        <a href="#">Gallery</a>
+                        <a href="{{ route('site.about') }}">About Us</a>
+                        <a href="{{ route('site.gallery.image') }}">Gallery</a>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms & Conditions</a>
                         <a href="#">Careers</a>
@@ -21,7 +21,7 @@
                     <div class="what-we-do d-flex flex-column">
                         <p>What We Do</p>
                         <a href="#">Campaign</a>
-                        <a href="#">Events</a>
+                        <a href="{{ route('site.events') }}">Events</a>
                         <a href="#">Services</a>
                         <a href="#">Awards</a>
                         <a href="#">Milestones</a>
@@ -31,8 +31,8 @@
                 <div class="col-sm-3">
                     <div class="resources d-flex flex-column">
                         <p>Resources</p>
-                        <a href="#">Gallery</a>
-                        <a href="#">Blog</a>
+                        <a href="{{ route('site.gallery.image') }}">Gallery</a>
+                        <a href="{{ route('site.blogs') }}">Blog</a>
                         <a href="#">Media</a>
                         <a href="#">Newsletter</a>
                     </div>

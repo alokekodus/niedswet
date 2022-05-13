@@ -38,7 +38,17 @@
     <script src="{{ asset('vendor/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('vendor/magnific/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('web_assets/js/main.js') }}"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('.btn-donate').on('click', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Currently we are not accepting online donation',
+            })
+        });
+    </script>
     @yield('customJS')
 </body>
 
