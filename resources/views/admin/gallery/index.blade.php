@@ -1,6 +1,6 @@
 @extends('admin.common.main')
 
-@section('title', 'NIEDSWET | Dashboard')
+@section('title', 'NIEDSWET | Gallery')
 
 @section('customHeader')
     <style>
@@ -12,7 +12,7 @@
     </style>
 @endsection
 
-@section('page_title', 'Gallery')
+@section('page_title', 'Photos')
 
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">

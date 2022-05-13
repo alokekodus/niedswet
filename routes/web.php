@@ -27,7 +27,8 @@ Route::get('about-niedswet', [HomeController::class, 'aboutUs'])->name('site.abo
 Route::get('our-team', [HomeController::class, 'ourTeam'])->name('site.about.team');
 Route::get('our-work/{id?}', [HomeController::class, 'ourWork'])->name('site.ourwork');
 Route::get('events', [HomeController::class, 'events'])->name('site.events');
-Route::get('gallery/images', [HomeController::class, 'galleryImage'])->name('site.gallery.image');
+Route::get('gallery/photos', [HomeController::class, 'galleryImage'])->name('site.gallery.image');
+Route::get('gallery/videos', [HomeController::class, 'galleryVideos'])->name('site.gallery.video');
 Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');
 Route::post('contact', [HomeController::class, 'contactForm'])->name('site.contact');
 
@@ -70,9 +71,11 @@ Route::prefix('admin')->group(function () {
 
         // Gallery
         Route::prefix('gallery')->group(function () {
-            Route::get('', [GalleryController::class, 'index'])->name('admin.gallery.index');
-            Route::post('upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
-            Route::post('delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
+            Route::get('photos', [GalleryController::class, 'index'])->name('admin.gallery.index');
+            Route::post('photos/upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
+            Route::post('photos/delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
+
+            Route::get('videos', [GalleryController::class, 'video'])->name('admin.gallery.video.index');
         });
 
         // Our work

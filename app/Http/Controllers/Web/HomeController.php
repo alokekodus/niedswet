@@ -60,6 +60,11 @@ class HomeController extends Controller
         return view('web.gallery.images')->with($data);
     }
 
+    public function galleryVideos()
+    {
+        return view('web.gallery.videos');
+    }
+
     public function blogs($id = null)
     {
         if (!$id) {

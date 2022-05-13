@@ -192,7 +192,7 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="#" class="btn view-all">View All</a>
+            <button onClick="location.href='#'" class="btn view-all">View All</button>
         </div>
     </section>
 

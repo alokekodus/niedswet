@@ -65,17 +65,31 @@
         </li>
 
         <!-- Gallery -->
-        <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}">
-            <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+        <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bx-images'></i>
-                <div data-i18n="Analytics">Gallery</div>
+                <div>Gallery</div>
             </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+                        <div>Photos</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::routeIs('admin.gallery.video.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.gallery.video.index') }}" class="menu-link">
+                        <div>Videos</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <!-- Our work -->
-        <li class="menu-item {{ Request::routeIs('admin.ourwork.index') || Request::routeIs('admin.ourwork.create') || Request::routeIs('admin.ourwork.edit') ? 'active' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('admin.ourwork.index') || Request::routeIs('admin.ourwork.create') || Request::routeIs('admin.ourwork.edit') ? 'active' : '' }}">
             <a href="{{ route('admin.ourwork.index') }}" class="menu-link">
-                <i class='menu-icon bx bx-task' ></i>
+                <i class='menu-icon bx bx-task'></i>
                 <div data-i18n="Analytics">Our work</div>
             </a>
         </li>

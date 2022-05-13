@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
-    //
+    // Photos
     public function index()
     {
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
@@ -71,5 +71,10 @@ class GalleryController extends Controller
         $old_image = $image->image;
         File::delete($old_image);
         return response()->json(["message" => "Image deleted successfully", "status" => 200]);
+    }
+
+    // Videos
+    public function video(){
+        return view('admin.gallery.video');
     }
 }

@@ -31,9 +31,15 @@
                     <a class="nav-link {{ Request::routeIs('site.events') ? 'active' : '' }}"
                         href="{{ route('site.events') }}">Events</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('site.gallery.image') ? 'active' : '' }}"
-                        href="{{ route('site.gallery.image') }}">Gallery</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ Request::routeIs('site.gallery.image') ? 'active' : '' }}" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gallery
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item text-12 {{ Request::routeIs('site.gallery.image') ? 'active' : '' }}" href="{{ route('site.gallery.image') }}">Photos</a></li>
+                        <li><a class="dropdown-item text-12 {{ Request::routeIs('site.gallery.video') ? 'active' : '' }}" href="{{ route('site.gallery.video') }}">Videos</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('site.blogs') ? 'active' : '' }}"
