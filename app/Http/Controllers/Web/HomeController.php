@@ -12,6 +12,8 @@ use App\Models\Testimonial;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -85,14 +87,56 @@ class HomeController extends Controller
 
     public function contactForm(Request $request)
     {
-        return response()->json(['status' => 'success', 'result' => 1, 'message' => 'Form submitted successfully']);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'fname' => 'required|max:255',
+                'lname' => 'required|max:255',
+                'phone' => 'required|numeric|digits:10',
+                'email' => 'required|email',
+                'message' => 'required',
+            ],
+            [
+                'fname.required' => 'Please enter your first name',
+                'fname.max' => 'First name can not exceed 255 characters',
+                'lname.required' => 'Please enter your last name',
+                'lname.max' => 'Last name can not exceed 255 characters',
+                'phone.required' => 'Please enter your phone number',
+                'phone.numeric' => 'Please enter valid phone number',
+                'phone.digits' => 'Please enter 10 digit phone number',
+                'email.required' => 'Please enter your email',
+                'email.email' => 'Please enter valid email',
+                'message.required' => 'Please enter your message',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
+        $details = [
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'message' => $request->message,
+        ];
+
+        Mail::to(env('MAIL_TO'))->send(new \App\Mail\ContactMail($details));
+        if (Mail::failures()) {
+            return response()->json(["message" => "Mail not sent!", "status" => 400]);
+        } else {
+            return response()->json(["message" => "Message sent successfully.", "status" => 200]);
+        }
     }
 
-    public function privacy(){
+    public function privacy()
+    {
         return view('web.documents.privacy');
     }
 
-    public function terms(){
+    public function terms()
+    {
         return view('web.documents.terms');
     }
 }

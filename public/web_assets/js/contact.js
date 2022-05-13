@@ -45,31 +45,39 @@ $("#contactForm").validate({
     },
     submitHandler: function (form, e) {
         e.preventDefault();
-        $('#submitBtn').text('Sending...');
-        $('#submitBtn').attr('disabled', true);
-        let data = new FormData();
+        $("#submitBtn").text("Sending...");
+        $("#submitBtn").attr("disabled", true);
+        let data = new FormData(form);
         let url = "contact";
-        console.log(url);
+        console.log(data);
         $.ajax({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            cache: false,
-            dataType: "json",
-            method: "post",
+            type: "post",
             url: url,
             data: data,
+            cache: false,
             processData: false,
+            contentType: false,
             success: function (data) {
-                if (data.result === 1) {
-                    $('#submitBtn').text('Send');
-                    $('#submitBtn').attr('disabled', false);
+                if (data.status === 200) {
+                    $("#submitBtn").text("Send");
+                    $("#submitBtn").attr("disabled", false);
                     $("#contactForm")[0].reset();
-                    toastr[data.status](data.message);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: data.message,
+                    });
                 } else {
-                    $('#submitBtn').text('Send');
-                    $('#submitBtn').attr('disabled', false);
-                    toastr[data.status](data.message);
+                    $("#submitBtn").text("Send");
+                    $("#submitBtn").attr("disabled", false);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops!",
+                        text: data.message,
+                    });
                 }
             },
         });

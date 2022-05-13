@@ -38,9 +38,7 @@ Route::get('terms-and-conditions', [HomeController::class, 'terms'])->name('site
 
 
 Route::prefix('admin')->group(function () {
-
     Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('admin.login');
-
 
     // Authenticated routes
     Route::middleware(['auth'])->group(function () {
