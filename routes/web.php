@@ -76,6 +76,9 @@ Route::prefix('admin')->group(function () {
             Route::post('photos/delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
 
             Route::get('videos', [GalleryController::class, 'video'])->name('admin.gallery.video.index');
+            Route::post('videos/upload', [GalleryController::class, 'addVideo'])->name('admin.gallery.video.add');
+            Route::post('videos/update', [GalleryController::class, 'updateVideo'])->name('admin.gallery.video.update');
+            Route::post('videos/delete', [GalleryController::class, 'deleteVideo'])->name('admin.gallery.video.delete');
         });
 
         // Our work

@@ -84,7 +84,7 @@
                         <div class="mb-3">
                             <label for="galleryImage" class="form-label">Youtube link</label>
                             <input type="hidden" class="form-control" id="link_id" name="link_id" required>
-                            <input type="text" class="form-control" id="edit_youtube_link" name="edit_youtube_link">                            
+                            <input type="text" class="form-control" id="edit_youtube_link" name="edit_youtube_link">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -105,6 +105,180 @@
             const video_id = $(this).data('id');
             $('#link_id').val(video_id);
             $('#editVideoLinkModal').modal('toggle');
+        })
+    </script>
+
+    {{-- Add video --}}
+    <script>
+        $('#addVideoLinkForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let btn = $('#addVideoLinkBtn');
+            let modal = $('#addVideoLinkModal');
+            let actionUrl = "{{ route('admin.gallery.video.add') }}";
+            btn.text('Please wait...');
+            btn.attr('disabled', true);
+            let formData = new FormData(this);
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data.status === 200) {
+                        btn.text('Upload');
+                        btn.attr('disabled', false);
+                        modal.modal('toggle');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.message,
+                        }).then(() => {
+                            window.location.reload(true);
+                        })
+                    } else {
+                        btn.text('Upload');
+                        btn.attr('disabled', false);
+                        modal.modal('toggle');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops!',
+                            text: data.message,
+                        })
+                    }
+                },
+                error: function(data) {
+                    btn.text('Upload');
+                    btn.attr('disabled', false);
+                    modal.modal('toggle');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops!',
+                        text: 'Server error',
+                    })
+                }
+            });
+        })
+    </script>
+
+    {{-- Update video --}}
+    <script>
+        $('#editVideoLinkForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let btn = $('#updateVideoLinkBtn');
+            let modal = $('#editVideoLinkModal');
+            let actionUrl = "{{ route('admin.gallery.video.update') }}";
+            btn.text('Please wait...');
+            btn.attr('disabled', true);
+            let formData = new FormData(this);
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data.status === 200) {
+                        btn.text('Upload');
+                        btn.attr('disabled', false);
+                        modal.modal('toggle');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.message,
+                        }).then(() => {
+                            window.location.reload(true);
+                        })
+                    } else {
+                        btn.text('Upload');
+                        btn.attr('disabled', false);
+                        modal.modal('toggle');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops!',
+                            text: data.message,
+                        })
+                    }
+                },
+                error: function(data) {
+                    btn.text('Upload');
+                    btn.attr('disabled', false);
+                    modal.modal('toggle');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops!',
+                        text: 'Server error',
+                    })
+                }
+            });
+        })
+    </script>
+
+    {{-- Delete image --}}
+    <script>
+        $('.deleteBtn').on('click', function() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let id = $(this).data('id');
+                    let btn = $(this);
+                    let actionUrl = "{{ route('admin.gallery.video.delete') }}";
+                    let formData = {
+                        id: id
+                    }
+                    btn.text('Please wait...');
+                    btn.attr('disabled', true);
+
+                    $.ajax({
+                        type: "POST",
+                        url: actionUrl,
+                        data: formData,
+                        success: function(data) {
+                            if (data.status === 200) {
+                                btn.text('Delete');
+                                btn.attr('disabled', false);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: data.message,
+                                }).then(() => {
+                                    window.location.reload(true);
+                                })
+                            } else {
+                                btn.text('Delete');
+                                btn.attr('disabled', false);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops!',
+                                    text: data.message,
+                                })
+                            }
+                        },
+                        error: function(data) {
+                            btn.text('Delete');
+                            btn.attr('disabled', false);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops!',
+                                text: 'Server error',
+                            })
+                        }
+                    });
+                }
+            })
         })
     </script>
 @endsection

@@ -38,7 +38,7 @@ class GalleryController extends Controller
         if ($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
         }
-        
+
         if ($request->hasFile('attachment')) {
             foreach ($request->attachment as $key => $value) {
                 $new_name = date('d-m-Y-H-i-s') . '_' . $value->getClientOriginalName();
@@ -74,7 +74,23 @@ class GalleryController extends Controller
     }
 
     // Videos
-    public function video(){
+    public function video()
+    {
         return view('admin.gallery.video');
+    }
+
+    public function addVideo(Request $request)
+    {
+        return response()->json(["message" => "Video added successfully", "status" => 200]);
+    }
+
+    public function updateVideo(Request $request)
+    {
+        return response()->json(["message" => "Video updated successfully", "status" => 200]);
+    }
+
+    public function deleteVideo(Request $request)
+    {
+        return response()->json(["message" => "Video deleted successfully", "status" => 200]);
     }
 }
