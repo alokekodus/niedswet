@@ -32,7 +32,7 @@
                         href="{{ route('site.events') }}">Events</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ Request::routeIs('site.gallery.image') ? 'active' : '' }}" href="#"
+                    <a class="nav-link dropdown-toggle {{ Request::routeIs('site.gallery.image') || Request::routeIs('site.gallery.video') ? 'active' : '' }}" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Gallery
                     </a>

@@ -27,30 +27,21 @@
     <section class="photos my-5">
         <h4 class="text-center fw-bold">Videos</h4>
         <div class="container mt-3">
-            <div class="images">
+            <div class="images mb-3">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
+                    @forelse ($videos as $item)
+                        <div class="col-sm-4">
+                            <iframe width="100%" height="250" src="https://www.youtube.com/embed/{{ $item->video_id }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    @empty
+                        <p>*No videos found</p>
+                    @endforelse
                 </div>
             </div>
+            {{ $videos->links() }}
         </div>
     </section>
 @endsection

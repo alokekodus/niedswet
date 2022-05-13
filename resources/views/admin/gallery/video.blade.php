@@ -30,19 +30,25 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 col-lg-4 mb-3">
-                <div class="card h-100">
-                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="card-body">
-                        <button class="btn btn-primary editBtn" data-id="{{ Crypt::encrypt(1) }}">Edit</button>
-                        <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt(1) }}">Delete</button>
+            @forelse ($videos as $item)
+                <div class="col-md-4 col-lg-4 mb-3">
+                    <div class="card h-100">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/{{ $item->video_id }}"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <div class="card-body">
+                            <button class="btn btn-primary editBtn" data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
+                            <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @empty
+                <p>*No videos found</p>
+            @endforelse
         </div>
+
+        {{ $videos->links() }}
 
         {{-- Add video link Modal --}}
         <div class="modal fade" id="addVideoLinkModal" data-bs-backdrop="static" tabindex="-1" style="display: none;"
@@ -56,8 +62,8 @@
 
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="galleryImage" class="form-label">Youtube link</label>
-                            <input type="text" class="form-control" id="youtube_link" name="youtube_link" required>
+                            <label for="galleryImage" class="form-label">Youtube ID</label>
+                            <input type="text" class="form-control" id="video_id" name="video_id" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -82,9 +88,9 @@
 
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="galleryImage" class="form-label">Youtube link</label>
+                            <label for="galleryImage" class="form-label">Youtube ID</label>
                             <input type="hidden" class="form-control" id="link_id" name="link_id" required>
-                            <input type="text" class="form-control" id="edit_youtube_link" name="edit_youtube_link">
+                            <input type="text" class="form-control" id="edit_video_id" name="edit_video_id">
                         </div>
                     </div>
                     <div class="modal-footer">

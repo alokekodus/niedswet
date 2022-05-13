@@ -9,6 +9,7 @@ use App\Models\Carousel;
 use App\Models\Gallery;
 use App\Models\OurWork;
 use App\Models\Testimonial;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
@@ -22,6 +23,7 @@ class HomeController extends Controller
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
+        $data['videos'] = Video::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
         $data['testimonials'] = Testimonial::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
         $data['works'] = OurWork::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
         return view('web.index')->with($data);
@@ -62,7 +64,8 @@ class HomeController extends Controller
 
     public function galleryVideos()
     {
-        return view('web.gallery.videos');
+        $data['videos'] = Video::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+        return view('web.gallery.videos')->with($data);
     }
 
     public function blogs($id = null)

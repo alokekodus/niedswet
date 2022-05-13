@@ -65,7 +65,7 @@
         </li>
 
         <!-- Gallery -->
-        <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'open' : '' }}">
+        <li class="menu-item {{ Request::routeIs('admin.gallery.index') || Request::routeIs('admin.gallery.video.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bx-images'></i>
                 <div>Gallery</div>

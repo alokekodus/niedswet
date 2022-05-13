@@ -161,39 +161,35 @@
                     <div class="customNextBtnGallery arrow"><i class="fa-solid fa-angle-right"></i></div>
                 </div>
             </div>
+            <div class="text-center">
+                <button onClick="location.href='{{ route('site.gallery.image') }}'" class="btn view-all">View
+                    All</button>
+            </div>
         @endif
 
         <!-- Videos -->
-        <div class="videos">
-            <h4 class="text-center mt-5">Video</h4>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/eaU3ff3uVzw"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+        @if ($videos->count() != null)
+            <div class="videos">
+                <h4 class="text-center mt-5">Video</h4>
+                <div class="container">
+                    <div class="row">
+                        @foreach ($videos as $item)
+                            <div class="col-sm-4">
+                                <iframe width="100%" height="250"
+                                    src="https://www.youtube.com/embed/{{ $item->video_id }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center">
-            <button onClick="location.href='#'" class="btn view-all">View All</button>
-        </div>
+            <div class="text-center">
+                <button onClick="location.href='{{ route('site.gallery.video') }}'" class="btn view-all">View
+                    All</button>
+            </div>
+        @endif
     </section>
 
     <!-- Blog -->
