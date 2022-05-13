@@ -87,4 +87,12 @@ class HomeController extends Controller
     {
         return response()->json(['status' => 'success', 'result' => 1, 'message' => 'Form submitted successfully']);
     }
+
+    public function privacy(){
+        return view('web.documents.privacy');
+    }
+
+    public function terms(){
+        return view('web.documents.terms');
+    }
 }

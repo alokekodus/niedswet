@@ -10,8 +10,8 @@
                         <p>Information</p>
                         <a href="{{ route('site.about') }}">About Us</a>
                         <a href="{{ route('site.gallery.image') }}">Gallery</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
+                        <a href="{{ route('site.privacy') }}">Privacy Policy</a>
+                        <a href="{{ route('site.terms') }}">Terms & Conditions</a>
                         <a href="#">Contact Us</a>
                     </div>
                 </div>

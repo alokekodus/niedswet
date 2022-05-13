@@ -33,6 +33,10 @@ Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');
 Route::post('contact', [HomeController::class, 'contactForm'])->name('site.contact');
 
 
+Route::get('privacy-policy', [HomeController::class, 'privacy'])->name('site.privacy');
+Route::get('terms-and-conditions', [HomeController::class, 'terms'])->name('site.terms');
+
+
 Route::prefix('admin')->group(function () {
 
     Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('admin.login');
