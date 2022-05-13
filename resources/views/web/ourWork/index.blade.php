@@ -40,10 +40,10 @@
             @forelse ($works as $item)
                 <div class="col-md-4 mb-3">
                     <div class="single">
-                        <div class="shadow p-3 rounded">
+                        <div class="p-3">
                             <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
                             <div class="card-body">
-                                <h5 class="card-title text-center">{{ $item->work_title }}</h5>
+                                <h5 class="card-title">{{ $item->work_title }}</h5>
                                 <div class="text-end">
                                     <a class="link"
                                         href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">Read More

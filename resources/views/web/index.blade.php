@@ -5,10 +5,18 @@
 @section('customHeader')
     <link rel="stylesheet" href="{{ asset('vendor/jsToastr/toastr.min.css') }}">
     <style>
-        .ourWork .owl-carousel .owl-item img{
+        .ourWork .owl-carousel .owl-item img {
             height: 450px;
             object-fit: cover;
         }
+
+        .photos .owl-carousel .owl-item img {
+            object-fit: cover;
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+
     </style>
 @endsection
 
@@ -70,12 +78,12 @@
             <div class="col-sm-8 mx-auto">
                 <div class="work-carousel owl-carousel owl-theme">
                     @foreach ($works as $item)
-                    <div class="item">
-                        <div class="single">
-                            <img src="{{ asset($item->image) }}" alt="Our work">
-                            <p class="fw-bold mt-2">{{ $item->work_title }}.</p>
+                        <div class="item">
+                            <div class="single">
+                                <img src="{{ asset($item->image) }}" alt="Our work">
+                                <p class="fw-bold mt-2 text-center">{{ $item->work_title }}.</p>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

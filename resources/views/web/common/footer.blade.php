@@ -12,7 +12,6 @@
                         <a href="{{ route('site.gallery.image') }}">Gallery</a>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms & Conditions</a>
-                        <a href="#">Careers</a>
                         <a href="#">Contact Us</a>
                     </div>
                 </div>
@@ -20,10 +19,9 @@
                 <div class="col-sm-3">
                     <div class="what-we-do d-flex flex-column">
                         <p>What We Do</p>
-                        <a href="#">Campaign</a>
                         <a href="{{ route('site.events') }}">Events</a>
-                        <a href="#">Services</a>
-                        <a href="#">Awards</a>
+                        <a href="#">Our Work</a>
+                        <a href="#">Testimonial</a>
                         <a href="#">Milestones</a>
                     </div>
                 </div>
@@ -33,7 +31,6 @@
                         <p>Resources</p>
                         <a href="{{ route('site.gallery.image') }}">Gallery</a>
                         <a href="{{ route('site.blogs') }}">Blog</a>
-                        <a href="#">Media</a>
                         <a href="#">Newsletter</a>
                     </div>
                 </div>
