@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.card-title{
+.card-title {
     font-size: 1rem;
 }
 
@@ -98,7 +98,7 @@ body {
     transition: 0.3s all ease;
 }
 
-.navbar .nav-item .btn-donate:hover{
+.navbar .nav-item .btn-donate:hover {
     background-color: #111;
 }
 
@@ -563,6 +563,24 @@ footer .left-block {
     box-shadow: 1px 3px 5px rgb(170, 170, 170);
 }
 
+#newsletterModal .modal-content{
+    background-color: var(--secondary-green);
+    color: #fff;
+    border: none;
+}
+
+#newsletterModal .modal-header{
+    border-bottom: none;
+}
+
+#newsletterModal .modal-footer{
+    border-top: none;
+}
+
+#newsletterModal #newsletterForm .form-control[type="email"]{
+    height: 50px;
+}
+
 /* ------------------------------ Footer ------------------------- */
 
 footer .left-block img {
@@ -584,7 +602,7 @@ footer .right-block p {
 footer .right-block a {
     font-size: 12px;
     text-decoration: none;
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
 }
 

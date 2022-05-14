@@ -49,7 +49,6 @@ $("#contactForm").validate({
         $("#submitBtn").attr("disabled", true);
         let data = new FormData(form);
         let url = "contact";
-        console.log(data);
         $.ajax({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Web\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('gallery/photos', [HomeController::class, 'galleryImage'])->name('sit
 Route::get('gallery/videos', [HomeController::class, 'galleryVideos'])->name('site.gallery.video');
 Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');
 Route::post('contact', [HomeController::class, 'contactForm'])->name('site.contact');
+Route::post('subscribe-to-newsletter', [NewsletterController::class, 'submitNewsletter'])->name('site.subscribe.newsletter');
 
 
 Route::get('privacy-policy', [HomeController::class, 'privacy'])->name('site.privacy');

@@ -71,7 +71,7 @@
     </section>
 
     <!-- Our work -->
-    @if ($works != null)
+    @if ($works->count() != null)
         <section class="ourWork">
             <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
             <h4 class="text-center fw-bold mb-5">Our Work</h4>
