@@ -28,6 +28,7 @@ Route::get('about-niedswet', [HomeController::class, 'aboutUs'])->name('site.abo
 Route::get('our-team', [HomeController::class, 'ourTeam'])->name('site.about.team');
 Route::get('our-work/{id?}', [HomeController::class, 'ourWork'])->name('site.ourwork');
 Route::get('events', [HomeController::class, 'events'])->name('site.events');
+Route::get('gallery/album/{id?}', [HomeController::class, 'albums'])->name('site.gallery.album');
 Route::get('gallery/photos', [HomeController::class, 'galleryImage'])->name('site.gallery.image');
 Route::get('gallery/videos', [HomeController::class, 'galleryVideos'])->name('site.gallery.video');
 Route::get('blogs/{id?}', [HomeController::class, 'blogs'])->name('site.blogs');

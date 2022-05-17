@@ -58,6 +58,16 @@ class HomeController extends Controller
         return view('web.events.index');
     }
 
+    public function albums(Request $request, $id = null)
+    {
+        if (!$id) {
+            return view('web.gallery.albums');
+        } else {
+            $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
+            return view('web.gallery.images')->with($data);
+        }
+    }
+
     public function galleryImage()
     {
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
