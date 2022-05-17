@@ -93,7 +93,7 @@ class GalleryController extends Controller
     public function photos(Request $request, $id)
     {
         $dec_id = Crypt::decrypt($id);
-        $data['images'] = Gallery::where('album_id', $dec_id)->paginate(15);
+        $data['images'] = Gallery::where('album_id', $dec_id)->latest()->paginate(15);
         $data['album'] = Album::find($dec_id);
         return view('admin.gallery.photos')->with($data);
     }

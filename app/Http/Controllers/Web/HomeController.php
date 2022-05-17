@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
@@ -61,9 +62,11 @@ class HomeController extends Controller
     public function albums(Request $request, $id = null)
     {
         if (!$id) {
-            return view('web.gallery.albums');
+            $data['albums'] = Album::where('status', 1)->has('photos')->with('photos')->get();
+            return view('web.gallery.albums')->with($data);
         } else {
-            $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
+            $dec_id = Crypt::decrypt($id);
+            $data['images'] = Gallery::where(['status' => 1, 'album_id' => $dec_id])->orderBy('created_at', 'DESC')->paginate(15);
             return view('web.gallery.images')->with($data);
         }
     }

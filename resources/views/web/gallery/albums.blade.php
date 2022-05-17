@@ -57,20 +57,21 @@
         <div class="container mt-3">
             <div class="albums">
                 <div class="row">
-                    @for ($i = 0; $i < 10; $i++)
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ route('site.gallery.album', ['id' => Crypt::encrypt(1)]) }}">
-                            <div class="album">
-                                <img class="thumbnail"
-                                    src="{{ asset('uploads/gallery/12-05-2022-05-52-55_gallery1.png') }}"
-                                    alt="Gallery Image">
-                                <div class="album_title">
-                                    <h5 class="text-uppercase">Album name</h5>
+                    @forelse ($albums as $item)
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ route('site.gallery.album', ['id' => Crypt::encrypt($item->id)]) }}">
+                                <div class="album">
+                                    <img class="thumbnail" src="{{ asset($item->photos->first()->image) }}"
+                                        alt="Gallery Image">
+                                    <div class="album_title">
+                                        <h5 class="text-uppercase">{{ $item->album_title }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    @endfor
+                            </a>
+                        </div>
+                    @empty
+                        <p>*No album found</p>
+                    @endforelse
                 </div>
             </div>
         </div>
