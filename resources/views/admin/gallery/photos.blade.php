@@ -12,7 +12,7 @@
     </style>
 @endsection
 
-@section('page_title', 'Photos')
+@section('page_title', 'Album: ')
 
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -22,7 +22,7 @@
                     <div class="col-sm-9">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#uploadGalleryImageModal"><i class='bx bx-image-add'></i> Upload</button>
+                                data-bs-target="#uploadGalleryImageModal">Upload</button>
                         </div>
                     </div>
                 </div>

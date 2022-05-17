@@ -76,7 +76,11 @@ Route::prefix('admin')->group(function () {
 
         // Gallery
         Route::prefix('gallery')->group(function () {
-            Route::get('photos', [GalleryController::class, 'index'])->name('admin.gallery.index');
+            Route::get('album', [GalleryController::class, 'album'])->name('admin.gallery.album');
+            Route::post('create-album', [GalleryController::class, 'createAlbum'])->name('admin.create.album');
+            Route::post('update-album', [GalleryController::class, 'updateAlbum'])->name('admin.update.album');
+            Route::post('delete-album', [GalleryController::class, 'deleteAlbum'])->name('admin.delete.album');
+            Route::get('album/{id}', [GalleryController::class, 'photos'])->name('admin.gallery.photos');
             Route::post('photos/upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
             Route::post('photos/delete', [GalleryController::class, 'delete'])->name('admin.gallery.delete');
 

@@ -12,11 +12,32 @@ use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
+    // Album
+    public function album()
+    {
+        return view('admin.gallery.album');
+    }
+
+    public function createAlbum(Request $request)
+    {
+        return response()->json(["message" => "Album created successfully", "status" => 200]);
+    }
+
+    public function updateAlbum(Request $request)
+    {
+        return response()->json(["message" => "Album updated successfully", "status" => 200]);
+    }
+
+    public function deleteAlbum(Request $request)
+    {
+        return response()->json(["message" => "Album deleted successfully", "status" => 200]);
+    }
+
     // Photos
-    public function index()
+    public function photos()
     {
         $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
-        return view('admin.gallery.index')->with($data);
+        return view('admin.gallery.photos')->with($data);
     }
 
     public function upload(Request $request)
@@ -48,6 +69,8 @@ class GalleryController extends Controller
 
                 $doc['image'] = $file;
                 $doc['status'] = 1;
+                $doc['created_at'] = date('Y-m-d H:i:s');
+                $doc['updated_at'] = date('Y-m-d H:i:s');
                 $insertPic[] = $doc;
             }
         } else {

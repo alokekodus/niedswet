@@ -65,16 +65,16 @@
         </li>
 
         <!-- Gallery -->
-        <li class="menu-item {{ Request::routeIs('admin.gallery.index') || Request::routeIs('admin.gallery.video.index') ? 'open' : '' }}">
+        <li class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') || Request::routeIs('admin.gallery.video.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bx-images'></i>
                 <div>Gallery</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('admin.gallery.index') ? 'active' : '' }}">
-                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
-                        <div>Photos</div>
+                <li class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') ? 'active' : '' }}">
+                    <a href="{{ route('admin.gallery.album') }}" class="menu-link">
+                        <div>Albums</div>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.gallery.video.index') ? 'active' : '' }}">
