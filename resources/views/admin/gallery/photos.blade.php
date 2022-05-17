@@ -12,7 +12,7 @@
     </style>
 @endsection
 
-@section('page_title', 'Album: ')
+@section('page_title', 'Album name: ' . $album->album_title)
 
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -60,6 +60,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="galleryImage" class="form-label">Image</label>
+                            <input type="hidden" id="album_id" name="album_id" value="{{ Crypt::encrypt($album->id) }}">
                             <input type="file" accept="image/*" id="galleryImage" name="galleryImage[]">
                         </div>
                     </div>

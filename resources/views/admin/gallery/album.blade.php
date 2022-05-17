@@ -41,17 +41,25 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td>New event</td>
-                                <td>
-                                    <a href="{{ route('admin.gallery.photos', ['id' => Crypt::encrypt(1)]) }}"
-                                        class="btn btn-success">Add/Delete Image</a>
-                                    <button class="btn btn-warning" id="openEditModal"
-                                        data-id="{{ Crypt::encrypt(1) }}">Edit</button>
-                                    <button class="btn btn-danger deleteAlbum"
-                                        data-id="{{ Crypt::encrypt(1) }}">Delete</button>
-                                </td>
-                            </tr>
+                            @forelse ($albums as $item)
+                                <tr>
+                                    <td>{{ $item->album_title }} <span
+                                            class="badge badge-center rounded-pill bg-success">{{ $item->photos->count() }}</span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.gallery.photos', ['id' => Crypt::encrypt($item->id)]) }}"
+                                            class="btn btn-success">Add/Delete Image</a>
+                                        <button class="btn btn-warning" id="openEditModal"
+                                            data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
+                                        <button class="btn btn-danger deleteAlbum"
+                                            data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2">**No albums found</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -72,7 +80,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="album_name" class="form-label">Album Name</label>
-                        <input type="text" class="form-control" id="album_name" name="album_name">
+                        <input type="text" class="form-control" id="album_name" name="album_name" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -99,7 +107,7 @@
                     <div class="mb-3">
                         <label for="album_name" class="form-label">Album Name</label>
                         <input type="hidden" class="form-control" id="album_id" name="album_id">
-                        <input type="text" class="form-control" id="album_name" name="album_name">
+                        <input type="text" class="form-control" id="edit_album_name" name="edit_album_name" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -233,12 +241,12 @@
         })
     </script>
 
-    {{-- Delete image --}}
+    {{-- Delete album --}}
     <script>
         $('.deleteAlbum').on('click', function() {
             Swal.fire({
                 title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                text: "All images will be deleted",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

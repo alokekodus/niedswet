@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use App\Models\Gallery;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -15,28 +16,85 @@ class GalleryController extends Controller
     // Album
     public function album()
     {
-        return view('admin.gallery.album');
+        $data['albums'] = Album::with('photos')->latest()->get();
+        return view('admin.gallery.album')->with($data);
     }
 
     public function createAlbum(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'album_name' => 'required|max:255',
+            ],
+            [
+                'album_name.required' => 'Please enter album name',
+                'album_name.max' => 'Album name can not exceed 255 characters',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
+        $create = Album::create([
+            'album_title' => $request->album_name
+        ]);
+
+        if(!$create){
+            return response()->json(["message" => "Something went wrong !", "status" => 422]);
+        }
         return response()->json(["message" => "Album created successfully", "status" => 200]);
     }
 
     public function updateAlbum(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'album_id' => 'required',
+                'edit_album_name' => 'required|max:255',
+            ],
+            [
+                'album_id.required' => 'Album not found',
+                'edit_album_name.required' => 'Please enter album name',
+                'edit_album_name.max' => 'Album name can not exceed 255 characters',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
+        $dec_id = Crypt::decrypt($request->album_id);
+        $update = Album::find($dec_id)->update([
+            'album_title' => $request->edit_album_name
+        ]);
+
+        if(!$update){
+            return response()->json(["message" => "Something went wrong !", "status" => 422]);
+        }
+
         return response()->json(["message" => "Album updated successfully", "status" => 200]);
     }
 
     public function deleteAlbum(Request $request)
     {
+        $dec_id = Crypt::decrypt($request->id);
+        $album = Album::find($dec_id);
+        $deleted = $album->delete();
+        if (!$deleted) {
+            return response()->json(["message" => "Something went wrong !", "status" => 422]);
+        }
         return response()->json(["message" => "Album deleted successfully", "status" => 200]);
     }
 
     // Photos
-    public function photos()
+    public function photos(Request $request, $id)
     {
-        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->paginate(15);
+        $dec_id = Crypt::decrypt($id);
+        $data['images'] = Gallery::where('album_id', $dec_id)->paginate(15);
+        $data['album'] = Album::find($dec_id);
         return view('admin.gallery.photos')->with($data);
     }
 
@@ -45,10 +103,12 @@ class GalleryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+                'album_id' => 'required',
                 'attachment.*' => 'required|image|mimes:jpeg,png,jpg|max:1024',
                 'attachment' => 'max:10'
             ],
             [
+                'album_id.required' => 'Album not found',
                 'attachment.*.required' => 'Image not found',
                 'attachment.*.image' => 'Upload only image',
                 'attachment.*.mimes' => 'Upload only jpg or png image',
@@ -61,6 +121,8 @@ class GalleryController extends Controller
             return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
         }
 
+        $dec_id = Crypt::decrypt($request->album_id);
+
         if ($request->hasFile('attachment')) {
             foreach ($request->attachment as $key => $value) {
                 $new_name = date('d-m-Y-H-i-s') . '_' . $value->getClientOriginalName();
@@ -68,6 +130,7 @@ class GalleryController extends Controller
                 $file = 'uploads/gallery/' . $new_name;
 
                 $doc['image'] = $file;
+                $doc['album_id'] = $dec_id;
                 $doc['status'] = 1;
                 $doc['created_at'] = date('Y-m-d H:i:s');
                 $doc['updated_at'] = date('Y-m-d H:i:s');

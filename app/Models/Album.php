@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Album extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function album()
+    public function photos()
     {
-        return $this->belongsTo(Album::class);
+        return $this->hasMany(Gallery::class, 'album_id');
     }
 }
