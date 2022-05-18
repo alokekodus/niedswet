@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\OurWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Web\NewsletterController;
@@ -54,6 +55,14 @@ Route::prefix('admin')->group(function () {
             Route::post('update-carousel-image', [CarouselController::class, 'update'])->name('admin.carousel.update');
             Route::post('change-status-carousel-image', [CarouselController::class, 'changeStatus'])->name('admin.carousel.change.status');
             Route::post('delete-carousel-image', [CarouselController::class, 'delete'])->name('admin.carousel.delete');
+        });
+
+        // Members
+        Route::prefix('members')->group(function () {
+            Route::prefix('trustee')->group(function () {
+                Route::get('', [MemberController::class, 'trustee'])->name('admin.trustee.all');
+                Route::get('add', [MemberController::class, 'addTrustee'])->name('admin.trustee.add');
+            });
         });
 
         // Blog

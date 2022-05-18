@@ -29,41 +29,35 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container-xxl flex-grow-1">
-        <div class="col-lg-12 mb-4 order-0">
-            <div class="row mb-5">
-                @forelse ($works as $item)
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card mb-3">
-                            <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
-                            <div class="card-body">
-                                <a target="_blank"
-                                    href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }} ">
-                                    <h5 class="card-title">{{ $item->work_title }}</h5>
-                                </a>
-                                <p class="card-text">
-                                    <small class="text-muted">Posted {{ $item->created_at->diffForHumans() }}
-                                        ago</small>
-                                </p>
-                                <a href="{{ route('admin.ourwork.edit', ['id' => Crypt::encrypt($item->id)]) }}"
-                                    class="btn btn-primary">Edit</a>
-                                <button class="btn btn-danger deleteOurWorkBtn"
-                                    data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
-                            </div>
+        <div class="row mb-5">
+            @forelse ($works as $item)
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
+                        <div class="card-body">
+                            <a target="_blank"
+                                href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }} ">
+                                <h5 class="card-title">{{ $item->work_title }}</h5>
+                            </a>
+                            <p class="card-text">
+                                <small class="text-muted">Posted {{ $item->created_at->diffForHumans() }}
+                                    ago</small>
+                            </p>
+                            <a href="{{ route('admin.ourwork.edit', ['id' => Crypt::encrypt($item->id)]) }}"
+                                class="btn btn-primary">Edit</a>
+                            <button class="btn btn-danger deleteOurWorkBtn"
+                                data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
                         </div>
                     </div>
-                @empty
-                    <p>*No data found</p>
-                @endforelse
-            </div>
-
-            {{ $works->links() }}
+                </div>
+            @empty
+                <p>*No data found</p>
+            @endforelse
         </div>
+
+        {{ $works->links() }}
     </div>
-
-
 @endsection
 
 @section('customJs')

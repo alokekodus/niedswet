@@ -38,6 +38,22 @@
                 </li>
             </ul>
         </li>
+        
+        <!-- Master -->
+        <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.trustee.add') ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div>Member</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.trustee.add') ? 'active' : '' }}">
+                    <a href="{{ route('admin.trustee.all') }}" class="menu-link">
+                        <div>Trustee</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <!-- Blog -->
         <li
