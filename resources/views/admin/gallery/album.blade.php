@@ -38,6 +38,7 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Action</th>
+                                <th>Change status</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -49,10 +50,18 @@
                                     <td>
                                         <a href="{{ route('admin.gallery.photos', ['id' => Crypt::encrypt($item->id)]) }}"
                                             class="btn btn-success">Add/Delete Image</a>
-                                        <button class="btn btn-warning" id="openEditModal"
+                                        <button class="btn btn-warning openEditModal"
                                             data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
                                         <button class="btn btn-danger deleteAlbum"
                                             data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                                    </td>
+                                    <td>
+                                        <label class="switch">
+                                            <input type="checkbox" class="testingUpdate" id="testingUpdate"
+                                                data-id="{{ Crypt::encrypt($item->id) }}"
+                                                {{ $item->status == 1 ? 'checked' : '' }}>
+                                            <span class="slider round"></span>
+                                        </label>
                                     </td>
                                 </tr>
                             @empty
@@ -179,7 +188,7 @@
 
     {{-- Open edit modal --}}
     <script>
-        $('#openEditModal').on('click', function() {
+        $('.openEditModal').on('click', function() {
             const id = $(this).data('id');
             $('#album_id').val(id);
             $('#editAlbumModal').modal('toggle');
@@ -301,5 +310,31 @@
                 }
             })
         })
+    </script>
+
+    {{-- Change image status --}}
+    <script>
+        // Change status
+        $(document.body).on('change', '#testingUpdate', function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var album_id = $(this).data('id');
+            var formData = {
+                album_id: album_id,
+                active: status
+            }
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.album.change.status') }}",
+                data: formData,
+
+                success: function(data) {
+                    console.log(data)
+                },
+                error: function(data) {
+                    var errors = data.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
     </script>
 @endsection

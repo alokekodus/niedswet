@@ -25,7 +25,9 @@ class HomeController extends Controller
         $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
-        $data['images'] = Gallery::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
+        $data['images'] = Gallery::where('status', 1)->whereHas('album', function($q){
+            $q->where('status', 1);
+        })->orderBy('created_at', 'DESC')->limit(6)->get();
         $data['videos'] = Video::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
         $data['testimonials'] = Testimonial::where('status', 1)->orderBy('created_at', 'DESC')->limit(6)->get();
         $data['works'] = OurWork::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
@@ -67,6 +69,7 @@ class HomeController extends Controller
         } else {
             $dec_id = Crypt::decrypt($id);
             $data['images'] = Gallery::where(['status' => 1, 'album_id' => $dec_id])->orderBy('created_at', 'DESC')->paginate(15);
+            $data['album'] = Album::find($dec_id);
             return view('web.gallery.images')->with($data);
         }
     }

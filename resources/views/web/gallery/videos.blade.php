@@ -16,7 +16,7 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{ route('site.home') }}">Home</a> > Gallery</p>
+                <p><a href="{{ route('site.home') }}">Home</a> > Gallery > Videos</p>
             </div>
             <div class="title">
                 <h1 class="header_title">Gallery</h1>

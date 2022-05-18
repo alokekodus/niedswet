@@ -30,7 +30,7 @@
             width: 100%;
             height: 100%;
             color: #fff;
-            background-color: rgb(1, 1, 1, 0.7);
+            background-color: rgb(1, 1, 1, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,7 +44,7 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{ route('site.home') }}">Home</a> > Gallery</p>
+                <p><a href="{{ route('site.home') }}">Home</a> > Gallery > Photos</p>
             </div>
             <div class="title">
                 <h1 class="header_title">Gallery</h1>
@@ -64,7 +64,7 @@
                                     <img class="thumbnail" src="{{ asset($item->photos->first()->image) }}"
                                         alt="Gallery Image">
                                     <div class="album_title">
-                                        <h5 class="text-uppercase">{{ $item->album_title }}</h5>
+                                        <h5 class="text-center text-capitalize">{{ $item->album_title }}</h5>
                                     </div>
                                 </div>
                             </a>

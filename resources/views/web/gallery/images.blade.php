@@ -16,16 +16,15 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{ route('site.home') }}">Home</a> > Gallery</p>
+                <p><a href="{{ route('site.home') }}">Home</a> > <a href="{{ route('site.gallery.album') }}">Photos</a> > {{ $album->album_title }}</p>
             </div>
             <div class="title">
-                <h1 class="header_title">Gallery</h1>
+                <h1 class="header_title">{{ $album->album_title }}</h1>
             </div>
         </div>
     </section>
 
     <section class="photos my-5">
-        <h4 class="text-center fw-bold">Photos</h4>
         <div class="container mt-3">
             <div class="images">
                 <div class="row">
@@ -39,7 +38,7 @@
                     @endforelse
                 </div>
             </div>
-            {{$images->links()}}
+            {{ $images->links() }}
         </div>
     </section>
 @endsection

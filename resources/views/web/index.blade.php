@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onClick="location.href='{{ route('site.gallery.image') }}'" class="btn view-all">View
+                <button onClick="location.href='{{ route('site.gallery.album') }}'" class="btn view-all">View
                     All</button>
             </div>
         @endif

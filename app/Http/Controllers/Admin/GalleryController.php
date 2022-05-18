@@ -89,6 +89,14 @@ class GalleryController extends Controller
         return response()->json(["message" => "Album deleted successfully", "status" => 200]);
     }
 
+    public function changeAlbumStatus(Request $request){
+        $dec_id = Crypt::decrypt($request->album_id);
+        $album = Album::find($dec_id);
+        $album->status = $request->active;
+        $album->save();
+        return response()->json(['message' => 'Success', 'status' => 200]); 
+    }
+
     // Photos
     public function photos(Request $request, $id)
     {
