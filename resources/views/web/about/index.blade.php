@@ -91,7 +91,7 @@
         </div>
     </section>
 
-    <section class="team mb-5">
+    {{-- <section class="team mb-5">
         <h4 class="text-center fw-bold">Our Team</h4>
 
         <div class="container">
@@ -106,7 +106,7 @@
         <div class="text-center">
             <a class="btn btn-see-all" href="#">See All</a>
         </div>
-    </section>
+    </section> --}}
 @endsection
 
 @section('customJS')

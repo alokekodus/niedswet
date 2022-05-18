@@ -11,6 +11,6 @@
             <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
         </div>
     </div>
-    <a href="{{ asset('web_assets/images/team/member1.png') }}"><img class="view"
-            src="{{ asset('web_assets/images/icons/view.png') }}" alt="view"></a>
+    <img class="view"
+            src="{{ asset('web_assets/images/icons/view.png') }}" alt="view">
 </div>
