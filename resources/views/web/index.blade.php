@@ -199,7 +199,7 @@
             <div class="container">
                 <div class="row">
                     @foreach ($blogs as $item)
-                        <div class="col-sm-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="single">
                                 <img src="{{ asset($item->image) }}" alt="Blog thumbnail">
                                 <p class="fw-bold title my-3">
