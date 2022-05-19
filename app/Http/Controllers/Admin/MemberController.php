@@ -109,4 +109,9 @@ class MemberController extends Controller
 
         return response()->json(['message' => 'Member details updated successfully', 'status' => 200]);
     }
+
+    public function deleteMember()
+    {
+        return response()->json(['message' => 'Member deleted successfully', 'status' => 200]);
+    }
 }

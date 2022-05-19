@@ -30,7 +30,7 @@
                         <a href="{{ route('site.about.team') }}" target="_blank" class="btn btn-success">View</a>
                         <a href="{{ route('admin.member.edit', ['category' => 'trustee', 'id' => Crypt::encrypt(1)]) }}"
                             class="btn btn-warning">Edit</a>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger deleteBtn">Delete</button>
                     </div>
                 </div>
             </div>
@@ -39,4 +39,64 @@
 @endsection
 
 @section('customJs')
+    <script>
+        $('.deleteBtn').on('click', function() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let id = $(this).data('id');
+                    let btn = $(this);
+                    let actionUrl = "{{ route('admin.member.delete') }}";
+                    let formData = {
+                        id: id
+                    }
+                    btn.text('Deleting...');
+                    btn.attr('disabled', true);
+
+                    $.ajax({
+                        type: "POST",
+                        url: actionUrl,
+                        data: formData,
+                        success: function(data) {
+                            if (data.status === 200) {
+                                btn.text('Delete');
+                                btn.attr('disabled', false);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: data.message,
+                                }).then(() => {
+                                    window.location.reload(true);
+                                })
+                            } else {
+                                btn.text('Delete');
+                                btn.attr('disabled', false);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops!',
+                                    text: data.message,
+                                })
+                            }
+                        },
+                        error: function(data) {
+                            btn.text('Delete');
+                            btn.attr('disabled', false);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops!',
+                                text: 'Server error',
+                            })
+                        }
+                    });
+                }
+            })
+        })
+    </script>
 @endsection
