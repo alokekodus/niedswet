@@ -39,17 +39,25 @@
             </ul>
         </li>
         
-        <!-- Master -->
-        <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.trustee.add') ? 'open' : '' }}">
+        <!-- Member -->
+        <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class='menu-icon bx bxs-user-circle'></i>
                 <div>Member</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.trustee.add') ? 'active' : '' }}">
+                <li class="menu-item {{ Request::routeIs('admin.member.add') ? 'active' : '' }}">
+                    <a href="{{ route('admin.member.add') }}" class="menu-link">
+                        <div>Add</div>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.member.edit', ['category' => 'trustee']) ? 'active' : '' }}">
                     <a href="{{ route('admin.trustee.all') }}" class="menu-link">
-                        <div>Trustee</div>
+                        <div>Manage Trustee</div>
                     </a>
                 </li>
             </ul>

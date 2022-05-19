@@ -16,20 +16,6 @@
 
 @section('main')
     <div class="container-xxl flex-grow-1 pt-4">
-        <div class="col-xl">
-            <div class="card mb-4">
-                <div class="d-flex align-items-end row">
-                    <div class="col-sm-9">
-                        <div class="card-body">
-                            <a href="{{ route('admin.trustee.add') }}" type="button" class="btn btn-primary">
-                                Add Trustee
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row mb-5">
             <div class="col-md-6 col-lg-4 mb-3">
                 <div class="card h-100">
@@ -42,7 +28,8 @@
                             Some quick example text to build on the card title and make up the bulk of the card's content.
                         </p>
                         <a href="{{ route('site.about.team') }}" target="_blank" class="btn btn-success">View</a>
-                        <button class="btn btn-warning">Edit</button>
+                        <a href="{{ route('admin.member.edit', ['category' => 'trustee', 'id' => Crypt::encrypt(1)]) }}"
+                            class="btn btn-warning">Edit</a>
                         <button class="btn btn-danger">Delete</button>
                     </div>
                 </div>

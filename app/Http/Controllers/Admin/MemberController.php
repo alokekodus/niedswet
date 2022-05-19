@@ -4,15 +4,91 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
     //
-    public function trustee(){
+    public function trustee()
+    {
         return view('admin.member.trustee.index');
     }
 
-    public function addTrustee(){
-        return view('admin.member.trustee.create');
+    public function addMember(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('admin.member.create');
+        } else {
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'name' => 'required|max:255',
+                    'category' => 'required|max:255',
+                    'designation' => 'required|max:255',
+                    'fb_link' => 'max:255',
+                    'tw_link' => 'max:255',
+                    'google_link' => 'max:255',
+                    'bio' => 'required',
+                ],
+                [
+                    'name.required' => 'Member name can not be null',
+                    'name.max' => 'Member name can not exceed 255 characters',
+                    'category.required' => 'Please select member category',
+                    'category.max' => 'Member category can not exceed 255 characters',
+                    'designation.required' => 'Designation can not be null',
+                    'designation.max' => 'Designation can not exceed 255 characters',
+                    'fb_link.max' => 'Member name can not exceed 255 characters',
+                    'tw_link.max' => 'Member name can not exceed 255 characters',
+                    'google_link.max' => 'Member name can not exceed 255 characters',
+                    'bio.required' => 'Member description can not be null',
+                ]
+            );
+
+            if ($validator->fails()) {
+                return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+            }
+
+            return response()->json(['message' => 'Member added successfully', 'status' => 200]);
+        }
+    }
+
+    public function editMember($category, $id)
+    {
+        $data['category'] = $category;
+        return view('admin.member.edit')->with($data);
+    }
+
+    public function updateMember(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|max:255',
+                'category' => 'required|max:255',
+                'designation' => 'required|max:255',
+                'fb_link' => 'max:255',
+                'tw_link' => 'max:255',
+                'google_link' => 'max:255',
+                'bio' => 'required',
+            ],
+            [
+                'name.required' => 'Member name can not be null',
+                'name.max' => 'Member name can not exceed 255 characters',
+                'category.required' => 'Please select member category',
+                'category.max' => 'Member category can not exceed 255 characters',
+                'designation.required' => 'Designation can not be null',
+                'designation.max' => 'Designation can not exceed 255 characters',
+                'fb_link.max' => 'Member name can not exceed 255 characters',
+                'tw_link.max' => 'Member name can not exceed 255 characters',
+                'google_link.max' => 'Member name can not exceed 255 characters',
+                'bio.required' => 'Member description can not be null',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
+        return response()->json(['message' => 'Member details updated successfully', 'status' => 200]);
     }
 }

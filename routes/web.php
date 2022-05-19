@@ -61,7 +61,9 @@ Route::prefix('admin')->group(function () {
         Route::prefix('members')->group(function () {
             Route::prefix('trustee')->group(function () {
                 Route::get('', [MemberController::class, 'trustee'])->name('admin.trustee.all');
-                Route::get('add', [MemberController::class, 'addTrustee'])->name('admin.trustee.add');
+                Route::match(['get', 'post'], 'add', [MemberController::class, 'addMember'])->name('admin.member.add');
+                Route::get('edit/{category}/{id}', [MemberController::class, 'editMember'])->name('admin.member.edit');
+                Route::post('update', [MemberController::class, 'updateMember'])->name('admin.member.update');
             });
         });
 
