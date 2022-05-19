@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
@@ -11,17 +13,20 @@ class MemberController extends Controller
     //
     public function trustee()
     {
-        return view('admin.member.trustee.index');
+        $data['members'] = Member::where('category', 'Trustee')->get();
+        return view('admin.member.trustee.index')->with($data);
     }
 
     public function advisor()
     {
-        return view('admin.member.advisor.index');
+        $data['members'] = Member::where('category', 'Advisor')->get();
+        return view('admin.member.advisor.index')->with($data);
     }
 
     public function ca()
     {
-        return view('admin.member.ca.index');
+        $data['members'] = Member::where('category', 'CA')->get();
+        return view('admin.member.ca.index')->with($data);
     }
 
     public function addMember(Request $request)
@@ -62,12 +67,39 @@ class MemberController extends Controller
                 return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
             }
 
+            $document = $request->profileImage;
+            if ($request->hasFile('profileImage')) {
+                $new_name = date('d-m-Y-H-i-s') . '_' . $document->getClientOriginalName();
+                $document->move(public_path('uploads/members/'), $new_name);
+                $file = 'uploads/members/' . $new_name;
+            } else {
+                return response()->json(["message" => "Image not found", "status" => 422]);
+            }
+
+            $create = Member::create([
+                'name' => $request->name,
+                'image' => $file,
+                'category' => $request->category,
+                'designation' => $request->designation,
+                'designation' => $request->designation,
+                'fb_link' => $request->fb_link,
+                'tw_link' => $request->tw_link,
+                'linkedin_link' => $request->linkedin_link,
+                'linkedin_link' => $request->linkedin_link,
+                'bio' => $request->memberBio,
+            ]);
+
+            if(!$create){
+                return response()->json(['message' => 'Something went wrong!', 'status' => 422]);
+            }
             return response()->json(['message' => 'Member added successfully', 'status' => 200]);
         }
     }
 
-    public function editMember($category, $id)
+    public function editMember(Request $request, $category, $id)
     {
+        $dec_id = Crypt::decrypt($id);
+        $data['member'] = Member::find($dec_id);
         $data['category'] = $category;
         return view('admin.member.edit')->with($data);
     }
