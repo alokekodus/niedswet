@@ -94,6 +94,9 @@ class HomeController extends Controller
             $dec_id = Crypt::decrypt($id);
             $data['images'] = Gallery::where(['status' => 1, 'album_id' => $dec_id])->orderBy('created_at', 'DESC')->paginate(15);
             $data['album'] = Album::find($dec_id);
+            if($data['album']->status != 1){
+                return redirect()->route('site.gallery.album');
+            }
             return view('web.gallery.images')->with($data);
         }
     }
