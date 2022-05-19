@@ -55,8 +55,8 @@
                                 <input type="text" id="tw_link" name="tw_link" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="google_link">Member Google link</label>
-                                <input type="text" id="google_link" name="google_link" class="form-control">
+                                <label class="form-label" for="linkedin_link">Member Linkedin link</label>
+                                <input type="text" id="linkedin_link" name="linkedin_link" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bio">Member Bio<sup>*</sup></label>
