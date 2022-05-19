@@ -18,7 +18,7 @@ class MemberController extends Controller
     {
         return view('admin.member.advisor.index');
     }
-    
+
     public function ca()
     {
         return view('admin.member.ca.index');
@@ -33,16 +33,20 @@ class MemberController extends Controller
                 $request->all(),
                 [
                     'name' => 'required|max:255',
+                    'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                     'category' => 'required|max:255',
                     'designation' => 'required|max:255',
                     'fb_link' => 'max:255',
                     'tw_link' => 'max:255',
                     'google_link' => 'max:255',
-                    'bio' => 'required',
+                    'memberBio' => 'required',
                 ],
                 [
                     'name.required' => 'Member name can not be null',
                     'name.max' => 'Member name can not exceed 255 characters',
+                    'profileImage.image' => 'Upload only image',
+                    'profileImage.mimes' => 'Profile image accepts only jpg and png image',
+                    'profileImage.max' => 'Profile image max file size 1MB',
                     'category.required' => 'Please select member category',
                     'category.max' => 'Member category can not exceed 255 characters',
                     'designation.required' => 'Designation can not be null',
@@ -50,7 +54,7 @@ class MemberController extends Controller
                     'fb_link.max' => 'Member name can not exceed 255 characters',
                     'tw_link.max' => 'Member name can not exceed 255 characters',
                     'google_link.max' => 'Member name can not exceed 255 characters',
-                    'bio.required' => 'Member description can not be null',
+                    'memberBio.required' => 'Member bio can not be null',
                 ]
             );
 
@@ -74,16 +78,20 @@ class MemberController extends Controller
             $request->all(),
             [
                 'name' => 'required|max:255',
+                'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                 'category' => 'required|max:255',
                 'designation' => 'required|max:255',
                 'fb_link' => 'max:255',
                 'tw_link' => 'max:255',
                 'google_link' => 'max:255',
-                'bio' => 'required',
+                'memberBio' => 'required',
             ],
             [
                 'name.required' => 'Member name can not be null',
                 'name.max' => 'Member name can not exceed 255 characters',
+                'profileImage.image' => 'Upload only image',
+                'profileImage.mimes' => 'Profile image accepts only jpg and png image',
+                'profileImage.max' => 'Profile image max file size 1MB',
                 'category.required' => 'Please select member category',
                 'category.max' => 'Member category can not exceed 255 characters',
                 'designation.required' => 'Designation can not be null',
@@ -91,7 +99,7 @@ class MemberController extends Controller
                 'fb_link.max' => 'Member name can not exceed 255 characters',
                 'tw_link.max' => 'Member name can not exceed 255 characters',
                 'google_link.max' => 'Member name can not exceed 255 characters',
-                'bio.required' => 'Member description can not be null',
+                'memberBio.required' => 'Member bio can not be null',
             ]
         );
 

@@ -30,6 +30,10 @@
                                 <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <div class="mb-3">
+                                <label class="form-label" for="image">Profile image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
+                            <div class="mb-3">
                                 <label for="category" class="form-label">Member Category<sup>*</sup></label>
                                 <select d="category" name="category" class="form-select">
                                     <option readonly selected value="">Select one...</option>
@@ -68,6 +72,44 @@
 @endsection
 
 @section('customJs')
+    {{-- Initialize CK Editor 5 --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        let editor;
+
+        ClassicEditor
+            .create(document.querySelector('#bio'), {
+                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+                heading: {
+                    options: [{
+                        model: 'paragraph',
+                        title: 'Paragraph',
+                        class: 'ck-heading_paragraph'
+                    }, ]
+                }
+            }).then(newEditor => {
+                editor = newEditor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    {{-- Initialize filepond --}}
+    <script>
+        // Create a FilePond instance
+        const pond = FilePond.create(document.getElementById('image'), {
+            allowMultiple: false,
+            maxFileSize: '1MB',
+            maxFiles: 1,
+            instantUpload: false,
+            imagePreviewHeight: 200,
+            acceptedFileTypes: ['image/*'],
+            labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
+            labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -98,7 +140,15 @@
                 },
                 submitHandler: function(form, e) {
                     e.preventDefault();
+                    const editorData = editor.getData();
                     const formData = new FormData(form);
+
+                    pondFiles = pond.getFiles();
+                    for (var i = 0; i < pondFiles.length; i++) {
+                        formData.append('profileImage', pondFiles[i].file);
+                    }
+                    formData.append('memberBio', editorData);
+
                     const btn = $('#updateBtn');
                     btn.text('Please wait...');
                     btn.attr('disabled', true);
