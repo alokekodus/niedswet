@@ -19,6 +19,15 @@
             line-height: 23px;
         }
 
+        .view {
+            cursor: pointer;
+        }
+
+        .thumbnail {
+            width: 200px;
+            object-fit: cover;
+        }
+
     </style>
 @endsection
 
@@ -37,42 +46,49 @@
         </div>
     </section>
 
-    <section class="team my-5">
-        <h4 class="text-center fw-bold">Board of Trustees</h4>
+    @if ($trustees->count() != 0)
+        <section class="team my-5">
+            <h4 class="text-center fw-bold">Board of Trustees</h4>
 
-        <div class="container">
-            <div class="members images">
-                @for ($i = 0; $i < 9; $i++)
-                    @include('web.common.singleMember')
-                @endfor
-
+            <div class="container">
+                <div class="members images">
+                    @foreach ($trustees as $item)
+                        @include('web.common.singleMember')
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-    <section class="team my-5">
-        <h4 class="text-center fw-bold">Advisors</h4>
 
-        <div class="container">
-            <div class="members">
-                @for ($i = 0; $i < 4; $i++)
-                    @include('web.common.singleMember')
-                @endfor
+    @if ($advisors->count() != 0)
+        <section class="team my-5">
+            <h4 class="text-center fw-bold">Advisors</h4>
 
+            <div class="container">
+                <div class="members images">
+                    @foreach ($advisors as $item)
+                        @include('web.common.singleMember')
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-    <section class="team my-5">
-        <h4 class="text-center fw-bold">Chartered Accountant</h4>
+    @if ($ca->count() != 0)
+        <section class="team my-5">
+            <h4 class="text-center fw-bold">Chartered Accountant</h4>
 
-        <div class="container">
-            <div class="members">
-                @include('web.common.singleMember')
+            <div class="container">
+                <div class="members images">
+                    @foreach ($ca as $item)
+                        @include('web.common.singleMember')
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+    @endif
+
     <section class="team my-5">
         <h4 class="text-center mb-3 fw-bold">List of Past Trustees</h4>
 
@@ -99,7 +115,7 @@
                         <td>Dr. Hiren Saikia</td>
                         <td>Since Till</td>
                     </tr>
-                  </table>
+                </table>
             </div>
         </div>
     </section>
@@ -112,66 +128,14 @@
                     {{-- Close modal button --}}
                     <i class="fa-solid fa-xmark text-white fs-1 closeTeamModal"></i>
                     <div class="text-center">
-                        <img class="thumbnail" src="{{ asset('web_assets/images/team/member1.png') }}" alt="">
-                        <p class="fw-bold fs-5 mt-3 mb-0 text-white">Binoy K. Bordoloi</p>
-                        <p class="text-white">Managing Trustee</p>
+                        <img class="thumbnail" id="profilePic"
+                            src="{{ asset('web_assets/images/team/member1.png') }}" alt="">
+                        <p class="fw-bold fs-5 mt-3 mb-0 text-white" id="member_name"></p>
+                        <p class="text-white" id="member_designation"></p>
                     </div>
                     <div class="container">
-                        <div class="modal_paragraph">
-                            <p>
-                                Binoy K. Bordoloi was born at Jorhat, Assam. He completed his education at Jorhat Govt.
-                                Higher
-                                Secondary School,Delhi University (B.Sc. and M.Sc.), New York University (Ph.D.), and
-                                University
-                                of California, Los Angeles (MBA). He is professionally active in the medical device and
-                                pharmaceuticals industries. He led setting up of the operations in India from a zero base
-                                for
-                                Baxter Healthcare Corp., Deerfield, IL (USA) in home dialysis therapy as a bridge to kidney
-                                transplant for renal impaired patients. He also worked in Research & Development at Johnson
-                                &
-                                Johnson, Somerville, NJ (USA) in bio-surgery. He took retirement after about three decades
-                                of
-                                professional employment in the industry. He then started as an entrepreneur in early 2010and
-                                created Bordoloi Biotech LLC (USA) and Bordoloi Biotech India Pvt Ltd (BBIPL) as the Founder
-                                President and Director, respectively. BBLLC is a technology development and marketing
-                                company
-                                with several patentsgranted in the US. It hasmanufacturing operations at Guwahati(India) via
-                                BBIPL, and offices in Kolkata and Delhi, India (www.bordoloibiotech.com;
-                                www.HerboJoint.com).He
-                                is an invited speaker for guest lecture every year for past many years for graduate students
-                                at
-                                the Rutgers University, New Jersey (USA), jointly organized by its College of Pharmacy and
-                                the
-                                Robert Wood Johnson University Hospital.
-                            </p>
+                        <div class="modal_paragraph text-white" id="member_bio">
 
-                            <p>He currently serves as the Chairman of the Board of Trustees of NAAM
-                                (Naamghar Association of
-                                America, Inc. - www.naamghar.org) .He is a life member of AANA (Assam Association of North
-                                America), ASSNA (Asam Sahitya Sabha – North America), and was one of the founding members of
-                                AFNA (Assam Foundation of North America, Inc. a charity organization). He along with his
-                                younger
-                                brother Dr. Bijoy Bordoloi donated to Jorhat Zila Sahitya Sabha(under Asam SahityaSabha) its
-                                current permanent office building known as Samajratna Dr Nobin Ch. Bordoloi Smriti Sadan, in
-                                memory of their late father, and Mrs. Tiluttoma Bordoloi Mancha, a performing stage, at the
-                                same
-                                Sadan in memory of their late mother. He manages the family-owned Seujeepam Green Leaf tea
-                                plantation in Assam. He is active with Dr Nobin Bordoloi College at Dhekiajuli, Na-Ali,
-                                Jorhat,
-                                India(now under Dibrugarh University). He is also the Managing Trustee of the charity known
-                                as
-                                NIEDSWET (Northeast India Education and Social Welfare Trust) in Assam.</p>
-
-                            </p>
-                            <p>
-                                He is the inventor of 17 granted US patents assigned to Bordoloi Biotech LLC, Ames Rubber
-                                Corp.,
-                                Johnson & Johnson, and Avery Dennison Corp., and several applications are pending. He is the
-                                author/co-author of many publications and posters at symposia, and two books titled
-                                “Laboratory
-                                Experiments in Polymer Synthesis and Characterization” (1979,1980,1981 and 1982, Penn State
-                                Univ.), and “Naamghar in America” (undergoing editing for release in 2022/23).
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -186,8 +150,42 @@
             $('#trusteeModal').modal('toggle');
         });
 
-        $('.view').on('click', function(){
-            $('#trusteeModal').modal('toggle');
+        $('.view').on('click', function() {
+            const member_id = $(this).data('id');
+            const formData = {
+                member_id: member_id
+            }
+            console.log(member_id);
+            $.ajax({
+                url: "{{ route('site.get.member.detail') }}",
+                type: "POST",
+                data: formData,
+                success: function(data) {
+                    if (data.status === 200) {
+                        if (data.member.image != '') {
+                            $('#profilePic').attr('src', data.member.image)
+                        }
+                        $('#member_name').text(data.member.name)
+                        $('#member_designation').text(data.member.designation)
+                        $('#member_bio').empty().append(data.member.bio)
+                        $('#trusteeModal').modal('toggle');
+                    } else {
+                        Swal.fire(
+                            'Oops!',
+                            'Member not found',
+                            'error'
+                        )
+                    }
+                },
+                error: function(data) {
+                    Swal.fire(
+                        'Oops!',
+                        'Server error',
+                        'error'
+                    )
+                }
+
+            });
         })
     </script>
 @endsection

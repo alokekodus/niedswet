@@ -27,6 +27,7 @@ use App\Http\Controllers\Web\NewsletterController;
 Route::get('', [HomeController::class, 'index'])->name('site.home');
 Route::get('about-niedswet', [HomeController::class, 'aboutUs'])->name('site.about');
 Route::get('our-team', [HomeController::class, 'ourTeam'])->name('site.about.team');
+Route::post('get-member-details', [HomeController::class, 'getMemberDetails'])->name('site.get.member.detail');
 Route::get('our-work/{id?}', [HomeController::class, 'ourWork'])->name('site.ourwork');
 Route::get('events', [HomeController::class, 'events'])->name('site.events');
 Route::get('gallery/album/{id?}', [HomeController::class, 'albums'])->name('site.gallery.album');

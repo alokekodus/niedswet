@@ -66,6 +66,13 @@
     <script src="{{ asset('web_assets/js/main.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+    <script>
         $('.btn-donate').on('click', function(e) {
             e.preventDefault();
             Swal.fire({
@@ -86,9 +93,6 @@
             btn.text("Sending...");
             btn.attr("disabled", true);
             $.ajax({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
                 type: "post",
                 url: url,
                 data: data,

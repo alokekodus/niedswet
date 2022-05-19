@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
@@ -73,7 +74,7 @@ class MemberController extends Controller
                 $document->move(public_path('uploads/members/'), $new_name);
                 $file = 'uploads/members/' . $new_name;
             } else {
-                return response()->json(["message" => "Image not found", "status" => 422]);
+                $file = '';
             }
 
             $create = Member::create([
@@ -89,7 +90,7 @@ class MemberController extends Controller
                 'bio' => $request->memberBio,
             ]);
 
-            if(!$create){
+            if (!$create) {
                 return response()->json(['message' => 'Something went wrong!', 'status' => 422]);
             }
             return response()->json(['message' => 'Member added successfully', 'status' => 200]);
@@ -139,11 +140,59 @@ class MemberController extends Controller
             return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
         }
 
+        $dec_id = Crypt::decrypt($request->member_id);
+        $image = $request->profileImage;
+        $details = Member::find($dec_id);
+
+        if ($image == '') {
+            $details->name = $request->name;
+            $details->category = $request->category;
+            $details->designation = $request->designation;
+            $details->fb_link = $request->fb_link;
+            $details->tw_link = $request->tw_link;
+            $details->linkedin_link = $request->linkedin_link;
+            $details->bio = $request->memberBio;
+            $details->image = '';
+        } else {
+            if ($image->getClientOriginalName() == 'blob') {
+                $details->name = $request->name;
+                $details->category = $request->category;
+                $details->designation = $request->designation;
+                $details->fb_link = $request->fb_link;
+                $details->tw_link = $request->tw_link;
+                $details->linkedin_link = $request->linkedin_link;
+                $details->bio = $request->memberBio;
+            } else {
+                if (isset($image) && !empty($image)) {
+                    $new_name = date('d-m-Y-H-i-s') . '_' . $image->getClientOriginalName();
+                    $image->move(public_path('uploads/members/'), $new_name);
+                    $file = 'uploads/members/' . $new_name;
+
+                    // Delete old image
+                    $old_image = $details->image;
+                    File::delete($old_image);
+                    $details->image = $file;
+                }
+            }
+        }
+
+        $update = $details->save();
+        if (!$update) {
+            return response()->json(['message' => 'Something went wrong!', 'status' => 422]);
+        }
         return response()->json(['message' => 'Member details updated successfully', 'status' => 200]);
     }
 
-    public function deleteMember()
+    public function deleteMember(Request $request)
     {
+        $dec_id = Crypt::decrypt($request->id);
+        $member = Member::find($dec_id);
+        $delete = $member->delete();
+        if (!$delete) {
+            return response()->json(["message" => "Something went wrong !", "status" => 400]);
+        }
+        $old_image = $member->image;
+        File::delete($old_image);
         return response()->json(['message' => 'Member deleted successfully', 'status' => 200]);
     }
 }

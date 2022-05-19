@@ -20,7 +20,12 @@
             @forelse ($members as $item)
                 <div class="col-md-6 col-lg-4 mb-3">
                     <div class="card h-100">
-                        <img class="card-img-top" src="{{ asset($item->image) }}" alt="Card image cap">
+                        @if ($item->image != '')
+                            <img class="card-img-top" src="{{ asset($item->image) }}" alt="{{ $item->name }}">
+                        @else
+                            <img class="card-img-top" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                                alt="{{ $item->name }}">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->name }}</h5>
                             <p class="card-text">
@@ -31,7 +36,7 @@
                                 Bio: {{ Str::limit(strip_tags($item->bio), 100, '...') }}
                             </p>
                             <a href="{{ route('site.about.team') }}" target="_blank" class="btn btn-success">View</a>
-                            <a href="{{ route('admin.member.edit', ['category' => 'advisor', 'id' => Crypt::encrypt($item->id)]) }}"
+                            <a href="{{ route('admin.member.edit', ['category' => 'trustee', 'id' => Crypt::encrypt($item->id)]) }}"
                                 class="btn btn-warning">Edit</a>
                             <button class="btn btn-danger deleteBtn"
                                 data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>

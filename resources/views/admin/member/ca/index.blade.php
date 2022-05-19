@@ -31,7 +31,7 @@
                                 Bio: {{ Str::limit(strip_tags($item->bio), 100, '...') }}
                             </p>
                             <a href="{{ route('site.about.team') }}" target="_blank" class="btn btn-success">View</a>
-                            <a href="{{ route('admin.member.edit', ['category' => 'advisor', 'id' => Crypt::encrypt($item->id)]) }}"
+                            <a href="{{ route('admin.member.edit', ['category' => 'ca', 'id' => Crypt::encrypt($item->id)]) }}"
                                 class="btn btn-warning">Edit</a>
                             <button class="btn btn-danger deleteBtn"
                                 data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>

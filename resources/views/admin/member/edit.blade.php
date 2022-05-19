@@ -27,6 +27,7 @@
                         <form id="updateMemberForm">
                             <div class="mb-3">
                                 <label class="form-label" for="name">Member Name<sup>*</sup></label>
+                                <input type="hidden" id="member_id" name="member_id" value="{{ Crypt::encrypt($member->id) }}">
                                 <input type="text" class="form-control" id="name" name="name"
                                     value="{{ $member->name }}">
                             </div>
@@ -38,9 +39,12 @@
                                 <label for="category" class="form-label">Member Category<sup>*</sup></label>
                                 <select d="category" name="category" class="form-select">
                                     <option readonly value="">Select one...</option>
-                                    <option value="Trustee" {{$member->category == 'Trustee' ? 'selected' : ''}}>Trustee</option>
-                                    <option value="Advisor" {{$member->category == 'Advisor' ? 'selected' : ''}}>Advisor</option>
-                                    <option value="CA" {{$member->category == 'CA' ? 'selected' : ''}}>Chartered Accountant</option>
+                                    <option value="Trustee" {{ $member->category == 'Trustee' ? 'selected' : '' }}>Trustee
+                                    </option>
+                                    <option value="Advisor" {{ $member->category == 'Advisor' ? 'selected' : '' }}>Advisor
+                                    </option>
+                                    <option value="CA" {{ $member->category == 'CA' ? 'selected' : '' }}>Chartered
+                                        Accountant</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -112,9 +116,11 @@
             acceptedFileTypes: ['image/*'],
             labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
             labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
-            files: [{
+            @if ($member->image != '') 
+                files: [{
                 source: "{{ asset($member->image) }}",
             }]
+            @endif
         });
     </script>
 

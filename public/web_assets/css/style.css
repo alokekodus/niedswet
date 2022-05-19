@@ -469,14 +469,6 @@ footer .left-block {
     position: relative;
 }
 
-.singleMember .designation,
-.singleMember .name {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-}
-
 .singleMember .socials {
     display: flex;
     justify-content: space-evenly;

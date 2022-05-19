@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
 use App\Models\Gallery;
+use App\Models\Member;
 use App\Models\OurWork;
 use App\Models\Testimonial;
 use App\Models\Video;
@@ -25,7 +26,7 @@ class HomeController extends Controller
         $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
-        $data['images'] = Gallery::where('status', 1)->whereHas('album', function($q){
+        $data['images'] = Gallery::where('status', 1)->whereHas('album', function ($q) {
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(6)->get();
         $data['videos'] = Video::where('status', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
@@ -53,7 +54,30 @@ class HomeController extends Controller
 
     public function ourTeam()
     {
-        return view('web.about.ourTeam');
+        $data['trustees'] = Member::where('category', 'Trustee')->get();
+        $data['advisors'] = Member::where('category', 'Advisor')->get();
+        $data['ca'] = Member::where('category', 'CA')->get();
+        return view('web.about.ourTeam')->with($data);
+    }
+
+    public function getMemberDetails(Request $request)
+    {
+        $dec_id = Crypt::decrypt($request->member_id);
+        $details = Member::find($dec_id);
+        if (!$details) {
+            return response()->json(['message' => 'error', 'status' => 422]);
+        }
+        $data = [
+            'name' => $details->name,
+            'image' => $details->image,
+            'designation' => $details->designation,
+            'fb_link' => $details->fb_link,
+            'tw_link' => $details->tw_link,
+            'linkedin_link' => $details->linkedin_link,
+            'bio' => $details->bio,
+        ];
+
+        return response()->json(['message' => 'success', 'member' => $data, 'status' => 200]);
     }
 
     public function events()
