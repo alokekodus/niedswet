@@ -38,9 +38,10 @@
                 </li>
             </ul>
         </li>
-        
+
         <!-- Member -->
-        <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') ? 'open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('admin.trustee') || Request::routeIs('admin.advisor') || Request::routeIs('admin.ca') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxs-user-circle'></i>
                 <div>Member</div>
@@ -52,12 +53,22 @@
                         <div>Add</div>
                     </a>
                 </li>
-            </ul>
-
-            <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('admin.trustee.all') || Request::routeIs('admin.member.edit', ['category' => 'trustee']) ? 'active' : '' }}">
-                    <a href="{{ route('admin.trustee.all') }}" class="menu-link">
+                <li
+                    class="menu-item {{ Request::routeIs('admin.trustee') || Request::route('category') == 'trustee' ? 'active' : '' }}">
+                    <a href="{{ route('admin.trustee') }}" class="menu-link">
                         <div>Manage Trustee</div>
+                    </a>
+                </li>
+                <li
+                    class="menu-item {{ Request::routeIs('admin.advisor') || Request::route('category') == 'advisor' ? 'active' : '' }}">
+                    <a href="{{ route('admin.advisor') }}" class="menu-link">
+                        <div>Manage Advisor</div>
+                    </a>
+                </li>
+                <li
+                    class="menu-item {{ Request::routeIs('admin.ca') || Request::route('category') == 'ca' ? 'active' : '' }}">
+                    <a href="{{ route('admin.ca') }}" class="menu-link">
+                        <div>Manage CA</div>
                     </a>
                 </li>
             </ul>
@@ -89,14 +100,16 @@
         </li>
 
         <!-- Gallery -->
-        <li class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') || Request::routeIs('admin.gallery.video.index') ? 'open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') || Request::routeIs('admin.gallery.video.index') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bx-images'></i>
                 <div>Gallery</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') ? 'active' : '' }}">
+                <li
+                    class="menu-item {{ Request::routeIs('admin.gallery.album') || Request::routeIs('admin.gallery.photos') ? 'active' : '' }}">
                     <a href="{{ route('admin.gallery.album') }}" class="menu-link">
                         <div>Albums</div>
                     </a>

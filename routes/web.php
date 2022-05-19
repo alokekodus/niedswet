@@ -59,12 +59,13 @@ Route::prefix('admin')->group(function () {
 
         // Members
         Route::prefix('members')->group(function () {
-            Route::prefix('trustee')->group(function () {
-                Route::get('', [MemberController::class, 'trustee'])->name('admin.trustee.all');
-                Route::match(['get', 'post'], 'add', [MemberController::class, 'addMember'])->name('admin.member.add');
-                Route::get('edit/{category}/{id}', [MemberController::class, 'editMember'])->name('admin.member.edit');
-                Route::post('update', [MemberController::class, 'updateMember'])->name('admin.member.update');
-            });
+            Route::match(['get', 'post'], 'add', [MemberController::class, 'addMember'])->name('admin.member.add');
+            Route::get('edit/{category}/{id}', [MemberController::class, 'editMember'])->name('admin.member.edit');
+            Route::post('update', [MemberController::class, 'updateMember'])->name('admin.member.update');
+
+            Route::get('trustee', [MemberController::class, 'trustee'])->name('admin.trustee');
+            Route::get('advisor', [MemberController::class, 'advisor'])->name('admin.advisor');
+            Route::get('chartered-accountant', [MemberController::class, 'ca'])->name('admin.ca');
         });
 
         // Blog

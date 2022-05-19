@@ -5,7 +5,14 @@
 @section('customHeader')
 @endsection
 
-@section('page_title', 'Manage ' . $category)
+@if ($category === 'trustee')
+    @section('page_title', 'Manage Trustee')
+@elseif($category === 'advisor')
+    @section('page_title', 'Manage Advisor')
+@else
+    @section('page_title', 'Manage Chartered Accountant')
+@endif
+
 
 @section('main')
     <div class="container-xxl flex-grow-1 pt-4">

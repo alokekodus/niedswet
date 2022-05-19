@@ -14,6 +14,16 @@ class MemberController extends Controller
         return view('admin.member.trustee.index');
     }
 
+    public function advisor()
+    {
+        return view('admin.member.advisor.index');
+    }
+    
+    public function ca()
+    {
+        return view('admin.member.ca.index');
+    }
+
     public function addMember(Request $request)
     {
         if ($request->isMethod('get')) {
