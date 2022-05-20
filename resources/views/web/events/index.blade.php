@@ -75,7 +75,7 @@
                                 sit mauris, scelerisque.</h5>
                             <div class="text-end">
                                 <a class="link"
-                                    href="{{ route('site.ourwork', ['id' => Crypt::encrypt(1)]) }}">Read More <i
+                                    href="#">Read More <i
                                         class="fa-solid fa-angles-right"></i></a>
                             </div>
                         </div>

@@ -12,7 +12,7 @@
     </style>
 @endsection
 
-@section('page_title', 'Photos')
+@section('page_title', 'Videos')
 
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">

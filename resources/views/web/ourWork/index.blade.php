@@ -19,6 +19,15 @@
             object-fit: cover
         }
 
+        a{
+            text-decoration: none;
+        }
+
+        .work_title{
+            color: rgb(77, 77, 77);
+            text-transform: capitalize;
+        }
+
     </style>
 @endsection
 
@@ -35,30 +44,29 @@
         </div>
     </section>
 
-    <section class="container my-5">
-        <div class="row mb-4">
-            @forelse ($works as $item)
-                <div class="col-md-4 mb-3">
-                    <div class="single">
-                        <div class="p-3">
-                            <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $item->work_title }}</h5>
-                                <div class="text-end">
-                                    <a class="link"
-                                        href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">Read More
-                                        <i class="fa-solid fa-angles-right"></i></a>
+    <div class="bg-light">
+        <section class="container py-5">
+            <div class="row mb-4">
+                @forelse ($works as $item)
+                    <div class="col-md-4 mb-3">
+                        <a href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }}">
+                            <div class="single shadow-sm">
+                                <div class="p-3">
+                                    <img src="{{ $item->image }}" class="card-img-top" alt="Featured image">
+                                    <div class="card-body">
+                                        <h5 class="text-center work_title">{{ $item->work_title }}</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-            @empty
-                <p>*No data found</p>
-            @endforelse
-        </div>
-        {{ $works->links() }}
-    </section>
+                @empty
+                    <p>*No data found</p>
+                @endforelse
+            </div>
+            {{ $works->links() }}
+        </section>
+    </div>
 @endsection
 
 @section('customJS')

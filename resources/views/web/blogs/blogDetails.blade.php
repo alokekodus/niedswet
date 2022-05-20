@@ -28,15 +28,15 @@
     <section class="container blogDetails mt-5">
         <div class="row">
             {{-- Left block --}}
-            <div class="col-md-9">
+            <div class="col-md-10 mx-auto">
                 <h4 class="fw-bold">{{ $blog->title }}</h4>
 
-                <div class="author d-flex justify-content-between text-12 fst-italic">
-                    <span>{{ date('d-m-Y', strtotime($blog->created_at)) }}</span>
-                    <span>By Admin</span>
+                <div class="author text-12">
+                    <p class="mb-0">{{ date('F j, Y', strtotime($blog->created_at)) }}</p>
+                    <p class="badge bg-success">{{$blog->Category->category}}</p>
                 </div>
 
-                <div class="blogContent mt-4">
+                <div class="blogContent my-4">
                     <img class="thumbnail mb-5" src="{{ asset($blog->image) }}"
                         alt="Blog thumbnail">
                         {!! $blog->description !!}
@@ -49,7 +49,7 @@
             </div>
 
             {{-- Right block --}}
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 <div class="searchBox mb-4">
                     <h5>Search News</h5>
                     <form id="searchBlogForm" action="#">
@@ -85,7 +85,7 @@
                         @endforelse                        
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
