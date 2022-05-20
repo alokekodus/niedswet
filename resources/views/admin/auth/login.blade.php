@@ -6,12 +6,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+
     <title>NIEDSWET | Login</title>
 
     <meta name="description" content="" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin_assets/img/favicon/favicon.ico') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,8 +62,8 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email or Username</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
-                                    placeholder="Enter your email or username" autofocus />
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
+                                    name="email" placeholder="Enter your email or username" autofocus />
                                 @error('email')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
