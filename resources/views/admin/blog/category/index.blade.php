@@ -1,6 +1,6 @@
 @extends('admin.common.main')
 
-@section('title', 'NIEDSWET | Blog Cayegory')
+@section('title', 'NIEDSWET | Blog Category')
 
 @section('customHeader')
 @endsection

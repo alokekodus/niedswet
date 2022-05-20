@@ -1,6 +1,6 @@
 @extends('admin.common.main')
 
-@section('title', 'NIEDSWET | Dashboard')
+@section('title', 'NIEDSWET | Carousel')
 
 @section('customHeader')
 @endsection
