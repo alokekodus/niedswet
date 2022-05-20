@@ -339,6 +339,5 @@
 @section('customJS')
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/jqueryValidation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('vendor/jsToastr/toastr.min.js') }}"></script>
     <script src="{{ asset('web_assets/js/contact.js') }}"></script>
 @endsection
