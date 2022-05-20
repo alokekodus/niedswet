@@ -44,6 +44,7 @@ Route::get('terms-and-conditions', [HomeController::class, 'terms'])->name('site
 
 Route::prefix('admin')->group(function () {
     Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('admin.login');
+    Route::post('update-password', [AuthController::class, 'updatePassword'])->name('admin.password.update');
 
     // Authenticated routes
     Route::middleware(['auth'])->group(function () {

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -28,6 +31,34 @@ class AuthController extends Controller
                 'email' => 'The provided credentials do not match our records.',
             ]);
         }
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'password' => 'min:6|required_with:cpassword|same:cpassword',
+                'cpassword' => 'min:6',
+            ],
+            [
+                'password.min' => 'The password must be at least 6 characters.',
+                'password.same' => 'Password not match.',                
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => 422]);
+        }
+
+        $update = User::find(Auth::id())->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        if(!$update){
+            return response()->json(['message' => 'Something went wrong!', 'status' => 422]);
+        }
+        return response()->json(['message' => 'Password updated', 'status' => 200]);
     }
 
     public function logout(Request $request)
