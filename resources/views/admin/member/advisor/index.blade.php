@@ -47,6 +47,7 @@
                 <p>*No data found</p>
             @endforelse
         </div>
+        {{ $members->links() }}
     </div>
 @endsection
 

@@ -14,19 +14,19 @@ class MemberController extends Controller
     //
     public function trustee()
     {
-        $data['members'] = Member::where('category', 'Trustee')->get();
+        $data['members'] = Member::where('category', 'Trustee')->paginate(15);
         return view('admin.member.trustee.index')->with($data);
     }
 
     public function advisor()
     {
-        $data['members'] = Member::where('category', 'Advisor')->get();
+        $data['members'] = Member::where('category', 'Advisor')->paginate(15);
         return view('admin.member.advisor.index')->with($data);
     }
 
     public function ca()
     {
-        $data['members'] = Member::where('category', 'CA')->get();
+        $data['members'] = Member::where('category', 'CA')->paginate(15);
         return view('admin.member.ca.index')->with($data);
     }
 
