@@ -64,7 +64,7 @@
                         existence, which was meant for a common cause, in a not-for-profit motive, and
                         only with a vision to serve the betterment of the society.</p>
 
-                    <a href="#" class="btn btn-know-more">Know More</a>
+                    <a href="{{ route('site.about') }}" class="btn btn-know-more">Know More</a>
                 </div>
             </div>
         </div>
