@@ -45,7 +45,6 @@ class MemberController extends Controller
                     'fb_link' => 'max:255',
                     'tw_link' => 'max:255',
                     'linkedin_link' => 'max:255',
-                    'memberBio' => 'required',
                 ],
                 [
                     'name.required' => 'Member name can not be null',
@@ -60,7 +59,6 @@ class MemberController extends Controller
                     'fb_link.max' => 'Member name can not exceed 255 characters',
                     'tw_link.max' => 'Member name can not exceed 255 characters',
                     'linkedin_link.max' => 'Member name can not exceed 255 characters',
-                    'memberBio.required' => 'Member bio can not be null',
                 ]
             );
 

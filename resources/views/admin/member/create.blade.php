@@ -52,7 +52,7 @@
                                 <input type="text" id="linkedin_link" name="linkedin_link" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="bio">Member Bio<sup>*</sup></label>
+                                <label class="form-label" for="bio">Member Bio</label>
                                 <textarea id="bio" name="bio" class="form-control"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" id="createBtn">Submit</button>

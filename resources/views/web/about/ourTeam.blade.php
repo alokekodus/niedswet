@@ -129,7 +129,7 @@
                     <i class="fa-solid fa-xmark text-white fs-1 closeTeamModal"></i>
                     <div class="text-center">
                         <img class="thumbnail" id="profilePic"
-                            src="{{ asset('web_assets/images/team/member1.png') }}" alt="">
+                            src="{{ asset('web_assets/images/default/no-image.png') }}" alt="">
                         <p class="fw-bold fs-5 mt-3 mb-0 text-white" id="member_name"></p>
                         <p class="text-white" id="member_designation"></p>
                     </div>

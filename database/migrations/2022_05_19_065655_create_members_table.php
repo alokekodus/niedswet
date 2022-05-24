@@ -22,7 +22,7 @@ class CreateMembersTable extends Migration
             $table->string('fb_link', 255)->nullable();
             $table->string('tw_link', 255)->nullable();
             $table->string('linkedin_link', 255)->nullable();
-            $table->text('bio');
+            $table->text('bio')->nullable();
             $table->timestamps();
         });
     }
