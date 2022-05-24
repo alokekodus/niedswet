@@ -9,7 +9,7 @@
                     <div class="information d-flex flex-column">
                         <p>Information</p>
                         <a href="{{ route('site.about') }}">About Us</a>
-                        <a href="{{ route('site.gallery.image') }}">Gallery</a>
+                        <a href="{{ route('site.gallery.album') }}">Gallery</a>
                         <a href="{{ route('site.privacy') }}">Privacy Policy</a>
                         <a href="{{ route('site.terms') }}">Terms & Conditions</a>
                         <a href="#">Contact Us</a>
@@ -29,7 +29,7 @@
                 <div class="col-sm-3">
                     <div class="resources d-flex flex-column">
                         <p>Resources</p>
-                        <a href="{{ route('site.gallery.image') }}">Gallery</a>
+                        <a href="{{ route('site.gallery.album') }}">Gallery</a>
                         <a href="{{ route('site.blogs') }}">Blog</a>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">
                             Newsletter
