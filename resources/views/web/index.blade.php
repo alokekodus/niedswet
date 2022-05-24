@@ -35,10 +35,12 @@
             @endforelse
         </div>
 
+        @if ($carousel->count() != 1 && $carousel->count() != null)
         <div class="navigation">
             <div class="customPrevBtnMain arrow"><i class="fa-solid fa-angle-left"></i></div>
             <div class="customNextBtnMain arrow"><i class="fa-solid fa-angle-right"></i></div>
-        </div>
+        </div>            
+        @endif
     </section>
 
     <!-- about us -->
