@@ -18,5 +18,5 @@
         </div>
     </div>
     <img class="view" data-id="{{ Crypt::encrypt($item->id) }}"
-        src="{{ asset('web_assets/images/icons/view.png') }}" alt="view">
+        src="{{ asset('web_assets/images/Icons/view.png') }}" alt="view">
 </div>
