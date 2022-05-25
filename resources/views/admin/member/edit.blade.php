@@ -68,7 +68,7 @@
                                     value="{{ $member->linkedin_link }}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="bio">Member Bio<sup>*</sup></label>
+                                <label class="form-label" for="bio">Member Bio</label>
                                 <textarea id="bio" name="bio" class="form-control">{{ $member->bio }}</textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" id="updateBtn">Update</button>
