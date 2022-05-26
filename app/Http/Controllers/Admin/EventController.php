@@ -15,7 +15,7 @@ class EventController extends Controller
     //
     public function index()
     {
-        $data['events'] = Event::where('status', 1)->orderBy('event_date', 'DESC')->get();
+        $data['events'] = Event::where('status', 1)->orderBy('event_date', 'DESC')->paginate(9);
         return view('admin.event.index')->with($data);
     }
 

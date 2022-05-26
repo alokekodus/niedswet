@@ -54,6 +54,7 @@
                 <p>*No data found</p>
             @endforelse
         </div>
+        {{ $events->links() }}
     </div>
 
     {{-- Add new modal --}}
@@ -137,6 +138,7 @@
 
 @section('customJs')
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
     <script>
         $(function() {
             $("#event_date").datepicker({
@@ -147,6 +149,7 @@
             });
         });
     </script>
+
     <script>
         // Create a FilePond instance
         const pond_1 = FilePond.create(document.getElementById('event_image'), {

@@ -87,7 +87,7 @@ class HomeController extends Controller
     {
         $now = Carbon::now();
         $data['upcoming_events'] = Event::where('event_date', '>=', $now)->orderBy('event_date', 'ASC')->get();
-        $data['past_events'] = Event::where('event_date', '<', $now)->orderBy('created_at', 'DESC')->get();
+        $data['past_events'] = Event::where('event_date', '<', $now)->orderBy('created_at', 'DESC')->paginate(12);
         return view('web.events.index')->with($data);
     }
 

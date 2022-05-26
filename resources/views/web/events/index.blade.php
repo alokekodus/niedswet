@@ -67,6 +67,9 @@
                 <p class="text-center">**No past events found</p>
             @endforelse
         </div>
+        <div>
+            {{ $past_events->links() }}
+        </div>
     </section>
 @endsection
 
