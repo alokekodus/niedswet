@@ -65,17 +65,17 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Name<sup>*</sup></label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="profile_pic" class="form-label">Image</label>
+                        <label for="profile_pic" class="form-label">Image<sup>*</sup></label>
                         <input type="file" accept="image/*" id="profile_pic" name="profile_pic" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
+                        <label for="message" class="form-label">Message<sup>*</sup></label>
                         <textarea type="text" class="form-control" rows="4" id="message" name="message" required></textarea>
                     </div>
                 </div>
@@ -101,18 +101,18 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="edit_name" class="form-label">Name</label>
+                        <label for="edit_name" class="form-label">Name<sup>*</sup></label>
                         <input type="hidden" id="testimonial_id" name="testimonial_id">
                         <input type="text" class="form-control" id="edit_name" name="edit_name" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="edit_profile_pic" class="form-label">Image</label>
-                        <input type="file" accept="image/*" id="edit_profile_pic" name="edit_profile_pic" required>
+                        <input type="file" accept="image/*" id="edit_profile_pic" name="edit_profile_pic">
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_message" class="form-label">Message</label>
+                        <label for="edit_message" class="form-label">Message<sup>*</sup></label>
                         <textarea type="text" class="form-control" rows="4" id="edit_message" name="edit_message"
                             required>My message</textarea>
                     </div>
