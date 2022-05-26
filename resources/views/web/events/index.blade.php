@@ -14,7 +14,7 @@
             font-size: 12px
         }
 
-        .single img{
+        .single img {
             width: 100%;
             object-fit: cover;
         }
@@ -38,32 +38,34 @@
     <section class="container mt-5">
         <div class="row">
             <h4 class="fw-bold text-center mb-3">Upcoming Events</h4>
-            @for ($i = 0; $i < 3; $i++)
+            @forelse ($upcoming_events as $item)
                 <div class="col-md-4 mb-4">
                     <div class="single">
-                        <a href="{{asset('uploads/events/image.jpeg')}}">
-                            <img src="{{asset('uploads/events/image.jpeg')}}"
-                            class="card-img-top" alt="Featured image">
+                        <a href="{{ asset($item->image) }}">
+                            <img src="{{ asset($item->image) }}" class="card-img-top" alt="Featured image">
                         </a>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <p class="text-center">**No upcoming events found</p>
+            @endforelse
         </div>
     </section>
 
     <section class="container my-5">
         <div class="row">
             <h4 class="fw-bold text-center mb-3">Past Events</h4>
-            @for ($i = 0; $i < 6; $i++)
+            @forelse ($past_events as $item)
                 <div class="col-md-4 mb-4">
                     <div class="single">
-                        <a href="{{asset('uploads/events/image.jpeg')}}">
-                            <img src="{{asset('uploads/events/image.jpeg')}}"
-                            class="card-img-top" alt="Featured image">
+                        <a href="{{ asset($item->image) }}">
+                            <img src="{{ asset($item->image) }}" class="card-img-top" alt="Featured image">
                         </a>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <p class="text-center">**No past events found</p>
+            @endforelse
         </div>
     </section>
 @endsection

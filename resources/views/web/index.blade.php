@@ -97,24 +97,21 @@
     @endif
 
     <!-- Events -->
-    <section class="events">
+    @if ($events->count() != null)
+    <section class="events mb-5">
         <h4 class="text-center fw-bold">Events</h4>
         <div class="container">
             <div class="row">
+                @foreach ($events as $item)
                 <div class="col-sm-4 p-4">
                     <div class="single">
-                        <img src="{{ asset('web_assets/images/images/events1.png') }}" alt="Events">
-                        <p class="fw-bold title my-3">
-                            Leo sed mattis ullamcorper porta
-                            dignissim sollicitudin. In mollis sit
-                            mauris, scelerisque.
-                        </p>
-                        <p class="text-end readMore"><a href="#">Read More <i class="fa-solid fa-angle-right"></i></a>
-                        </p>
+                        <img src="{{ asset($item->image) }}" alt="Events">
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-sm-4 p-4">
+
+                {{-- <div class="col-sm-4 p-4">
                     <div class="single">
                         <img src="{{ asset('web_assets/images/images/events2.png') }}" alt="Events">
                         <p class="fw-bold title my-3">
@@ -125,22 +122,15 @@
                         <p class="text-end readMore"><a href="#">Read More <i class="fa-solid fa-angle-right"></i></a>
                         </p>
                     </div>
-                </div>
-
-                <div class="col-sm-4 p-4">
-                    <div class="single">
-                        <img src="{{ asset('web_assets/images/images/events3.png') }}" alt="Events">
-                        <p class="fw-bold title my-3">
-                            Ut amet scelerisque lacus augue
-                            in velit felis mauris mauris
-                        </p>
-                        <p class="text-end readMore"><a href="#">Read More <i class="fa-solid fa-angle-right"></i></a>
-                        </p>
-                    </div>
-                </div>
+                </div> --}}
+            </div>
+            <div class="text-center">
+                <button onClick="location.href='{{ route('site.events') }}'" class="btn view-all">View
+                    All</button>
             </div>
         </div>
     </section>
+    @endif
 
     <!-- Gallery -->
     <section class="gallery">

@@ -7,12 +7,14 @@ use App\Models\Album;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Carousel;
+use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\Member;
 use App\Models\OurWork;
 use App\Models\Testimonial;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -22,7 +24,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $data['carousel'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $data['carousel'] = Carousel::where('status', 1)->orderBy('created_at', 'DESC')->limit(5)->get();
+        $data['events'] = Event::where('status', 1)->orderBy('event_date', 'ASC')->limit(3)->get();
         $data['blogs'] = Blog::where('status', 1)->whereHas('Category', function ($q) {
             $q->where('status', 1);
         })->orderBy('created_at', 'DESC')->limit(3)->get();
@@ -82,7 +85,10 @@ class HomeController extends Controller
 
     public function events()
     {
-        return view('web.events.index');
+        $now = Carbon::now();
+        $data['upcoming_events'] = Event::where('event_date', '>=', $now)->orderBy('event_date', 'ASC')->get();
+        $data['past_events'] = Event::where('event_date', '<', $now)->orderBy('created_at', 'DESC')->get();
+        return view('web.events.index')->with($data);
     }
 
     public function albums(Request $request, $id = null)
