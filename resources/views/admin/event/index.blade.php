@@ -3,6 +3,14 @@
 @section('title', 'NIEDSWET | Gallery')
 
 @section('customHeader')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <style>
+        .card-img-top {
+            height: 300px;
+            object-fit: contain;
+        }
+
+    </style>
 @endsection
 
 @section('page_title', 'Events')
@@ -29,10 +37,12 @@
                         <a href="{{ asset($item->image) }}" target="_blank"><img class="card-img-top"
                                 src="{{ asset($item->image) }}" alt="Event image"></a>
                         <div class="card-body">
-                            <h5 class="card-title">Event date: <span
-                                    class="badge bg-success">{{ $item->event_date }}</span></h5>
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-title mb-0">Event date: <span
+                                    class="badge bg-success">{{ \Carbon\Carbon::parse($item->event_date)->format('d/m/Y') }}</span>
+                            </p>
                             <p class="card-text"><small class="text-muted">Created at
-                                    {{ $item->created_at }}</small></p>
+                                    {{ date('d-m-Y', strtotime($item->created_at)) }}</small></p>
                             <button class="btn btn-sm btn-warning openUpdateModalBtn"
                                 data-id="{{ Crypt::encrypt($item->id) }}">Update</button>
                             <button class="btn btn-sm btn-danger deleteBtn"
@@ -58,16 +68,17 @@
                 <form action="#" id="addNewEventForm">
                     <div class="modal-body">
                         <div class="col mb-3">
-                            <label for="event_title" class="form-label">Event Title</label>
+                            <label for="event_title" class="form-label">Event Title<sup>*</sup></label>
                             <input type="text" id="event_title" name="event_title" class="form-control"
                                 placeholder="Enter event title" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="event_date" class="form-label">Event Date</label>
-                            <input type="date" id="event_date" name="event_date" class="form-control" required>
+                            <label for="event_date" class="form-label">Event Date<sup>*</sup></label>
+                            <input type="text" id="event_date" name="event_date" class="form-control"
+                                placeholder="DD/MM/YYYY" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="event_image" class="form-label">Event Image</label>
+                            <label for="event_image" class="form-label">Event Image<sup>*</sup></label>
                             <small> **Image size not more than 1MB</small>
                             <input type="file" id="event_image" name="event_image" required>
                         </div>
@@ -95,16 +106,18 @@
                 <form action="#" id="updateEventForm">
                     <div class="modal-body">
                         <div class="col mb-3">
-                            <label for="edit_event_title" class="form-label">Event Title</label>
+                            <label for="edit_event_title" class="form-label">Event Title<sup>*</sup></label>
+                            <input type="hidden" id="event_id" name="event_id" class="form-control">
                             <input type="text" id="edit_event_title" name="edit_event_title" class="form-control"
                                 placeholder="Enter event title">
                         </div>
                         <div class="col mb-3">
-                            <label for="edit_event_date" class="form-label">Event Date</label>
-                            <input type="date" id="edit_event_date" name="edit_event_date" class="form-control">
+                            <label for="edit_event_date" class="form-label">Event Date<sup>*</sup></label>
+                            <input type="text" id="edit_event_date" name="edit_event_date" class="form-control"
+                                placeholder="DD/MM/YYYY" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="edit_event_image" class="form-label">Event Image</label>
+                            <label for="edit_event_image" class="form-label">Event Image<sup>*</sup></label>
                             <small> **Image size not more than 1MB</small>
                             <input type="file" id="edit_event_image" name="edit_event_image">
                         </div>
@@ -123,6 +136,17 @@
 @endsection
 
 @section('customJs')
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#event_date").datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
+            $("#edit_event_date").datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
+        });
+    </script>
     <script>
         // Create a FilePond instance
         const pond_1 = FilePond.create(document.getElementById('event_image'), {
@@ -133,7 +157,7 @@
             imagePreviewHeight: 200,
             acceptedFileTypes: ['image/*'],
             labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
-            labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
+            labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span></p> </div>',
         });
 
         // Create a FilePond instance
@@ -145,7 +169,7 @@
             imagePreviewHeight: 200,
             acceptedFileTypes: ['image/*'],
             labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
-            labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
+            labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span></p> </div>',
         });
     </script>
 
@@ -214,7 +238,36 @@
     {{-- Open update modal --}}
     <script>
         $('.openUpdateModalBtn').on('click', function() {
-            $('#updateEventModal').modal('toggle');
+            const event_id = $(this).data('id');
+            const formData = {
+                id: event_id
+            }
+            $.ajax({
+                url: "{{ route('admin.event.getdata') }}",
+                type: "POST",
+                data: formData,
+                success: function(data) {
+                    if (data.status === 200) {
+                        $('#event_id').val(event_id);
+                        $('#edit_event_title').val(data.details['title']);
+                        $('#edit_event_date').val(data.details['event_date']);
+                        $('#updateEventModal').modal('toggle');
+                    } else {
+                        Swal.fire(
+                            'Oops!',
+                            data.message,
+                            'error'
+                        );
+                    }
+                },
+                error: function(data) {
+                    Swal.fire(
+                        'Oops!',
+                        'Server error',
+                        'error'
+                    );
+                }
+            });
         });
     </script>
 
@@ -231,7 +284,7 @@
             let formData = new FormData(this);
             pondFiles = pond_2.getFiles();
             for (var i = 0; i < pondFiles.length; i++) {
-                formData.append('profilePic', pondFiles[i].file);
+                formData.append('attachment', pondFiles[i].file);
             }
             $.ajax({
                 type: "POST",

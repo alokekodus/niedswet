@@ -121,6 +121,7 @@ Route::prefix('admin')->group(function () {
         Route::prefix('events')->group(function () {
             Route::get('', [EventController::class, 'index'])->name('admin.event.index');
             Route::post('add', [EventController::class, 'add'])->name('admin.event.add');
+            Route::post('get-data', [EventController::class, 'getData'])->name('admin.event.getdata');
             Route::post('update', [EventController::class, 'update'])->name('admin.event.update');
             Route::post('delete', [EventController::class, 'delete'])->name('admin.event.delete');
         });
