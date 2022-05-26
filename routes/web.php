@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CarouselController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\OurWorkController;
@@ -114,6 +115,14 @@ Route::prefix('admin')->group(function () {
             Route::get('edit/{id}', [OurWorkController::class, 'edit'])->name('admin.ourwork.edit');
             Route::post('update', [OurWorkController::class, 'update'])->name('admin.ourwork.update');
             Route::post('delete', [OurWorkController::class, 'delete'])->name('admin.ourwork.delete');
+        });
+
+        // Events
+        Route::prefix('events')->group(function () {
+            Route::get('', [EventController::class, 'index'])->name('admin.event.index');
+            Route::post('add', [EventController::class, 'add'])->name('admin.event.add');
+            Route::post('update', [EventController::class, 'update'])->name('admin.event.update');
+            Route::post('delete', [EventController::class, 'delete'])->name('admin.event.delete');
         });
 
         // Testimonial

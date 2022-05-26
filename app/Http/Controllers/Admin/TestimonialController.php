@@ -48,7 +48,7 @@ class TestimonialController extends Controller
             $document->move(public_path('uploads/testimonial/'), $new_name);
             $file = 'uploads/testimonial/' . $new_name;
         } else {
-            return response()->json(["message" => "Image ot found", "status" => 422]);
+            return response()->json(["message" => "Image not found", "status" => 422]);
         }
         $create = Testimonial::create([
             'name' => $request->name,

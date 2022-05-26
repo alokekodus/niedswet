@@ -131,6 +131,14 @@
             </a>
         </li>
 
+        <!-- Events -->
+        <li class="menu-item {{ Request::routeIs('admin.event.index') ? 'active' : '' }}">
+            <a href="{{ route('admin.event.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-task'></i>
+                <div data-i18n="Analytics">Event</div>
+            </a>
+        </li>
+
         <!-- Testimonial -->
         <li class="menu-item {{ Request::routeIs('admin.testimonial.index') ? 'active' : '' }}">
             <a href="{{ route('admin.testimonial.index') }}" class="menu-link">
