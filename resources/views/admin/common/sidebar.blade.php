@@ -132,7 +132,7 @@
         <!-- Events -->
         <li class="menu-item {{ Request::routeIs('admin.event.index') ? 'active' : '' }}">
             <a href="{{ route('admin.event.index') }}" class="menu-link">
-                <i class='menu-icon bx bx-task'></i>
+                <i class='menu-icon bx bx-calendar-event'></i>
                 <div data-i18n="Analytics">Event</div>
             </a>
         </li>
