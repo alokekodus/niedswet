@@ -65,7 +65,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="carouselImage" class="form-label">Image</label>
-                        <input type="file" accept="image/*" id="newImage" name="newImage">
+                        <input type="file" accept="image/*" id="newImage" name="newImage" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -91,7 +91,7 @@
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload image</label>
                             <input type="hidden" name="image_id" id="image_id">
-                            <input type="file" accept="image/*" id="updateImage" name="updateImage">
+                            <input type="file" accept="image/*" id="updateImage" name="updateImage" required>
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -61,7 +61,7 @@
                         <div class="mb-3">
                             <label for="galleryImage" class="form-label">Image</label>
                             <input type="hidden" id="album_id" name="album_id" value="{{ Crypt::encrypt($album->id) }}">
-                            <input type="file" accept="image/*" id="galleryImage" name="galleryImage[]">
+                            <input type="file" accept="image/*" id="galleryImage" name="galleryImage[]" required>
                         </div>
                     </div>
                     <div class="modal-footer">

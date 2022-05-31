@@ -39,7 +39,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="featured_image">Featured image<sup>*</sup></label>
-                            <input type="file" class="form-control" id="featured_image" name="featured_image">
+                            <input type="file" class="form-control" id="featured_image" name="featured_image" required>
                         </div>
 
                         <div class="mb-3">
