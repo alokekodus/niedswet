@@ -42,7 +42,7 @@
                                     <h5 class="card-title">{{ $item->title }}</h5>
                                 </a>
                                 <p class="card-text">
-                                    <span class="badge bg-primary">{{ $item->Category->category }}</span>
+                                    <p class="mb-0 bg-primary text-white d-inline-block rounded px-2 p-1 fs-12 text-uppercase">{{ $item->Category->category }}</p>
                                 </p>
                                 <p class="card-text">
                                     <small class="text-muted">Last updated {{ $item->updated_at->diffForHumans() }} ago</small>

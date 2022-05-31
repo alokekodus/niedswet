@@ -38,7 +38,7 @@ class BlogController extends Controller
             [
                 'blog_title.required' => 'Blog title is a required field',
                 'blog_category.required' => 'Select blog category',
-                'blogImage.required' => 'Please upload an featured image',
+                'blogImage.required' => 'Please upload an image',
                 'blogImage.image' => 'Upload only image',
                 'blogImage.mimes' => 'Accepts only jpg and png image',
                 'blogImage.max' => 'Max file size 1MB',
@@ -94,7 +94,7 @@ class BlogController extends Controller
                 'blog_id.required' => 'Blog ID not found',
                 'blog_title.required' => 'Blog title is a required field',
                 'blog_category.required' => 'Select blog category',
-                'blogImage.required' => 'Please upload an featured image',
+                'blogImage.required' => 'Please upload an image',
                 'blogImage.image' => 'Upload only image',
                 'blogImage.mimes' => 'Accepts only jpg and png image',
                 'blogImage.max' => 'Max file size 1MB',
@@ -130,6 +130,9 @@ class BlogController extends Controller
             } else {
                 return response()->json(['message' => 'Image not found', 'status' => 422]);
             }
+            $blogDetails->title = $request->blog_title;
+            $blogDetails->category_id = $request->blog_category;
+            $blogDetails->description = $request->blogDescription;
             $blogDetails->image = $file;
         }
         $update = $blogDetails->save();
