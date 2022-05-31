@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/vendor/css/theme-default.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin_assets/css/toggle.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin_assets/vendor/css/custom.css') }}" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
