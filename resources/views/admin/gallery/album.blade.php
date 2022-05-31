@@ -9,6 +9,10 @@
             object-fit: cover;
         }
 
+        .table:not(.table-dark) th{
+            font-size: 15px;
+        }
+
     </style>
 @endsection
 
