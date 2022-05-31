@@ -66,6 +66,8 @@ Route::prefix('admin')->group(function () {
             Route::get('edit/{category}/{id}', [MemberController::class, 'editMember'])->name('admin.member.edit');
             Route::post('update', [MemberController::class, 'updateMember'])->name('admin.member.update');
             Route::post('delete', [MemberController::class, 'deleteMember'])->name('admin.member.delete');
+            Route::get('view-member/{id}', [MemberController::class, 'view'])->name('admin.member.view');
+
 
             Route::get('trustee', [MemberController::class, 'trustee'])->name('admin.trustee');
             Route::get('advisor', [MemberController::class, 'advisor'])->name('admin.advisor');

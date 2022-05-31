@@ -41,7 +41,7 @@
 
         <!-- Member -->
         <li
-            class="menu-item {{ Request::routeIs('admin.trustee') || Request::routeIs('admin.advisor') || Request::routeIs('admin.ca') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') ? 'open' : '' }}">
+            class="menu-item {{ Request::routeIs('admin.trustee') || Request::routeIs('admin.advisor') || Request::routeIs('admin.ca') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') || Request::routeIs('admin.member.view') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxs-user-circle'></i>
                 <div>Member</div>

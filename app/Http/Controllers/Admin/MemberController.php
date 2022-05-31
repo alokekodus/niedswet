@@ -191,4 +191,10 @@ class MemberController extends Controller
         File::delete($old_image);
         return response()->json(['message' => 'Member deleted successfully', 'status' => 200]);
     }
+
+    public function view($id){
+        $dec_id = Crypt::decrypt($id);
+        $data['member'] = Member::find($dec_id);
+        return view('admin.member.view')->with($data);
+    }
 }
