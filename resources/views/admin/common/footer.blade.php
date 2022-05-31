@@ -5,7 +5,7 @@
             <script>
                 document.write(new Date().getFullYear());
             </script>
-            , made with ❤️ by
+            , made by
             <a href="http://ekodus.com" target="_blank" class="footer-link fw-bolder">Ekodus Technologies</a>
         </div>
     </div>
