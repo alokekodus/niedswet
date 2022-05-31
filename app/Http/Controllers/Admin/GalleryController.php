@@ -25,11 +25,11 @@ class GalleryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'album_name' => 'required|max:255',
+                'album_name' => 'required|max:50',
             ],
             [
                 'album_name.required' => 'Please enter album name',
-                'album_name.max' => 'Album name can not exceed 255 characters',
+                'album_name.max' => 'Album name can not exceed 50 characters',
             ]
         );
 
@@ -53,12 +53,12 @@ class GalleryController extends Controller
             $request->all(),
             [
                 'album_id' => 'required',
-                'edit_album_name' => 'required|max:255',
+                'edit_album_name' => 'required|max:50',
             ],
             [
                 'album_id.required' => 'Album not found',
                 'edit_album_name.required' => 'Please enter album name',
-                'edit_album_name.max' => 'Album name can not exceed 255 characters',
+                'edit_album_name.max' => 'Album name can not exceed 50 characters',
             ]
         );
 
