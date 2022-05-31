@@ -20,11 +20,11 @@ class BlogCategoryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'caegory_title' => 'required|max:255'
+                'caegory_title' => 'required|max:50'
             ],
             [
                 'caegory_title.required' => 'Category title is a required field',
-                'caegory_title.max' => 'Category title can not be more than 255 cahracters',
+                'caegory_title.max' => 'Category title can not greater than 50 cahracters',
             ]
         );
 
@@ -56,12 +56,12 @@ class BlogCategoryController extends Controller
             $request->all(),
             [
                 'edit_category_id' => 'required',
-                'edit_caegory_title' => 'required|max:255'
+                'edit_caegory_title' => 'required|max:50'
             ],
             [
                 'edit_category_id.required' => 'Category ID not found',
                 'edit_caegory_title.required' => 'Category title is a required field',
-                'edit_caegory_title.max' => 'Category title can not be more than 255 cahracters',
+                'edit_caegory_title.max' => 'Category title can not greater than 50 cahracters',
             ]
         );
 
