@@ -37,7 +37,7 @@
                         <tbody class="table-border-bottom-0">
                             @forelse ($categories as $item)
                                 <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td>
                                         <strong>{{ $item->category }}</strong>
                                     </td>
                                     <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
