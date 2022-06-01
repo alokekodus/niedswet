@@ -76,6 +76,8 @@ body {
 
 .navbar .nav-item .nav-link.active {
     font-weight: 700;
+    border-bottom: 2px solid;
+    display: inline-block;
 }
 
 .navbar .nav-item {
