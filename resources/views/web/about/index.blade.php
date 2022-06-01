@@ -63,12 +63,11 @@
                         <div class="leftBlock text-center">
                             <h4 class="title fw-bold"><u>Mission</u></h4>
                             <p class="text-14">
-                                Striving to work for the upliftment of people associated with educational
-                                institutions and social organizations started by the Bordoloi family in the Jorhat
-                                district. It endeavors to promote the language and culture of the Assamese people.
-                                The goal of prosperity is carried forward through means of aid, support, and
-
-                                counseling for the respective institutes and organizations.
+                                Striving to work for the upliftment of people associated with educational institutions and
+                                social organizations started by the Bordoloi family in the Jorhat district. It endeavors to
+                                promote the language and culture of the Northeastern region. The goal of prosperity is
+                                carried forward through means of aid, support, and counselling for the respective institutes
+                                and organizations.
                             </p>
                         </div>
                     </div>
@@ -81,8 +80,8 @@
                             <h4 class="title fw-bold"><u>Vision</u></h4>
                             <p class="text-14">
                                 To establish a society of equals by developing sections that require assistance and
-                                encourage the families of similar vision to initiate their possible means of
-                                contributing to the prosperity of the Assamese people and culture.
+                                encourage the families of similar vision to initiate their possible means of contributing to
+                                the prosperity of the Northeastern people and culture.
                             </p>
                         </div>
                     </div>
