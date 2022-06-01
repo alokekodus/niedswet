@@ -14,7 +14,7 @@
             <a href="{{ $item->fb_link != null ? $item->fb_link : '#' }}"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="{{ $item->tw_link != null ? $item->tw_link : '#' }}"><i class="fa-brands fa-twitter"></i></a>
             <a href="{{ $item->linkedin_link != null ? $item->linkedin_link : '#' }}"><i
-                    class="fa-brands fa-google-plus-g"></i></a>
+                    class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
     <img class="view" data-id="{{ Crypt::encrypt($item->id) }}"
