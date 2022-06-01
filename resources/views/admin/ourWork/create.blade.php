@@ -19,17 +19,17 @@
                     <form id="updateOurWorkForm">
                         <div class="mb-3">
                             <label class="form-label" for="work_title">Work title<sup>*</sup></label>
-                            <input type="text" class="form-control" id="work_title" name="work_title">
+                            <input type="text" class="form-control" id="work_title" name="work_title" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="featured_image">Featured image<sup>*</sup></label>
-                            <input type="file" class="form-control" id="featured_image" name="featured_image">
+                            <input type="file" class="form-control" id="featured_image" name="featured_image" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="work_description">Work Description<sup>*</sup></label>
-                            <textarea class="form-control" id="work_description" name="work_description" rows="3"></textarea>
+                            <textarea class="form-control" id="work_description" name="work_description" rows="3" required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="updateOurWorkBtn">Create</button>

@@ -19,12 +19,12 @@
                     <form id="addBlogForm">
                         <div class="mb-3">
                             <label class="form-label" for="blog_title">Blog title<sup>*</sup></label>
-                            <input type="text" class="form-control" id="blog_title" name="blog_title">
+                            <input type="text" class="form-control" id="blog_title" name="blog_title" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="blog_category">Category<sup>*</sup></label>
-                            <select id="blog_category" name="blog_category" class="form-select">
+                            <select id="blog_category" name="blog_category" class="form-select" required>
                                 <option value="">Select...</option>
                                 @forelse ($category as $item)
                                     <option value="{{ $item->id }}">{{ $item->category }}</option>

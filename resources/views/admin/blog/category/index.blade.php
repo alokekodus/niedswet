@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="nameBasic" class="form-label">Category title</label>
-                                <input type="text" id="caegory_title" name="caegory_title" class="form-control">
+                                <input type="text" id="caegory_title" name="caegory_title" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                             <div class="col mb-3">
                                 <label for="nameBasic" class="form-label">Category title</label>
                                 <input type="hidden" id="edit_category_id" name="edit_category_id">
-                                <input type="text" id="edit_caegory_title" name="edit_caegory_title" class="form-control">
+                                <input type="text" id="edit_caegory_title" name="edit_caegory_title" class="form-control" required>
                             </div>
                         </div>
                     </div>
