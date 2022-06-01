@@ -108,7 +108,7 @@
 
                     <div class="mb-3">
                         <label for="edit_profile_pic" class="form-label">Image</label>
-                        <input type="file" accept="image/*" id="edit_profile_pic" name="edit_profile_pic">
+                        <input type="file" accept="image/*" id="edit_profile_pic" name="edit_profile_pic" required>
                     </div>
 
                     <div class="mb-3">
