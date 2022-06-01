@@ -38,10 +38,11 @@ class AuthController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'password' => 'min:6|required_with:cpassword|same:cpassword',
+                'password' => 'required|min:6|required_with:cpassword|same:cpassword',
                 'cpassword' => 'min:6',
             ],
             [
+                'password.required' => 'Please enter new password',
                 'password.min' => 'The password must be at least 6 characters.',
                 'password.same' => 'Password not match.',                
             ]
