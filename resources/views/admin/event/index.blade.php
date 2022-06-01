@@ -1,6 +1,6 @@
 @extends('admin.common.main')
 
-@section('title', 'NIEDSWET | Gallery')
+@section('title', 'NIEDSWET | Event')
 
 @section('customHeader')
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -71,7 +71,7 @@
                         <div class="col mb-3">
                             <label for="event_title" class="form-label">Event Title<sup>*</sup></label>
                             <input type="text" id="event_title" name="event_title" class="form-control"
-                                placeholder="Enter event title" required>
+                                placeholder="Enter event title" autocomplete="off" required>
                         </div>
                         <div class="col mb-3">
                             <label for="event_date" class="form-label">Event Date<sup>*</sup></label>
@@ -80,8 +80,8 @@
                         </div>
                         <div class="col mb-3">
                             <label for="event_image" class="form-label">Event Image<sup>*</sup></label>
-                            <small> **Image size not more than 1MB</small>
                             <input type="file" id="event_image" name="event_image" required>
+                            <small> **Image size not more than 1MB</small>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -119,8 +119,8 @@
                         </div>
                         <div class="col mb-3">
                             <label for="edit_event_image" class="form-label">Event Image<sup>*</sup></label>
-                            <small> **Image size not more than 1MB</small>
                             <input type="file" id="edit_event_image" name="edit_event_image">
+                            <small> **Image size not more than 1MB</small>
                         </div>
                     </div>
                     <div class="modal-footer">
