@@ -3,6 +3,12 @@
 @section('title', 'NIEDSWET | Blog Category')
 
 @section('customHeader')
+    <style>
+        .table:not(.table-dark) th {
+            font-size: 15px;
+        }
+
+    </style>
 @endsection
 
 @section('page_title', 'Blog Category')

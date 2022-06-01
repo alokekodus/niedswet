@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="copyright bg-dark py-2 px-2 text-white text-12 d-md-flex justify-content-between">
+    <div class="copyright bg-dark py-2 px-md-5 px-2 text-white text-12 d-md-flex justify-content-between">
         <p class="mb-0">All Rights Reserved 2022 NIEdSWeT</p>
         <p class="mb-0">Designed & Developed by Ekodus Technologies Pvt. Ltd.</p>
     </div>
