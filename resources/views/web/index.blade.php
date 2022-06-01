@@ -108,9 +108,11 @@
                 <div class="row">
                     @foreach ($events as $item)
                         <div class="col-sm-4 p-4">
-                            <div class="single">
-                                <img src="{{ asset($item->image) }}" alt="Events">
-                            </div>
+                            <a href="{{ asset($item->image) }}" target="_blank">
+                                <div class="single">
+                                    <img src="{{ asset($item->image) }}" alt="Events">
+                                </div>
+                            </a>
                         </div>
                     @endforeach
 

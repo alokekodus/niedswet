@@ -58,7 +58,7 @@
             @forelse ($past_events as $item)
                 <div class="col-md-4 mb-4">
                     <div class="single">
-                        <a href="{{ asset($item->image) }}">
+                        <a href="{{ asset($item->image) }}" target="_blank">
                             <img src="{{ asset($item->image) }}" class="card-img-top" alt="Featured image">
                         </a>
                     </div>
