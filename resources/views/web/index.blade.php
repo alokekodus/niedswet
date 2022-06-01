@@ -36,10 +36,10 @@
         </div>
 
         @if ($carousel->count() != 1 && $carousel->count() != null)
-        <div class="navigation">
-            <div class="customPrevBtnMain arrow"><i class="fa-solid fa-angle-left"></i></div>
-            <div class="customNextBtnMain arrow"><i class="fa-solid fa-angle-right"></i></div>
-        </div>            
+            <div class="navigation">
+                <div class="customPrevBtnMain arrow"><i class="fa-solid fa-angle-left"></i></div>
+                <div class="customNextBtnMain arrow"><i class="fa-solid fa-angle-right"></i></div>
+            </div>
         @endif
     </section>
 
@@ -80,38 +80,42 @@
             <div class="col-sm-8 mx-auto">
                 <div class="work-carousel owl-carousel owl-theme">
                     @foreach ($works as $item)
-                        <div class="item">
-                            <div class="single">
-                                <img src="{{ asset($item->image) }}" alt="Our work">
-                                <p class="fw-bold mt-2 text-center">{{ $item->work_title }}.</p>
+                        <a href="{{ route('site.ourwork', [Crypt::encrypt($item->id)]) }}">
+                            <div class="item">
+                                <div class="single">
+                                    <img src="{{ asset($item->image) }}" alt="Our work">
+                                    <p class="fw-bold mt-2 text-center">{{ $item->work_title }}.</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
-            <div class="navigation">
-                <div class="customPrevBtnOurWork arrow"><i class="fa-solid fa-angle-left"></i></div>
-                <div class="customNextBtnOurWork arrow"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
+            @if ($works->count() != 1 && $carousel->count() != null)
+                <div class="navigation">
+                    <div class="customPrevBtnOurWork arrow"><i class="fa-solid fa-angle-left"></i></div>
+                    <div class="customNextBtnOurWork arrow"><i class="fa-solid fa-angle-right"></i></div>
+                </div>
+            @endif
         </section>
     @endif
 
     <!-- Events -->
     @if ($events->count() != null)
-    <section class="events mb-5">
-        <h4 class="text-center fw-bold">Events</h4>
-        <div class="container">
-            <div class="row">
-                @foreach ($events as $item)
-                <div class="col-sm-4 p-4">
-                    <div class="single">
-                        <img src="{{ asset($item->image) }}" alt="Events">
-                    </div>
-                </div>
-                @endforeach
+        <section class="events mb-5">
+            <h4 class="text-center fw-bold">Events</h4>
+            <div class="container">
+                <div class="row">
+                    @foreach ($events as $item)
+                        <div class="col-sm-4 p-4">
+                            <div class="single">
+                                <img src="{{ asset($item->image) }}" alt="Events">
+                            </div>
+                        </div>
+                    @endforeach
 
 
-                {{-- <div class="col-sm-4 p-4">
+                    {{-- <div class="col-sm-4 p-4">
                     <div class="single">
                         <img src="{{ asset('web_assets/images/images/events2.png') }}" alt="Events">
                         <p class="fw-bold title my-3">
@@ -123,13 +127,13 @@
                         </p>
                     </div>
                 </div> --}}
+                </div>
+                <div class="text-center">
+                    <button onClick="location.href='{{ route('site.events') }}'" class="btn view-all">View
+                        All</button>
+                </div>
             </div>
-            <div class="text-center">
-                <button onClick="location.href='{{ route('site.events') }}'" class="btn view-all">View
-                    All</button>
-            </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     <!-- Gallery -->
@@ -194,11 +198,13 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="single">
                                 <img src="{{ asset($item->image) }}" alt="Blog thumbnail">
-                                <p class="fw-bold title my-3" title="{{$item->title}}">
+                                <p class="fw-bold title my-3" title="{{ $item->title }}">
                                     {{ Str::limit($item->title, 60) }}
                                 </p>
                                 <p class="postTime">{{ date('F j, Y', strtotime($item->created_at)) }}</p>
-                                <p class="bg-success d-inline-block text-capitalize text-white text-12 fw-bold px-2 py-1 rounded">{{ $item->Category->category }}</p>
+                                <p
+                                    class="bg-success d-inline-block text-capitalize text-white text-12 fw-bold px-2 py-1 rounded">
+                                    {{ $item->Category->category }}</p>
                                 <p class="info">{{ Str::limit(strip_tags($item->description), 200, '...') }}
                                 </p>
                                 <p class="text-end readMore"><a

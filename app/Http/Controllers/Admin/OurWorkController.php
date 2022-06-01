@@ -28,13 +28,13 @@ class OurWorkController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'work_title' => 'required|max:255',
+                'work_title' => 'required|max:100',
                 'workImage' => 'required|image|mimes:jpeg,png,jpg|max:1024',
                 'workDescription' => 'required',
             ],
             [
                 'work_title.required' => 'Work tile is a required field',
-                'work_title.max' => 'Work tile can not exceed 255 characters',
+                'work_title.max' => 'Work tile can not exceed 100 characters',
                 'workImage.required' => 'Please upload an featured image',
                 'workImage.image' => 'Upload only image',
                 'workImage.mimes' => 'Accepts only jpg and png image',
@@ -80,13 +80,13 @@ class OurWorkController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'work_title' => 'required|max:255',
+                'work_title' => 'required|max:100',
                 'workImage' => 'required|image|mimes:jpeg,png,jpg|max:1024',
                 'workDescription' => 'required',
             ],
             [
                 'work_title.required' => 'Work tile is a required field',
-                'work_title.max' => 'Work tile can not exceed 255 characters',
+                'work_title.max' => 'Work tile can not exceed 100 characters',
                 'workImage.required' => 'Please upload an featured image',
                 'workImage.image' => 'Upload only image',
                 'workImage.mimes' => 'Accepts only jpg and png image',
