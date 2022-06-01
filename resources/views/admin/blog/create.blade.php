@@ -20,6 +20,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="blog_title">Blog title<sup>*</sup></label>
                             <input type="text" class="form-control" id="blog_title" name="blog_title" required>
+                            <small>Max length 255 chatacters</small>
                         </div>
 
                         <div class="mb-3">

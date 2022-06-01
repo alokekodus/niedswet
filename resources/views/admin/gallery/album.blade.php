@@ -9,7 +9,7 @@
             object-fit: cover;
         }
 
-        .table:not(.table-dark) th{
+        .table:not(.table-dark) th {
             font-size: 15px;
         }
 
@@ -94,6 +94,7 @@
                     <div class="mb-3">
                         <label for="album_name" class="form-label">Album Name</label>
                         <input type="text" class="form-control" id="album_name" name="album_name" required>
+                        <small>Max length 50 chatacters</small>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -121,6 +122,7 @@
                         <label for="album_name" class="form-label">Album Name</label>
                         <input type="hidden" class="form-control" id="album_id" name="album_id">
                         <input type="text" class="form-control" id="edit_album_name" name="edit_album_name" required>
+                        <small>Max length 50 chatacters</small>
                     </div>
                 </div>
                 <div class="modal-footer">

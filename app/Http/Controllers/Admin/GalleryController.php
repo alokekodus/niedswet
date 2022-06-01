@@ -180,11 +180,11 @@ class GalleryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'video_id' => 'required|max:255',
+                'video_id' => 'required|max:50',
             ],
             [
                 'video_id.required' => 'Please enter youtube Video ID',
-                'video_id.max' => 'Video ID can not exceed 255 characters',
+                'video_id.max' => 'Video ID can not exceed 50 characters',
             ]
         );
 

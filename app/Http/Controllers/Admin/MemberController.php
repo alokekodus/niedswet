@@ -38,24 +38,24 @@ class MemberController extends Controller
             $validator = Validator::make(
                 $request->all(),
                 [
-                    'name' => 'required|max:255',
+                    'name' => 'required|max:50',
                     'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                     'category' => 'required|max:255',
-                    'designation' => 'required|max:255',
+                    'designation' => 'required|max:50',
                     'fb_link' => 'max:255',
                     'tw_link' => 'max:255',
                     'linkedin_link' => 'max:255',
                 ],
                 [
                     'name.required' => 'Member name can not be null',
-                    'name.max' => 'Member name can not exceed 255 characters',
+                    'name.max' => 'Member name can not exceed 50 characters',
                     'profileImage.image' => 'Upload only image',
                     'profileImage.mimes' => 'Profile image accepts only jpg and png image',
                     'profileImage.max' => 'Profile image max file size 1MB',
                     'category.required' => 'Please select member category',
                     'category.max' => 'Member category can not exceed 255 characters',
                     'designation.required' => 'Designation can not be null',
-                    'designation.max' => 'Designation can not exceed 255 characters',
+                    'designation.max' => 'Designation can not exceed 50 characters',
                     'fb_link.max' => 'Member name can not exceed 255 characters',
                     'tw_link.max' => 'Member name can not exceed 255 characters',
                     'linkedin_link.max' => 'Member name can not exceed 255 characters',
@@ -108,24 +108,24 @@ class MemberController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|max:255',
+                'name' => 'required|max:50',
                 'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                 'category' => 'required|max:255',
-                'designation' => 'required|max:255',
+                'designation' => 'required|max:50',
                 'fb_link' => 'max:255',
                 'tw_link' => 'max:255',
                 'linkedin_link' => 'max:255',
             ],
             [
                 'name.required' => 'Member name can not be null',
-                'name.max' => 'Member name can not exceed 255 characters',
+                'name.max' => 'Member name can not exceed 50 characters',
                 'profileImage.image' => 'Upload only image',
                 'profileImage.mimes' => 'Profile image accepts only jpg and png image',
                 'profileImage.max' => 'Profile image max file size 1MB',
                 'category.required' => 'Please select member category',
                 'category.max' => 'Member category can not exceed 255 characters',
                 'designation.required' => 'Designation can not be null',
-                'designation.max' => 'Designation can not exceed 255 characters',
+                'designation.max' => 'Designation can not exceed 50 characters',
                 'fb_link.max' => 'Member name can not exceed 255 characters',
                 'tw_link.max' => 'Member name can not exceed 255 characters',
                 'linkedin_link.max' => 'Member name can not exceed 255 characters',
@@ -164,6 +164,14 @@ class MemberController extends Controller
                     $image->move(public_path('uploads/members/'), $new_name);
                     $file = 'uploads/members/' . $new_name;
 
+                    $details->name = $request->name;
+                    $details->category = $request->category;
+                    $details->designation = $request->designation;
+                    $details->fb_link = $request->fb_link;
+                    $details->tw_link = $request->tw_link;
+                    $details->linkedin_link = $request->linkedin_link;
+                    $details->bio = $request->memberBio;
+
                     // Delete old image
                     $old_image = $details->image;
                     File::delete($old_image);
@@ -192,7 +200,8 @@ class MemberController extends Controller
         return response()->json(['message' => 'Member deleted successfully', 'status' => 200]);
     }
 
-    public function view($id){
+    public function view($id)
+    {
         $dec_id = Crypt::decrypt($id);
         $data['member'] = Member::find($dec_id);
         return view('admin.member.view')->with($data);

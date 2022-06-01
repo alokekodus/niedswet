@@ -27,9 +27,11 @@
                         <form id="updateMemberForm">
                             <div class="mb-3">
                                 <label class="form-label" for="name">Member Name<sup>*</sup></label>
-                                <input type="hidden" id="member_id" name="member_id" value="{{ Crypt::encrypt($member->id) }}">
+                                <input type="hidden" id="member_id" name="member_id"
+                                    value="{{ Crypt::encrypt($member->id) }}">
                                 <input type="text" class="form-control" id="name" name="name"
                                     value="{{ $member->name }}">
+                                <small>Max length 50 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="image">Profile image</label>
@@ -51,21 +53,25 @@
                                 <label class="form-label" for="designation">Member Designation<sup>*</sup></label>
                                 <input type="text" id="designation" name="designation" class="form-control"
                                     value="{{ $member->designation }}">
+                                <small>Max length 50 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="fb_link">Member Facebook link</label>
                                 <input type="text" id="fb_link" name="fb_link" class="form-control"
                                     value="{{ $member->fb_link }}">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="tw_link">Member Twitter link</label>
                                 <input type="text" id="tw_link" name="tw_link" class="form-control"
                                     value="{{ $member->tw_link }}">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="linkedin_link">Member Linkedin link</label>
                                 <input type="text" id="linkedin_link" name="linkedin_link" class="form-control"
                                     value="{{ $member->linkedin_link }}">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bio">Member Bio</label>
@@ -116,10 +122,10 @@
             acceptedFileTypes: ['image/*'],
             labelFileTypeNotAllowed: 'Not a valid image. Please select only image.',
             labelIdle: '<div style="width:100%;height:100%;"><p> Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span><br> Maximum number of image is 1 :</p> </div>',
-            @if ($member->image != '') 
+            @if ($member->image != '')
                 files: [{
-                source: "{{ asset($member->image) }}",
-            }]
+                    source: "{{ asset($member->image) }}",
+                }]
             @endif
         });
     </script>

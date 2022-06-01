@@ -21,6 +21,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="name">Member Name<sup>*</sup></label>
                                 <input type="text" class="form-control" id="name" name="name">
+                                <small>Max length 50 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="image">Profile image</label>
@@ -37,19 +38,23 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="designation">Member Designation<sup>*</sup></label>
-                                <input type="text" id="designation" name="designation" class="form-control">
+                                <input type="text" id="designation" name="designation1" class="form-control">
+                                <small>Max length 50 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="fb_link">Member Facebook link</label>
                                 <input type="text" id="fb_link" name="fb_link" class="form-control">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="tw_link">Member Twitter link</label>
                                 <input type="text" id="tw_link" name="tw_link" class="form-control">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="linkedin_link">Member Linkedin link</label>
                                 <input type="text" id="linkedin_link" name="linkedin_link" class="form-control">
+                                <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bio">Member Bio</label>

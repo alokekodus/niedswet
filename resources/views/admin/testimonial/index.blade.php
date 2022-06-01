@@ -67,6 +67,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Name<sup>*</sup></label>
                         <input type="text" class="form-control" id="name" name="name" required>
+                        <small>Max length 50 chatacters</small>
                     </div>
 
                     <div class="mb-3">
@@ -77,6 +78,7 @@
                     <div class="mb-3">
                         <label for="message" class="form-label">Message<sup>*</sup></label>
                         <textarea type="text" class="form-control" rows="4" id="message" name="message" required></textarea>
+                        <small>Max length 255 chatacters</small>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -104,6 +106,7 @@
                         <label for="edit_name" class="form-label">Name<sup>*</sup></label>
                         <input type="hidden" id="testimonial_id" name="testimonial_id">
                         <input type="text" class="form-control" id="edit_name" name="edit_name" required>
+                        <small>Max length 50 chatacters</small>
                     </div>
 
                     <div class="mb-3">
@@ -115,6 +118,7 @@
                         <label for="edit_message" class="form-label">Message<sup>*</sup></label>
                         <textarea type="text" class="form-control" rows="4" id="edit_message" name="edit_message"
                             required>My message</textarea>
+                        <small>Max length 255 chatacters</small>
                     </div>
                 </div>
                 <div class="modal-footer">

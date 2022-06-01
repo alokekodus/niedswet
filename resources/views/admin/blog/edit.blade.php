@@ -22,6 +22,7 @@
                             <input type="hidden" id="blog_id" name="blog_id" value="{{ Crypt::encrypt($blog->id) }}">
                             <input type="text" class="form-control" id="blog_title" name="blog_title"
                                 value="{{ $blog->title }}">
+                            <small>Max length 255 chatacters</small>
                         </div>
 
                         <div class="mb-3">
@@ -29,7 +30,8 @@
                             <select id="blog_category" name="blog_category" class="form-select">
                                 <option>Select...</option>
                                 @forelse ($category as $item)
-                                    <option value="{{ $item->id }}" {{ $item->id == $blog->category_id ? 'selected' : '' }}>
+                                    <option value="{{ $item->id }}"
+                                        {{ $item->id == $blog->category_id ? 'selected' : '' }}>
                                         {{ $item->category }}</option>
                                 @empty
                                     <option value="" disabled>No data found</option>

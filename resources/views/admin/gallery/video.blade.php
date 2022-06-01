@@ -38,8 +38,10 @@
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                         <div class="card-body">
-                            <button class="btn btn-primary editBtn" data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
-                            <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                            <button class="btn btn-primary editBtn"
+                                data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
+                            <button class="btn btn-danger deleteBtn"
+                                data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -64,6 +66,7 @@
                         <div class="mb-3">
                             <label for="galleryImage" class="form-label">Youtube ID</label>
                             <input type="text" class="form-control" id="video_id" name="video_id" required>
+                            <small>Max length 50 chatacters</small>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -91,6 +94,7 @@
                             <label for="galleryImage" class="form-label">Youtube ID</label>
                             <input type="hidden" class="form-control" id="link_id" name="link_id" required>
                             <input type="text" class="form-control" id="edit_video_id" name="edit_video_id">
+                            <small>Max length 50 chatacters</small>
                         </div>
                     </div>
                     <div class="modal-footer">

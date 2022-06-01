@@ -72,6 +72,7 @@
                             <label for="event_title" class="form-label">Event Title<sup>*</sup></label>
                             <input type="text" id="event_title" name="event_title" class="form-control"
                                 placeholder="Enter event title" autocomplete="off" required>
+                            <small>Max length 255 chatacters</small>
                         </div>
                         <div class="col mb-3">
                             <label for="event_date" class="form-label">Event Date<sup>*</sup></label>
@@ -111,6 +112,7 @@
                             <input type="hidden" id="event_id" name="event_id" class="form-control">
                             <input type="text" id="edit_event_title" name="edit_event_title" class="form-control"
                                 placeholder="Enter event title">
+                            <small>Max length 255 chatacters</small>
                         </div>
                         <div class="col mb-3">
                             <label for="edit_event_date" class="form-label">Event Date<sup>*</sup></label>

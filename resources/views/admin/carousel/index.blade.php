@@ -27,11 +27,12 @@
                 <div class="card h-100">
                     <img class="card-img-top" src="{{ asset($item->image) }}" alt="Card image cap">
                     <div class="card-body">
-                        <button class="btn btn-outline-primary editBtn" data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
+                        <button class="btn btn-outline-primary editBtn"
+                            data-id="{{ Crypt::encrypt($item->id) }}">Edit</button>
                         <button class="btn btn-danger deleteBtn" data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
                         <label class="switch">
-                            <input type="checkbox" class="testingUpdate" id="testingUpdate" data-id="{{ Crypt::encrypt($item->id) }}"
-                                {{ $item->status == 1 ? 'checked' : '' }}>
+                            <input type="checkbox" class="testingUpdate" id="testingUpdate"
+                                data-id="{{ Crypt::encrypt($item->id) }}" {{ $item->status == 1 ? 'checked' : '' }}>
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -64,8 +65,9 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="carouselImage" class="form-label">Image</label>
+                        <label for="carouselImage" class="form-label">Image <sup>*</sup></label>
                         <input type="file" accept="image/*" id="newImage" name="newImage" required>
+                        <small>Resolution: 1440x400 px</small>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -89,9 +91,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="image" class="form-label">Upload image</label>
+                            <label for="image" class="form-label">New image<sup>*</sup></label>
                             <input type="hidden" name="image_id" id="image_id">
                             <input type="file" accept="image/*" id="updateImage" name="updateImage" required>
+                            <small>Resolution: 1440x400 px</small>
                         </div>
                     </div>
                     <div class="modal-footer">
