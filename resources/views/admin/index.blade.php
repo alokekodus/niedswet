@@ -14,7 +14,7 @@
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Update password</h5>
-                        <small class="text-muted float-end">Dashboard</small>
+                        {{-- <small class="text-muted float-end">Dashboard</small> --}}
                     </div>
                     <div class="card-body">
                         <form id="updatePasswordForm">

@@ -39,6 +39,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form action="#" id="newsletterForm">
+                    @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="newsletterModalLabel">Subscribe to our Newsletter</h5>
                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
@@ -47,7 +48,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <input type="email" class="form-control shadow-none" id="newsletterEmail"
-                                name="newsletterEmail" placeholder="Enter email address">
+                                name="newsletterEmail" placeholder="Enter email address" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -65,6 +66,8 @@
     <script src="{{ asset('vendor/magnific/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('web_assets/js/main.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- AJAX header --}}
     <script>
         $.ajaxSetup({
             headers: {
@@ -72,6 +75,8 @@
             }
         });
     </script>
+
+    {{-- Donate button --}}
     <script>
         $('.btn-donate').on('click', function(e) {
             e.preventDefault();
@@ -83,6 +88,7 @@
         });
     </script>
 
+    {{-- Newsletter --}}
     <script>
         $('#newsletterForm').on('submit', function(e) {
             e.preventDefault();
@@ -99,8 +105,9 @@
                 cache: false,
                 processData: false,
                 contentType: false,
-                success: function(data) {
-                    if (data.status === 200) {
+                success: function(data, textStatus, jqXHR) {
+                    console.log(textStatus);
+                    if (jqXHR.status === 200) {
                         btn.text("Subscribe");
                         btn.attr("disabled", false);
                         $("#newsletterForm")[0].reset();
@@ -120,13 +127,13 @@
                         });
                     }
                 },
-                error: function(data) {
+                error: function(error) {
                     btn.text("Subscribe");
                     btn.attr("disabled", false);
                     Swal.fire({
                         icon: "error",
                         title: "Error",
-                        text: "Server Error",
+                        text: error.responseJSON['message'],
                     });
                 }
             });
