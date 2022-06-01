@@ -212,7 +212,6 @@
                             window.location.reload(true);
                         })
                     } else {
-                        pond_1.removeFiles();
                         btn.text('Create');
                         btn.attr('disabled', false);
                         modal.modal('toggle');
@@ -220,6 +219,8 @@
                             icon: 'error',
                             title: 'Oops!',
                             text: data.message,
+                        }).then(() => {
+                            modal.modal('toggle');
                         })
                     }
                 },
