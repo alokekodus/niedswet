@@ -12,7 +12,7 @@
                         <a href="{{ route('site.gallery.album') }}">Gallery</a>
                         <a href="{{ route('site.privacy') }}">Privacy Policy</a>
                         <a href="{{ route('site.terms') }}">Terms & Conditions</a>
-                        <a href="#">Contact Us</a>
+                        {{-- <a href="#">Contact Us</a> --}}
                     </div>
                 </div>
 
@@ -20,9 +20,9 @@
                     <div class="what-we-do d-flex flex-column">
                         <p>What We Do</p>
                         <a href="{{ route('site.events') }}">Events</a>
-                        <a href="#">Our Work</a>
-                        <a href="#">Testimonial</a>
-                        <a href="#">Milestones</a>
+                        <a href="{{ route('site.ourwork') }}">Our Work</a>
+                        {{-- <a href="#">Testimonial</a>
+                        <a href="#">Milestones</a> --}}
                     </div>
                 </div>
 
