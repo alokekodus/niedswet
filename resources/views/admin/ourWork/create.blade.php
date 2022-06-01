@@ -29,7 +29,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="work_description">Work Description<sup>*</sup></label>
-                            <textarea class="form-control" id="work_description" name="work_description" rows="3" required></textarea>
+                            <textarea class="form-control" id="work_description" name="work_description" rows="3"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="updateOurWorkBtn">Create</button>
