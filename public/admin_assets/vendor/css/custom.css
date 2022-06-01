@@ -5,3 +5,8 @@
 .fs-12{
     font-size: 12px;
 }
+
+.sticky-sidebar{
+    position: sticky;
+    top: 0;
+}
