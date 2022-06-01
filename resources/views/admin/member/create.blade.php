@@ -38,7 +38,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="designation">Member Designation<sup>*</sup></label>
-                                <input type="text" id="designation" name="designation1" class="form-control">
+                                <input type="text" id="designation" name="designation" class="form-control">
                                 <small>Max length 50 chatacters</small>
                             </div>
                             <div class="mb-3">
