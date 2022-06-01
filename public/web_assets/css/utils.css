@@ -19,6 +19,10 @@
     font-size: 12px;
 }
 
+.text-14{
+    font-size: 14px;
+}
+
 .bg-green{
   background-color: var(--secondary-green);
 }

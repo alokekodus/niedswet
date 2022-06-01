@@ -31,7 +31,7 @@
                     <img src="{{ asset('web_assets/images/images/about.png') }}" alt="About us">
                 </div>
                 <div class="col-md-6 rightBlock">
-                    <p class="text-12">Northeast India Education and Social Welfare Trust, also known as NIEDSWET,
+                    <p class="text-14">Northeast India Education and Social Welfare Trust, also known as NIEDSWET,
                         was established on 15th October 1998. It is a non-profitable organization situated
                         in Jorhat. Dr. Nobin Chandra Bordoloi was one of the founding members of this
                         trust. Although Ophthalmologist by profession, he took interest in culture and
@@ -62,7 +62,7 @@
                     <div class="mission">
                         <div class="leftBlock text-center">
                             <h4 class="title fw-bold"><u>Mission</u></h4>
-                            <p class="text-12">
+                            <p class="text-14">
                                 Striving to work for the upliftment of people associated with educational
                                 institutions and social organizations started by the Bordoloi family in the Jorhat
                                 district. It endeavors to promote the language and culture of the Assamese people.
@@ -79,7 +79,7 @@
                     <div class="vision">
                         <div class="leftBlock text-center">
                             <h4 class="title fw-bold"><u>Vision</u></h4>
-                            <p class="text-12">
+                            <p class="text-14">
                                 To establish a society of equals by developing sections that require assistance and
                                 encourage the families of similar vision to initiate their possible means of
                                 contributing to the prosperity of the Assamese people and culture.
