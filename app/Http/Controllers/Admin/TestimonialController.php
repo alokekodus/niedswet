@@ -23,18 +23,19 @@ class TestimonialController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|max:255',
+                'name' => 'required|max:50',
                 'profilePic' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-                'message' => 'required',
+                'message' => 'required|max:255',
             ],
             [
                 'name.required' => 'Name can not be null',
-                'name.max' => 'Name can not exceed 255 characters',
+                'name.max' => 'Name can not exceed 50 characters',
                 'profilePic.required' => 'Please upload profile image',
                 'profilePic.image' => 'Upload only image file',
                 'profilePic.mimes' => 'Profile image accepts only jpg and png image',
                 'profilePic.max' => 'Profile image max file size 1MB',
                 'message.required' => 'Message cannot be null',
+                'message.max' => 'Message can not exceed 255 characters',
             ]
         );
 
@@ -77,17 +78,18 @@ class TestimonialController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'edit_name' => 'required|max:255',
+                'edit_name' => 'required|max:50',
                 'profilePic' => 'image|mimes:jpeg,png,jpg|max:1024',
-                'edit_message' => 'required',
+                'edit_message' => 'required|max:255',
             ],
             [
                 'edit_name.required' => 'Name can not be null',
-                'edit_name.max' => 'Name can not exceed 255 characters',
+                'edit_name.max' => 'Name can not exceed 50 characters',
                 'profilePic.image' => 'Upload only image file',
                 'profilePic.mimes' => 'Profile image accepts only jpg and png image',
                 'profilePic.max' => 'Profile image max file size 1MB',
-                'edit_message.required' => 'Message cannot be null',
+                'edit_message.required' => 'Message can not be null',
+                'edit_message.max' => 'Message can not exceed 255 characters',
             ]
         );
 
