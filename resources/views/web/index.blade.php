@@ -91,7 +91,7 @@
                     @endforeach
                 </div>
             </div>
-            @if ($works->count() != 1 && $carousel->count() != null)
+            @if ($works->count() != 1 && $works->count() != null)
                 <div class="navigation">
                     <div class="customPrevBtnOurWork arrow"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="customNextBtnOurWork arrow"><i class="fa-solid fa-angle-right"></i></div>
