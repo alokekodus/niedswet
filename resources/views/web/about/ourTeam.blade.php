@@ -48,7 +48,7 @@
 
     @if ($trustees->count() != 0)
         <section class="team my-5">
-            <h4 class="text-center fw-bold">Board of Trustees</h4>
+            <h3 class="text-center fw-bold mb-4">Board of Trustees</h3>
 
             <div class="container">
                 <div class="members images">
@@ -63,7 +63,7 @@
 
     @if ($advisors->count() != 0)
         <section class="team my-5">
-            <h4 class="text-center fw-bold">Advisors</h4>
+            <h3 class="text-center fw-bold mb-4">Advisors</h3>
 
             <div class="container">
                 <div class="members images">
@@ -77,7 +77,7 @@
 
     @if ($ca->count() != 0)
         <section class="team my-5">
-            <h4 class="text-center fw-bold">Chartered Accountant</h4>
+            <h3 class="text-center fw-bold mb-4">Chartered Accountant</h3>
 
             <div class="container">
                 <div class="members images">
@@ -90,7 +90,7 @@
     @endif
 
     <section class="team my-5">
-        <h4 class="text-center mb-3 fw-bold">List of Past Trustees</h4>
+        <h3 class="text-center mb-3 fw-bold mb-4">List of Past Trustees</h3>
 
         <div class="container">
             <div class="col-md-6 mx-auto">
@@ -98,22 +98,22 @@
                     <tr>
                         <td>1</td>
                         <td>Dr. Nobin C Bordoloi</td>
-                        <td>Since Till</td>
+                        <td>1998  - 2009</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Mr. Kalyan Bordoloi</td>
-                        <td>Since Till</td>
+                        <td>1998  - 2022</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Mr. Raj Barua</td>
-                        <td>Since Till</td>
+                        <td>1998  - 2012</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Dr. Hiren Saikia</td>
-                        <td>Since Till</td>
+                        <td>1998 - 2021</td>
                     </tr>
                 </table>
             </div>

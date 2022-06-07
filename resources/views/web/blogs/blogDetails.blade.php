@@ -29,9 +29,9 @@
         <div class="row">
             {{-- Left block --}}
             <div class="col-md-10 mx-auto">
-                <h4 class="fw-bold">{{ $blog->title }}</h4>
+                <h3 class="fw-bold">{{ $blog->title }}</h3>
 
-                <div class="author text-12">
+                <div class="author text-14">
                     <p class="mb-0">{{ date('F j, Y', strtotime($blog->created_at)) }}</p>
                     <p class="badge bg-success">{{$blog->Category->category}}</p>
                 </div>

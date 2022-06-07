@@ -70,7 +70,7 @@ body {
 }
 
 .navbar {
-    padding: 5px 50px;
+    padding: 5px 20px;
 }
 
 .navbar .nav-item .nav-link {
@@ -102,10 +102,10 @@ body {
 
 .navbar .nav-item .btn-donate {
     background: var(--primary-color);
-    font-size: 12px;
+    font-size: 14px;
     color: #fff;
     border-radius: 30px;
-    padding: 6px 20px;
+    padding: 6px 40px;
     box-shadow: -1px 3px 5px rgb(200 200 200);
     font-weight: 600;
     transition: 0.3s all ease;
@@ -239,6 +239,7 @@ body {
     width: 100%;
     height: 400px;
     object-fit: contain;
+    border: 1px solid var(--secondary-green);
 }
 
 .events .single .title {
@@ -339,7 +340,7 @@ body {
 
 .blogs .postTime,
 .blogs .info {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .testimonials {
@@ -393,7 +394,6 @@ body {
 
 .milestones .images .img1 img {
     width: 90%;
-    margin-top: 100px;
 }
 
 .milestones .images .img3 img {
@@ -416,7 +416,6 @@ body {
 
 .milestones .images .img5 img {
     width: 90%;
-    margin-top: 40px;
 }
 
 .awards .single img {
@@ -538,7 +537,6 @@ footer .left-block {
 /* ------------------------------ Blog page ---------------------- */
 .blogDetails .blogContent .thumbnail {
     width: 100%;
-    height: 400px;
     object-fit: cover;
 }
 

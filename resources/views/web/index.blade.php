@@ -15,6 +15,7 @@
             display: block;
             width: 100%;
             height: 200px;
+            border: 4px solid var(--primary-color);
         }
     </style>
 @endsection
@@ -50,7 +51,7 @@
             </div>
             <div class="col-sm-6 bg-light aboutInfo">
                 <div>
-                    <h4 class="mb-4">About Us</h4>
+                    <h3 class="mb-4 fw-bold">About Us</h3>
 
                     <p class="mb-5">Northeast India Education and Social Welfare Trust, also known as NIEDSWET,
                         was established on 15th October 1998. It is a non-profitable organization situated
@@ -75,7 +76,7 @@
     @if ($works->count() != null)
         <section class="ourWork">
             <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
-            <h4 class="text-center fw-bold mb-5">Our Work</h4>
+            <h3 class="text-center fw-bold mb-5 text-white">Our Work</h3>
             <div class="col-sm-8 mx-auto">
                 <div class="work-carousel owl-carousel owl-theme">
                     @foreach ($works as $item)
@@ -102,7 +103,7 @@
     <!-- Events -->
     @if ($events->count() != null)
         <section class="events mb-5">
-            <h4 class="text-center fw-bold">Events</h4>
+            <h3 class="text-center fw-bold">Events</h3>
             <div class="container">
                 <div class="row">
                     @foreach ($events as $item)
@@ -140,9 +141,9 @@
     <!-- Gallery -->
     <section class="gallery">
         @if ($images->count() != 0)
-            <h4 class="text-center fw-bold">Gallery</h4>
+            <h3 class="text-center fw-bold">Gallery</h3>
             <div class="photos">
-                <h4 class="text-center mt-4">Photos</h4>
+                <h3 class="text-center mt-4">Photos</h3>
                 <div class="container">
                     <div class="gallery-carousel owl-carousel owl-theme">
                         @foreach ($images as $item)
@@ -158,8 +159,9 @@
                     <div class="customNextBtnGallery arrow"><i class="fa-solid fa-angle-right"></i></div>
                 </div>
             </div>
-            <div class="text-center">
-                <button onClick="location.href='{{ route('site.gallery.album') }}'" class="btn btn-fixed-size view-all">View
+            <div class="text-center mt-4">
+                <button onClick="location.href='{{ route('site.gallery.album') }}'"
+                    class="btn btn-fixed-size view-all">View
                     All</button>
             </div>
         @endif
@@ -167,7 +169,7 @@
         <!-- Videos -->
         @if ($videos->count() != null)
             <div class="videos">
-                <h4 class="text-center mt-5">Video</h4>
+                <h3 class="text-center mt-5">Video</h3>
                 <div class="container">
                     <div class="row">
                         @foreach ($videos as $item)
@@ -183,7 +185,8 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onClick="location.href='{{ route('site.gallery.video') }}'" class="btn btn-fixed-size view-all">View
+                <button onClick="location.href='{{ route('site.gallery.video') }}'"
+                    class="btn btn-fixed-size view-all">View
                     All</button>
             </div>
         @endif
@@ -192,7 +195,7 @@
     <!-- Blog -->
     @if ($blogs->count() != 0)
         <section class="blogs">
-            <h4 class="text-center fw-bold">Blogs</h4>
+            <h3 class="text-center fw-bold">Blogs</h3>
             <div class="container">
                 <div class="row">
                     @foreach ($blogs as $item)
@@ -223,7 +226,7 @@
     {{-- Testimonials --}}
     @if ($testimonials->count() != null)
         <section class="testimonials">
-            <h4 class="text-center fw-bold mb-5">Testimonials</h4>
+            <h3 class="text-center fw-bold mb-5">Testimonials</h3>
             <div class="testimonial-carousel owl-carousel owl-theme">
                 @foreach ($testimonials as $item)
                     <div class="item">
@@ -247,33 +250,31 @@
         </section>
     @endif
 
-
     <!-- Milestones -->
     <section class="milestones">
-        <h4 class="text-center fw-bold mb-5">Milestones</h4>
+        <h3 class="text-center fw-bold mb-5">Milestones</h3>
         <div class="container">
             <div class="images">
                 <div class="col img1">
                     <img src="{{ asset('web_assets/images/Vectors/milestone1.png') }}" alt="Milestones">
-                    <p class="fw-bold">Odio et varius ipsum cras sit
-                        facilisis sociis pellentesque
-                        est</p>
+                    <p class="fw-bold text-center">1988 <br>
+                        NIEdSWeT was established</p>
                 </div>
                 <div class="col img2">
                     <img src="{{ asset('web_assets/images/Vectors/arrow.png') }}" alt="Milestones">
                 </div>
                 <div class="col img3">
                     <img src="{{ asset('web_assets/images/Vectors/milestone2.png') }}" alt="Milestones">
-                    <p class="fw-bold">Ornare tortor pulvinar eget
-                        hac auctor adipiscing arcu</p>
+                    <p class="fw-bold text-center">2011 <br>
+                        Constructed Dr NC Bordoloi Jorhat Zilla Sahitya Sabha</p>
                 </div>
                 <div class="col img4">
                     <img src="{{ asset('web_assets/images/Vectors/arrow.png') }}" alt="Milestones">
                 </div>
                 <div class="col img5">
                     <img src="{{ asset('web_assets/images/Vectors/milestone3.png') }}" alt="Milestones">
-                    <p class="fw-bold">Ultrices fermentum non,
-                        eget at elit in blandit</p>
+                    <p class="fw-bold text-center">2022 <br>
+                        NIEdSWeT introduced itself to the online platform through its website</p>
                 </div>
             </div>
         </div>
@@ -281,17 +282,17 @@
 
     {{-- Contact --}}
     <section class="contact bg-light py-5 mt-5">
-        <h4 class="text-center fw-bold mb-3">Contact Us</h4>
+        <h3 class="text-center fw-bold mb-3">Contact Us</h3>
         <div class="container">
             <div class="row">
                 {{-- Map --}}
                 <div class="col-sm-6 mb-3">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.8822233306205!2d94.20137101441223!3d26.74813427359635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c2903e7ee903%3A0x1fc21d4cd473d733!2sJail%20Rd%2C%20Nandanpur%2C%20Atilagaon%2C%20Jorhat%2C%20Assam%20785001!5e0!3m2!1sen!2sin!4v1654578968718!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114017.36212805597!2d94.13244039682283!3d26.743017702565382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c294ee518ba1%3A0x75147ff2c76406bc!2sJorhat%2C%20Assam!5e0!3m2!1sen!2sin!4v1654586209996!5m2!1sen!2sin"
                         width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                    <p class="text-12">Bordoloi Nagar, Jail road, Jorhat, 785001</p>
+                    <p class="text-12">NIEDSWET, Bordoloi Nagar, Kushal Kanwar Path, Jail road, Jorhat, 785001, Assam</p>
                 </div>
 
                 {{-- Form --}}
