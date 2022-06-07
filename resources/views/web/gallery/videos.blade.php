@@ -25,7 +25,7 @@
     </section>
 
     <section class="photos my-5">
-        <h4 class="text-center fw-bold">Videos</h4>
+        <h3 class="text-center fw-bold">Videos</h3>
         <div class="container mt-3">
             <div class="images mb-3">
                 <div class="row">

@@ -53,7 +53,7 @@
     </section>
 
     <section class="photos my-5">
-        <h4 class="text-center fw-bold">Albums</h4>
+        <h3 class="text-center fw-bold">Albums</h3>
         <div class="container mt-3">
             <div class="albums">
                 <div class="row">

@@ -37,7 +37,7 @@
 
     <section class="container mt-5">
         <div class="row">
-            <h4 class="fw-bold text-center mb-3">Upcoming Events</h4>
+            <h3 class="fw-bold text-center mb-3">Upcoming Events</h3>
             @forelse ($upcoming_events as $item)
                 <div class="col-md-4 mb-4">
                     <div class="single">
@@ -54,7 +54,7 @@
 
     <section class="container my-5">
         <div class="row">
-            <h4 class="fw-bold text-center mb-3">Past Events</h4>
+            <h3 class="fw-bold text-center mb-3">Past Events</h3>
             @forelse ($past_events as $item)
                 <div class="col-md-4 mb-4">
                     <div class="single">
