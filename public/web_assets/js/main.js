@@ -3,7 +3,7 @@ $(".main-carousel").owlCarousel({
   loop: true,
   margin: 10,
   nav: false,
-  autoplay: true,
+  autoplay: false,
   autoplayTimeout: 3000,
   autoplaySpeed: 1000,
   autoplayHoverPause: true,
