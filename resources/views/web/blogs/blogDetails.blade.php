@@ -33,7 +33,7 @@
 
                 <div class="author text-14">
                     <p class="mb-0">{{ date('F j, Y', strtotime($blog->created_at)) }}</p>
-                    <p class="badge bg-success">{{$blog->Category->category}}</p>
+                    <p class="badge bg-success text-14">{{$blog->Category->category}}</p>
                 </div>
 
                 <div class="blogContent my-4">
