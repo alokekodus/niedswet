@@ -13,6 +13,10 @@
     border: none;
 }
 
+.btn-fixed-size{
+    width: 130px;
+}
+
 body {
     /* font-family: 'Open Sans', sans-serif; */
     /* font-family: 'Lato', sans-serif; */
@@ -155,7 +159,7 @@ body {
 }
 
 .aboutUs {
-    margin: 30px 0 50px 0;
+    margin: 60px 0 100px 0;
     font-size: 12px;
 }
 
@@ -174,8 +178,8 @@ body {
 .aboutUs .btn-know-more {
     background: var(--secondary-green);
     color: #fff;
-    border-radius: 30px;
-    font-size: 12px;
+    border-radius: 5px;
+    font-size: 16px;
     padding: 2px 15px;
     font-weight: 500;
     box-shadow: -1px 3px 5px rgb(200, 200, 200);
@@ -228,7 +232,7 @@ body {
 }
 
 .events {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .events .single img {
@@ -248,13 +252,14 @@ body {
 }
 
 .gallery {
-    margin-bottom: 50px;
+    margin-top: 80px;
+    margin-bottom: 100px;
 }
 
 .gallery .view-all, .events .view-all {
     text-decoration: none;
     background: var(--secondary-green);
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px 15px;
     font-weight: 600;
     color: #fff;
@@ -438,7 +443,7 @@ body {
 .contactFormDiv #contactForm .submitBtn {
     text-decoration: none;
     background: var(--secondary-green);
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px 15px;
     font-weight: 600;
     color: #fff;

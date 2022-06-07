@@ -16,7 +16,6 @@
             width: 100%;
             height: 200px;
         }
-
     </style>
 @endsection
 
@@ -66,7 +65,7 @@
                         existence, which was meant for a common cause, in a not-for-profit motive, and
                         only with a vision to serve the betterment of the society.</p>
 
-                    <a href="{{ route('site.about') }}" class="btn btn-know-more">Know More</a>
+                    <a href="{{ route('site.about') }}" class="btn btn-fixed-size btn-know-more">Know More</a>
                 </div>
             </div>
         </div>
@@ -131,7 +130,7 @@
                 </div> --}}
                 </div>
                 <div class="text-center">
-                    <button onClick="location.href='{{ route('site.events') }}'" class="btn view-all">View
+                    <button onClick="location.href='{{ route('site.events') }}'" class="btn btn-fixed-size view-all">View
                         All</button>
                 </div>
             </div>
@@ -160,7 +159,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onClick="location.href='{{ route('site.gallery.album') }}'" class="btn view-all">View
+                <button onClick="location.href='{{ route('site.gallery.album') }}'" class="btn btn-fixed-size view-all">View
                     All</button>
             </div>
         @endif
@@ -184,7 +183,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onClick="location.href='{{ route('site.gallery.video') }}'" class="btn view-all">View
+                <button onClick="location.href='{{ route('site.gallery.video') }}'" class="btn btn-fixed-size view-all">View
                     All</button>
             </div>
         @endif
@@ -281,19 +280,18 @@
     </section>
 
     {{-- Contact --}}
-    <section class="contact bg-light py-5">
+    <section class="contact bg-light py-5 mt-5">
         <h4 class="text-center fw-bold mb-3">Contact Us</h4>
         <div class="container">
             <div class="row">
                 {{-- Map --}}
                 <div class="col-sm-6 mb-3">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114612.57101497037!2d91.63284247523802!3d26.14318577239997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5a287f9133ff%3A0x2bbd1332436bde32!2sGuwahati%2C%20Assam!5e0!3m2!1sen!2sin!4v1648190831328!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.8822233306205!2d94.20137101441223!3d26.74813427359635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c2903e7ee903%3A0x1fc21d4cd473d733!2sJail%20Rd%2C%20Nandanpur%2C%20Atilagaon%2C%20Jorhat%2C%20Assam%20785001!5e0!3m2!1sen!2sin!4v1654578968718!5m2!1sen!2sin"
                         width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                    <p class="text-12">NIEdSWeT, Address Address Address Address, NIEdSWeT, Address Address Address
-                        Address, Assam, 110762</p>
+                    <p class="text-12">Bordoloi Nagar, Jail road, Jorhat, 785001</p>
                 </div>
 
                 {{-- Form --}}
@@ -326,7 +324,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" id="submitBtn" class="btn submitBtn">Send</button>
+                                <button type="submit" id="submitBtn" class="btn submitBtn btn-fixed-size">Send</button>
                             </div>
                         </form>
                     </div>
