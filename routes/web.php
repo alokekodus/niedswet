@@ -117,6 +117,7 @@ Route::prefix('admin')->group(function () {
             Route::get('edit/{id}', [OurWorkController::class, 'edit'])->name('admin.ourwork.edit');
             Route::post('update', [OurWorkController::class, 'update'])->name('admin.ourwork.update');
             Route::post('delete', [OurWorkController::class, 'delete'])->name('admin.ourwork.delete');
+            Route::post('change-status', [OurWorkController::class, 'changeStatus'])->name('admin.ourwork.change.status');
         });
 
         // Events

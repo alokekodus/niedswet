@@ -14,7 +14,7 @@ class OurWorkController extends Controller
     //
     public function index()
     {
-        $data['works'] = OurWork::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+        $data['works'] = OurWork::orderBy('created_at', 'DESC')->paginate(9);
         return view('admin.ourWork.index')->with($data);
     }
 
@@ -143,5 +143,14 @@ class OurWorkController extends Controller
         $old_image = $blog->image;
         File::delete($old_image);
         return response()->json(["message" => "Work deleted successfully", "status" => 200]);
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $dec_id = Crypt::decrypt($request->work_id);
+        $job = OurWork::find($dec_id);
+        $job->status = $request->active;
+        $job->save();
+        return response()->json(['message' => 'Success', 'status' => 200]);
     }
 }

@@ -9,7 +9,6 @@
             height: 200px;
             object-fit: cover;
         }
-
     </style>
 @endsection
 
@@ -36,8 +35,7 @@
                     <div class="card mb-3">
                         <img class="card-img-top" src="{{ asset($item->image) }}" alt="Featured image">
                         <div class="card-body">
-                            <a target="_blank"
-                                href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }} ">
+                            <a target="_blank" href="{{ route('site.ourwork', ['id' => Crypt::encrypt($item->id)]) }} ">
                                 <h5 class="card-title">{{ $item->work_title }}</h5>
                             </a>
                             <p class="card-text">
@@ -48,6 +46,11 @@
                                 class="btn btn-primary">Edit</a>
                             <button class="btn btn-danger deleteOurWorkBtn"
                                 data-id="{{ Crypt::encrypt($item->id) }}">Delete</button>
+                            <label class="switch">
+                                <input type="checkbox" class="testingUpdate" id="testingUpdate"
+                                    data-id="{{ Crypt::encrypt($item->id) }}" {{ $item->status == 1 ? 'checked' : '' }}>
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -121,5 +124,31 @@
                 }
             })
         })
+    </script>
+
+    {{-- Change work status --}}
+    <script>
+        // Change status
+        $(document.body).on('change', '#testingUpdate', function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var work_id = $(this).data('id');
+            var formData = {
+                work_id: work_id,
+                active: status
+            }
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin.ourwork.change.status') }}",
+                data: formData,
+
+                success: function(data) {
+                    console.log(data)
+                },
+                error: function(data) {
+                    var errors = data.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
     </script>
 @endsection
