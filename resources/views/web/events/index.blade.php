@@ -16,9 +16,10 @@
 
         .single img {
             width: 100%;
-            object-fit: cover;
+            height: 400px;
+            object-fit: contain;
+            border: 1px solid var(--secondary-green);
         }
-
     </style>
 @endsection
 

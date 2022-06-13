@@ -56,10 +56,7 @@
     <div
         class="copyright bg-dark py-3 px-md-5 px-2 text-white text-12 d-md-flex justify-content-between align-items-center">
         <p class="mb-0">All Rights Reserved 2022 NIEdSWeT</p>
-        <a href="#"
-            onclick="window.open('https://www.sitelock.com/verify.php?site=ekodusproject.tech','SiteLock','width=600,height=600,left=160,top=170');">
-            <img class="img-responsive" alt="SiteLock" title="SiteLock"
-                src="https://shield.sitelock.com/shield/ekodusproject.tech" width="80" /></a>
-        <p class="mb-0">Designed & Developed by Ekodus Technologies Pvt. Ltd.</p>
+
+        <p class="mb-0">Designed & Developed by <a href="https://ekodus.com/" class="text-white" target="_blank">Ekodus Technologies Pvt. Ltd.</a></p>
     </div>
 </footer>
