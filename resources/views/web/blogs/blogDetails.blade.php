@@ -16,7 +16,7 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{ route('site.home') }}">Home</a> > <a href="{{ route('site.blogs') }}">Blogs</a> >
+                <p><a href="{{ route('site.home') }}">Home</a> > <a href="{{ route('site.blogs') }}">Blogs</a> > {{$blog->Category->category}} >
                     {{ $blog->title }}</p>
             </div>
             <div class="title">
