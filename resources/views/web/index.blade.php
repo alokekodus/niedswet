@@ -76,7 +76,7 @@
     @if ($works->count() != null)
         <section class="ourWork">
             <img class="overlay" src="{{ asset('web_assets/images/images/Background.png') }}" alt="">
-            <h3 class="text-center fw-bold mb-5 text-white">Our Work</h3>
+            <h3 class="text-center fw-bold mb-5 text-white">Our Works</h3>
             <div class="col-sm-8 mx-auto">
                 <div class="work-carousel owl-carousel owl-theme">
                     @foreach ($works as $item)

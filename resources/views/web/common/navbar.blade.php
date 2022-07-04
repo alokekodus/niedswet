@@ -25,7 +25,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('site.ourwork') ? 'active' : '' }}"
-                        href="{{ route('site.ourwork') }}">Our work</a>
+                        href="{{ route('site.ourwork') }}">Our works</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('site.events') ? 'active' : '' }}"

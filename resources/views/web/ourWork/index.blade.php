@@ -36,10 +36,10 @@
     <section class="header">
         <div class="overlay">
             <div class="path">
-                <p><a href="{{ route('site.home') }}">Home</a> > Our Work</p>
+                <p><a href="{{ route('site.home') }}">Home</a> > Our Works</p>
             </div>
             <div class="title">
-                <h1 class="header_title">Our Work</h1>
+                <h1 class="header_title">Our Works</h1>
             </div>
         </div>
     </section>
