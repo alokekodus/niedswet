@@ -1,6 +1,6 @@
 @extends('web.common.main')
 
-@section('title', 'NIEDSWET | HOME')
+@section('title', 'NIEDSWET | A non-profitable trust')
 
 @section('customHeader')
     <link rel="stylesheet" href="{{ asset('vendor/jsToastr/toastr.min.css') }}">

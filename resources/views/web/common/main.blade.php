@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="NIEDSWET seeks to contribute to the prosperity of Northeastern people and culture. It targets prosperity through aid, support, and counselling of the respective institutes and organizations.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
