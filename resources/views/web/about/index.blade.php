@@ -80,7 +80,7 @@
                             <h4 class="title fw-bold"><u>Vision</u></h4>
                             <p class="text-14">
                                 To establish a society of equals by developing sections that require assistance and
-                                encourage the families of similar vision to initiate their possible means of contributing to
+                                encourage the families of similar vision to initiate their possible means of contribution to
                                 the prosperity of the Northeastern people and culture.
                             </p>
                         </div>
