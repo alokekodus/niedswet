@@ -27,7 +27,6 @@
             width: 200px;
             object-fit: cover;
         }
-
     </style>
 @endsection
 
@@ -93,29 +92,86 @@
         <h3 class="text-center mb-3 fw-bold mb-4">List of Past Trustees</h3>
 
         <div class="container">
-            <div class="col-md-6 mx-auto">
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <td>1</td>
-                        <td>Dr. Nobin C Bordoloi</td>
-                        <td>1998  - 2009</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Mr. Kalyan Bordoloi</td>
-                        <td>1998  - 2022</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Mr. Raj Barua</td>
-                        <td>1998  - 2012</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Dr. Hiren Saikia</td>
-                        <td>1998 - 2021</td>
-                    </tr>
-                </table>
+            <div class="row justify-content-center">
+
+                <div class="singleMember">
+                    <div class="image">
+                        <img class="thumbnail" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                            alt="Dr. Nobin C Bordoloi">
+                    </div>
+                    <div class="details py-3 shadow">
+                        <p class="text-center fw-bold mb-0">Dr. Nobin C Bordoloi</p>
+                        <p class="text-center text-12 fw-bold">1998 - 2009</p>
+
+                        <div class="socials text-center">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                        </div>
+
+                    </div>
+                    <img class="view" data-id="{{ Crypt::encrypt(1) }}"
+                        src="{{ asset('web_assets/images/Icons/view.png') }}" alt="view">
+                </div>
+
+                <div class="singleMember">
+                    <div class="image">
+                        <img class="thumbnail" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                            alt="Dr. Nobin C Bordoloi">
+                    </div>
+                    <div class="details py-3 shadow">
+                        <p class="text-center fw-bold mb-0">Mr. Kalyan Bordoloi</p>
+                        <p class="text-center text-12 fw-bold">1998 - 2022</p>
+                        <div class="socials text-center">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                        </div>
+                    </div>
+                    <img class="view" data-id="{{ Crypt::encrypt(1) }}"
+                        src="{{ asset('web_assets/images/Icons/view.png') }}" alt="view">
+                </div>
+
+                <div class="singleMember">
+                    <div class="image">
+                        <img class="thumbnail" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                            alt="Dr. Nobin C Bordoloi">
+                    </div>
+                    <div class="details py-3 shadow">
+                        <p class="text-center fw-bold mb-0">Mr. Raj Barua</p>
+                        <p class="text-center text-12 fw-bold">1998 - 2012</p>
+                        <div class="socials text-center">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                        </div>
+                    </div>
+                    <img class="view" data-id="{{ Crypt::encrypt(1) }}"
+                        src="{{ asset('web_assets/images/Icons/view.png') }}" alt="view">
+                </div>
+
+                <div class="singleMember">
+                    <div class="image">
+                        <img class="thumbnail" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                            alt="Dr. Nobin C Bordoloi">
+                    </div>
+                    <div class="details py-3 shadow">
+                        <p class="text-center fw-bold mb-0">Dr. Hiren Saikia</p>
+                        <p class="text-center text-12 fw-bold">1998 - 2021</p>
+                        <div class="socials text-center">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                        </div>
+                    </div>
+                    <img class="view" data-id="{{ Crypt::encrypt(1) }}"
+                        src="{{ asset('web_assets/images/Icons/view.png') }}" alt="view">
+                </div>
+
             </div>
         </div>
     </section>
