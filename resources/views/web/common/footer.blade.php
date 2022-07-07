@@ -31,9 +31,9 @@
                         <p>Resources</p>
                         <a href="{{ route('site.gallery.album') }}">Gallery</a>
                         <a href="{{ route('site.blogs') }}">Blog</a>
-                        <a type="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">
+                        {{-- <a type="button" data-bs-toggle="modal" data-bs-target="#newsletterModal">
                             Newsletter
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
 

@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item text-12 {{ Request::routeIs('site.about') ? 'active' : '' }}" href="{{ route('site.about') }}">About Us</a></li>
-                        <li><a class="dropdown-item text-12 {{ Request::routeIs('site.about.team') ? 'active' : '' }}" href="{{ route('site.about.team') }}">Our Team</a></li>
+                        <li><a class="dropdown-item text-12 {{ Request::routeIs('site.about.team') ? 'active' : '' }}" href="{{ route('site.about.team') }}">Our Members</a></li>
                     </ul>
                 </li>
 

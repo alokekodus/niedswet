@@ -1,6 +1,6 @@
 @extends('web.common.main')
 
-@section('title', 'NIEDSWET | A non-profitable trust')
+@section('title', 'NIEDSWET | North-East India Education & Social Welfare Trust')
 
 @section('customHeader')
     <link rel="stylesheet" href="{{ asset('vendor/jsToastr/toastr.min.css') }}">

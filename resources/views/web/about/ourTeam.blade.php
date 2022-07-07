@@ -40,7 +40,7 @@
                 </p>
             </div>
             <div class="title">
-                <h1 class="header_title">Our Team</h1>
+                <h1 class="header_title">Our Members</h1>
             </div>
         </div>
     </section>
@@ -101,6 +101,7 @@
                     </div>
                     <div class="details py-3 shadow">
                         <p class="text-center fw-bold mb-0">Dr. Nobin C Bordoloi</p>
+                        <p class="text-center text-12 mb-0">Managing Trustee</p>
                         <p class="text-center text-12 fw-bold">1998 - 2009</p>
 
                         <div class="socials text-center">
@@ -122,6 +123,7 @@
                     </div>
                     <div class="details py-3 shadow">
                         <p class="text-center fw-bold mb-0">Mr. Kalyan Bordoloi</p>
+                        <p class="text-center text-12 mb-0">Managing Trustee</p>
                         <p class="text-center text-12 fw-bold">1998 - 2022</p>
                         <div class="socials text-center">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -141,6 +143,7 @@
                     </div>
                     <div class="details py-3 shadow">
                         <p class="text-center fw-bold mb-0">Mr. Raj Barua</p>
+                        <p class="text-center text-12 mb-0">Managing Trustee</p>
                         <p class="text-center text-12 fw-bold">1998 - 2012</p>
                         <div class="socials text-center">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -160,6 +163,7 @@
                     </div>
                     <div class="details py-3 shadow">
                         <p class="text-center fw-bold mb-0">Dr. Hiren Saikia</p>
+                        <p class="text-center text-12 mb-0">Managing Trustee</p>
                         <p class="text-center text-12 fw-bold">1998 - 2021</p>
                         <div class="socials text-center">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
