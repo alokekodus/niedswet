@@ -60,6 +60,7 @@ class HomeController extends Controller
         $data['trustees'] = Member::where('category', 'Trustee')->get();
         $data['advisors'] = Member::where('category', 'Advisor')->get();
         $data['ca'] = Member::where('category', 'CA')->get();
+        $data['pastMembers'] = Member::where('category', 'PastMember')->get();
         return view('web.about.ourTeam')->with($data);
     }
 

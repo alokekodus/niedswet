@@ -42,7 +42,7 @@
 
             <!-- Member -->
             <li
-                class="menu-item {{ Request::routeIs('admin.trustee') || Request::routeIs('admin.advisor') || Request::routeIs('admin.ca') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') || Request::routeIs('admin.member.view') ? 'open' : '' }}">
+                class="menu-item {{ Request::routeIs('admin.trustee') || Request::routeIs('admin.advisor') || Request::routeIs('admin.ca') || Request::routeIs('admin.past.trustee') || Request::routeIs('admin.member.add') || Request::routeIs('admin.member.edit') || Request::routeIs('admin.member.view') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class='menu-icon bx bxs-user-circle'></i>
                     <div>Member</div>
@@ -70,6 +70,12 @@
                         class="menu-item {{ Request::routeIs('admin.ca') || Request::route('category') == 'ca' ? 'active' : '' }}">
                         <a href="{{ route('admin.ca') }}" class="menu-link">
                             <div>Manage CA</div>
+                        </a>
+                    </li>
+                    <li
+                        class="menu-item {{ Request::routeIs('admin.past.trustee') || Request::route('category') == 'PastMember' ? 'active' : '' }}">
+                        <a href="{{ route('admin.past.trustee') }}" class="menu-link">
+                            <div>Past Trustees</div>
                         </a>
                     </li>
                 </ul>

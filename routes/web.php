@@ -72,6 +72,7 @@ Route::prefix('admin')->group(function () {
             Route::get('trustee', [MemberController::class, 'trustee'])->name('admin.trustee');
             Route::get('advisor', [MemberController::class, 'advisor'])->name('admin.advisor');
             Route::get('chartered-accountant', [MemberController::class, 'ca'])->name('admin.ca');
+            Route::get('past-trustee', [MemberController::class, 'pastTrustee'])->name('admin.past.trustee');
         });
 
         // Blog

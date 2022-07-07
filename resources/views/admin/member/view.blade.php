@@ -3,12 +3,12 @@
 @section('title', 'NIEDSWET | View member details')
 
 @section('customHeader')
-<style>
-    .member_image{
-        width: 200px;
-        margin-bottom: 20px;
-    }
-</style>
+    <style>
+        .member_image {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
 @endsection
 
 @section('page_title', 'View member details')
@@ -20,7 +20,12 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="text-center">
-                            <img class="member_image" src="{{ asset($member->image) }}" alt="Image">
+                            @if ($member->image != '')
+                                <img class="member_image" src="{{ asset($member->image) }}" alt="Image">
+                            @else
+                                <img class="member_image" src="{{ asset('web_assets/images/default/no-image.png') }}"
+                                    alt="{{ $member->name }}">
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="name">Member Name<sup>*</sup></label>

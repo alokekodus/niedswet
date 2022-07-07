@@ -87,10 +87,24 @@
             </div>
         </section>
     @endif
+    
+    
+    @if ($pastMembers->count() != 0)
+        <section class="team my-5">
+            <h3 class="text-center fw-bold mb-4">List of Past Trustees</h3>
 
-    <section class="team my-5">
+            <div class="container">
+                <div class="members images">
+                    @foreach ($pastMembers as $item)
+                        @include('web.common.singleMember')
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- <section class="team my-5">
         <h3 class="text-center mb-3 fw-bold mb-4">List of Past Trustees</h3>
-
         <div class="container">
             <div class="row justify-content-center">
 
@@ -178,7 +192,7 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Modal -->
     <div class="modal fade" id="trusteeModal" tabindex="-1" aria-labelledby="trusteeModalLabel" aria-hidden="true">

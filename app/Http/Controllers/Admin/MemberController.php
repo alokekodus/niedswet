@@ -30,6 +30,12 @@ class MemberController extends Controller
         return view('admin.member.ca.index')->with($data);
     }
 
+    public function pastTrustee()
+    {
+        $data['members'] = Member::where('category', 'pastMember')->paginate(15);
+        return view('admin.member.pastMember.index')->with($data);
+    }
+
     public function addMember(Request $request)
     {
         if ($request->isMethod('get')) {
@@ -42,6 +48,7 @@ class MemberController extends Controller
                     'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                     'category' => 'required|max:255',
                     'designation' => 'required|max:50',
+                    'insta_link' => 'max:255',
                     'fb_link' => 'max:255',
                     'tw_link' => 'max:255',
                     'linkedin_link' => 'max:255',
@@ -56,9 +63,10 @@ class MemberController extends Controller
                     'category.max' => 'Member category can not exceed 255 characters',
                     'designation.required' => 'Designation can not be null',
                     'designation.max' => 'Designation can not exceed 50 characters',
-                    'fb_link.max' => 'Member name can not exceed 255 characters',
-                    'tw_link.max' => 'Member name can not exceed 255 characters',
-                    'linkedin_link.max' => 'Member name can not exceed 255 characters',
+                    'fb_link.max' => 'Facebook link can not exceed 255 characters',
+                    'insta_link.max' => 'Instagram link can not exceed 255 characters',
+                    'tw_link.max' => 'Twitter link can not exceed 255 characters',
+                    'linkedin_link.max' => 'Linkedin link can not exceed 255 characters',
                 ]
             );
 
@@ -82,8 +90,8 @@ class MemberController extends Controller
                 'designation' => $request->designation,
                 'designation' => $request->designation,
                 'fb_link' => $request->fb_link,
+                'insta_link' => $request->insta_link,
                 'tw_link' => $request->tw_link,
-                'linkedin_link' => $request->linkedin_link,
                 'linkedin_link' => $request->linkedin_link,
                 'bio' => $request->memberBio,
             ]);
@@ -113,6 +121,7 @@ class MemberController extends Controller
                 'category' => 'required|max:255',
                 'designation' => 'required|max:50',
                 'fb_link' => 'max:255',
+                'insta_link' => 'max:255',
                 'tw_link' => 'max:255',
                 'linkedin_link' => 'max:255',
             ],
@@ -126,9 +135,10 @@ class MemberController extends Controller
                 'category.max' => 'Member category can not exceed 255 characters',
                 'designation.required' => 'Designation can not be null',
                 'designation.max' => 'Designation can not exceed 50 characters',
-                'fb_link.max' => 'Member name can not exceed 255 characters',
-                'tw_link.max' => 'Member name can not exceed 255 characters',
-                'linkedin_link.max' => 'Member name can not exceed 255 characters',
+                'fb_link.max' => 'Facebook link can not exceed 255 characters',
+                'insta_link.max' => 'Instagram link can not exceed 255 characters',
+                'tw_link.max' => 'Twitter link can not exceed 255 characters',
+                'linkedin_link.max' => 'Linkedin link can not exceed 255 characters',
             ]
         );
 
@@ -145,6 +155,7 @@ class MemberController extends Controller
             $details->category = $request->category;
             $details->designation = $request->designation;
             $details->fb_link = $request->fb_link;
+            $details->insta_link = $request->insta_link;
             $details->tw_link = $request->tw_link;
             $details->linkedin_link = $request->linkedin_link;
             $details->bio = $request->memberBio;
@@ -155,6 +166,7 @@ class MemberController extends Controller
                 $details->category = $request->category;
                 $details->designation = $request->designation;
                 $details->fb_link = $request->fb_link;
+                $details->insta_link = $request->insta_link;
                 $details->tw_link = $request->tw_link;
                 $details->linkedin_link = $request->linkedin_link;
                 $details->bio = $request->memberBio;
@@ -168,6 +180,7 @@ class MemberController extends Controller
                     $details->category = $request->category;
                     $details->designation = $request->designation;
                     $details->fb_link = $request->fb_link;
+                    $details->insta_link = $request->insta_link;
                     $details->tw_link = $request->tw_link;
                     $details->linkedin_link = $request->linkedin_link;
                     $details->bio = $request->memberBio;
