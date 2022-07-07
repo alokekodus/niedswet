@@ -48,6 +48,8 @@ class MemberController extends Controller
                     'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                     'category' => 'required|max:255',
                     'designation' => 'required|max:50',
+                    'from_year' => 'integer|digits:4',
+                    'to_year' => 'integer|digits:4',
                     'insta_link' => 'max:255',
                     'fb_link' => 'max:255',
                     'tw_link' => 'max:255',
@@ -63,6 +65,10 @@ class MemberController extends Controller
                     'category.max' => 'Member category can not exceed 255 characters',
                     'designation.required' => 'Designation can not be null',
                     'designation.max' => 'Designation can not exceed 50 characters',
+                    'from_year.integer' => 'Please enter correct FROM(YEAR)',
+                    'from_year.digits' => 'Please enter correct FROM(YEAR)',
+                    'to_year.integer' => 'Please enter correct TO(YEAR)',
+                    'to_year.digits' => 'Please enter correct TO(YEAR)',
                     'fb_link.max' => 'Facebook link can not exceed 255 characters',
                     'insta_link.max' => 'Instagram link can not exceed 255 characters',
                     'tw_link.max' => 'Twitter link can not exceed 255 characters',
@@ -88,7 +94,8 @@ class MemberController extends Controller
                 'image' => $file,
                 'category' => $request->category,
                 'designation' => $request->designation,
-                'designation' => $request->designation,
+                'from_year' => $request->from_year,
+                'to_year' => $request->to_year,
                 'fb_link' => $request->fb_link,
                 'insta_link' => $request->insta_link,
                 'tw_link' => $request->tw_link,
@@ -120,6 +127,8 @@ class MemberController extends Controller
                 'profileImage' => 'image|mimes:jpeg,png,jpg|max:1024',
                 'category' => 'required|max:255',
                 'designation' => 'required|max:50',
+                'from_year' => 'integer|digits:4',
+                'to_year' => 'integer|digits:4',
                 'fb_link' => 'max:255',
                 'insta_link' => 'max:255',
                 'tw_link' => 'max:255',
@@ -135,6 +144,10 @@ class MemberController extends Controller
                 'category.max' => 'Member category can not exceed 255 characters',
                 'designation.required' => 'Designation can not be null',
                 'designation.max' => 'Designation can not exceed 50 characters',
+                'from_year.integer' => 'Please enter correct FROM(YEAR)',
+                'from_year.digits' => 'Please enter correct FROM(YEAR)',
+                'to_year.integer' => 'Please enter correct TO(YEAR)',
+                'to_year.digits' => 'Please enter correct TO(YEAR)',
                 'fb_link.max' => 'Facebook link can not exceed 255 characters',
                 'insta_link.max' => 'Instagram link can not exceed 255 characters',
                 'tw_link.max' => 'Twitter link can not exceed 255 characters',
@@ -154,6 +167,8 @@ class MemberController extends Controller
             $details->name = $request->name;
             $details->category = $request->category;
             $details->designation = $request->designation;
+            $details->from_year = $request->from_year;
+            $details->to_year = $request->to_year;
             $details->fb_link = $request->fb_link;
             $details->insta_link = $request->insta_link;
             $details->tw_link = $request->tw_link;
