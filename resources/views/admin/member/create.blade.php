@@ -3,6 +3,11 @@
 @section('title', 'NIEDSWET | Add New Member')
 
 @section('customHeader')
+    <style>
+        #durationDiv {
+            display: none;
+        }
+    </style>
 @endsection
 
 @section('page_title', 'Member')
@@ -29,12 +34,27 @@
                             </div>
                             <div class="mb-3">
                                 <label for="category" class="form-label">Member Category<sup>*</sup></label>
-                                <select d="category" name="category" class="form-select">
+                                <select id="category" name="category" class="form-select">
                                     <option readonly selected value="">Select one...</option>
                                     <option value="Trustee">Trustee</option>
                                     <option value="Advisor">Advisor</option>
                                     <option value="CA">Chartered Accountant</option>
+                                    <option value="PastMember">Past Trustee</option>
                                 </select>
+                            </div>
+                            <div id="durationDiv">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="from_year">From (Year)<sup>*</sup></label>
+                                        <input type="text" id="from_year" name="from_year" maxlength="4" id="pin"
+                                            pattern="[1-9][0-9]{3}" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="to_year">To (Year)<sup>*</sup></label>
+                                        <input type="text" id="to_year" name="to_year" maxlength="4" id="pin"
+                                            pattern="[1-9][0-9]{3}" class="form-control">
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="designation">Member Designation<sup>*</sup></label>
@@ -44,6 +64,11 @@
                             <div class="mb-3">
                                 <label class="form-label" for="fb_link">Member Facebook link</label>
                                 <input type="text" id="fb_link" name="fb_link" class="form-control">
+                                <small>Max length 255 chatacters</small>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="insta_link">Member Instagram link</label>
+                                <input type="text" id="insta_link" name="insta_link" class="form-control">
                                 <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
@@ -193,4 +218,39 @@
             });
         });
     </script>
+
+    <script>
+        $('#category').on('change', function() {
+            if (this.value === "PastMember") {
+                $("#durationDiv").show();
+                $("#from_year").attr('required', '');
+                $("#to_year").attr('required', '');
+            } else {
+                $("#durationDiv").hide();
+                $("#from_year").removeAttr('required');
+                $("#to_year").removeAttr('required');
+            }
+        });
+    </script>
+    <script>
+        $('#from_year').keypress(function(e) {
+            var arr = [];
+            var kk = e.which;
+            for (i = 48; i < 58; i++)
+                arr.push(i);
+            if (!(arr.indexOf(kk) >= 0))
+                e.preventDefault();
+        });
+        
+        $('#to_year').keypress(function(e) {
+            var arr = [];
+            var kk = e.which;
+            for (i = 48; i < 58; i++)
+                arr.push(i);
+            if (!(arr.indexOf(kk) >= 0))
+                e.preventDefault();
+        });
+    </script>
+
+
 @endsection

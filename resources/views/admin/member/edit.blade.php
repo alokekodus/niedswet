@@ -47,6 +47,7 @@
                                     </option>
                                     <option value="CA" {{ $member->category == 'CA' ? 'selected' : '' }}>Chartered
                                         Accountant</option>
+                                    <option value="PastMember">Past Trustee</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -59,6 +60,11 @@
                                 <label class="form-label" for="fb_link">Member Facebook link</label>
                                 <input type="text" id="fb_link" name="fb_link" class="form-control"
                                     value="{{ $member->fb_link }}">
+                                <small>Max length 255 chatacters</small>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="insta_link">Member Instagram link</label>
+                                <input type="text" id="insta_link" name="insta_link" class="form-control">
                                 <small>Max length 255 chatacters</small>
                             </div>
                             <div class="mb-3">
