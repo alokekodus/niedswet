@@ -74,6 +74,7 @@ body {
 
 .navbar {
     padding: 5px 20px;
+    background-color: #fff;
 }
 
 .navbar .nav-item .nav-link {
