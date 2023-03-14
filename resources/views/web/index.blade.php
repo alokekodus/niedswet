@@ -175,8 +175,8 @@
                         @foreach ($videos as $item)
                             <div class="col-sm-4">
                                 <iframe width="100%" height="250"
-                                    src="https://www.youtube.com/embed/{{ $item->video_id }}"
-                                    title="YouTube video player" frameborder="0"
+                                    src="https://www.youtube.com/embed/{{ $item->video_id }}" title="YouTube video player"
+                                    frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             </div>
@@ -288,7 +288,7 @@
                 {{-- Map --}}
                 <div class="col-sm-6 mb-3">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114017.36212805597!2d94.13244039682283!3d26.743017702565382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c294ee518ba1%3A0x75147ff2c76406bc!2sJorhat%2C%20Assam!5e0!3m2!1sen!2sin!4v1654586209996!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7125.679516209215!2d94.19398674416294!3d26.749489192534934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c2903e7ee903%3A0xebade9baaf3fd94!2sNIEDSWET!5e0!3m2!1sen!2sin!4v1678789045294!5m2!1sen!2sin"
                         width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
