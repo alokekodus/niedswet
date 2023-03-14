@@ -40,8 +40,10 @@
                 <div class="col-sm-3 social">
                     <p>Social</p>
                     <div class="top">
-                        <a href="#" target="_blank"><img src="{{ asset('web_assets/images/Icons/facebook.png') }}" alt="Social Icons"></a>
-                        <a href="#" target="_blank"><img src="{{ asset('web_assets/images/Icons/youtube.png') }}" alt="Social Icons"></a>
+                        <a href="https://www.facebook.com/niedswet" target="_blank"><img
+                                src="{{ asset('web_assets/images/Icons/facebook.png') }}" alt="Social Icons"></a>
+                        <a href="#" target="_blank"><img src="{{ asset('web_assets/images/Icons/youtube.png') }}"
+                                alt="Social Icons"></a>
                     </div>
 
                     {{-- <div class="bottom">
@@ -57,6 +59,7 @@
         class="copyright bg-dark py-3 px-md-5 px-2 text-white text-12 d-md-flex justify-content-between align-items-center">
         <p class="mb-0">All Rights Reserved 2022 NIEdSWeT</p>
 
-        <p class="mb-0">Designed & Developed by <a href="https://ekodus.com/" class="text-white" target="_blank">Ekodus Technologies Pvt. Ltd.</a></p>
+        <p class="mb-0">Designed & Developed by <a href="https://ekodus.com/" class="text-white"
+                target="_blank">Ekodus Technologies Pvt. Ltd.</a></p>
     </div>
 </footer>
