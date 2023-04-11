@@ -5,7 +5,7 @@
 @section('customHeader')
     <style>
         .header {
-            background: url('/web_assets/images/header/gallery.png');
+            background: url('/web_assets/images/header/default.jpg');
         }
 
     </style>

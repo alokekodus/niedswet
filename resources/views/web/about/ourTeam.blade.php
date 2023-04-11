@@ -5,7 +5,7 @@
 @section('customHeader')
     <style>
         .header {
-            background: url('/web_assets/images/header/team.png');
+            background: url('/web_assets/images/header/default.jpg');
         }
 
         .modal-content {
